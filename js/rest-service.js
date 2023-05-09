@@ -3,7 +3,7 @@ const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatab
 
 async function getUsers() {
   // Fetch JSON data fra vores database
-  const response = await fetch(`${endpoint}`); //indsæt json
+  const response = await fetch(`${endpoint}/users.json`); //indsæt json
   const data = await response.json();
   const users = prepareUserData(data);
 
@@ -12,4 +12,13 @@ async function getUsers() {
   // TO DO: tjek navngivning af variabler og funktion
 }
 
-async function updateUsers() {}
+async function getResults() {
+  // Fetch JSON data fra vores database
+  const response = await fetch(`${endpoint}/results.json`); //indsæt json
+  const data = await response.json();
+  const users = prepareUserData(data);
+
+  return results;
+
+  // TO DO: tjek navngivning af variabler og funktion
+}
