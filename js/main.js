@@ -1,3 +1,13 @@
 "use strict";
 
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
+window.addEventListener("load", start);
+
+// Globale variabler
+
+function start() {
+  globalEventListeners();
+}
+
+function globalEventListeners() {
+  document.querySelector;
+}
