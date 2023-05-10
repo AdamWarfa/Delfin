@@ -13,19 +13,59 @@
     </div>
 
     <section>
-    <form action="" method="POST" id="signup">
-<fieldset>
-    <h3>Skriv dig op til medlemskab</h3>
-    <label>Fornavn</label> 
-    <input type="text" id="first-name-signup" name="first-name" placeholder="fornavn" required>
-    <label>Efternavn</label> 
-    <input type="text" id="last-name-signup" name="last-name" placeholder="Efternavn" required>
-</fieldset>
-
-    </form>
-</section>
+      <form action="" method="POST" id="signup">
+        <fieldset>
+          <h3>Skriv dig op til medlemskab</h3>
+          <label>Fornavn</label>
+          <input type="text" id="first-name-signup" name="first-name" placeholder="fornavn" required />
+          <label>Efternavn</label>
+          <input type="text" id="last-name-signup" name="last-name" placeholder="Efternavn" required />
+          <br /><br />
+          <label>Fødselsdato:</label>
+          <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
+          <br /><br />
+          <h4>Vælg type af medlemskab</h4>
+          <p>
+            For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere
+            (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten. For passivt
+            medlemskab er taksten 500 kr. årligt.
+          </p>
+          <label>Aktivt</label
+          ><input type="radio" id="active-member-type" name="active-checkbox" value="active-checkbox" />
+          <label>Passivt</label
+          ><input type="radio" id="passive-member-type" name="passive-checkbox" value="passive-checkbox" />
+          <h4>Vælg ønskede aktivitsform</h4>
+          <label>Senior</label
+          ><input type="radio" id="senior-member-type" name="senior-checkbox" value="senior-checkbox" />
+          <label>Junior</label
+          ><input type="radio" id="junior-member-type" name="junior-checkbox" value="junior-checkbox" /> <br /><br />
+          <label>Motionist </label
+          ><input type="checkbox" id="motionist -member-type" name="motionist -checkbox" value="motionist -checkbox" />
+          <label>Konkurrencesvømmer</label
+          ><input
+            type="checkbox"
+            id="konkurrencesvømmer-member-type"
+            name="konkurrencesvømmer-checkbox"
+            value="konkurrencesvømmer-checkbox"
+          />
+          <br /><br />
+          <h4>Svømmedisciplin</h4>
+          <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
+          <label>Butterfly</label
+          ><input type="checkbox" id="butterfly-discplin" name="butterfly-checkbox" value="butterfly-checkbox" />
+          <label>Crawl</label
+          ><input type="checkbox" id="crawl-discplin" name="crawl-checkbox" value="crawl-checkbox" />
+          <label>Rygcrawl </label
+          ><input type="checkbox" id="rygcrawl -discplin" name="rygcrawl -checkbox" value="rygcrawl -checkbox" />
+          <label>Brystsvømning</label
+          ><input
+            type="checkbox"
+            id="brystsvømning-discplin"
+            name="brystsvømning-checkbox"
+            value="brystsvømning-checkbox"
+          />
+        </fieldset>
+      </form>
+    </section>
   </body>
 </html>
-
-
-
