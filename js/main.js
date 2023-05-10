@@ -12,7 +12,7 @@ function start() {
 //   document.querySelector;
 // }
 
-const members = {
+const member = {
   name: "",
   dob: "05-02-2001",
   email: "",
