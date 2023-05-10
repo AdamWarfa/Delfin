@@ -3,25 +3,18 @@
 window.addEventListener("load", start);
 
 // Globale variabler
-const date = new Date();
-
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-
-let currentDate = `${day}-${month}-${year}`;
 
 function start() {
-  globalEventListeners();
+  //   globalEventListeners();
 }
 
-function globalEventListeners() {
-  document.querySelector;
-}
+// function globalEventListeners() {
+//   document.querySelector;
+// }
 
 const members = {
   name: "",
-  dob: "",
+  dob: "05-02-2001",
   email: "",
   phone: "",
   address: "",
@@ -32,4 +25,10 @@ const members = {
 
 // navn, dob, email, tlf, aktiv, passiv, restance,
 
-function seniorOrJunior(members) {}
+function getAge(dob) {
+  const today = new Date();
+  const userBirthday = new Date(dob);
+  const checkIfSenior = today.getTime() - userBirthday.getTime();
+
+  return checkIfSenior;
+}
