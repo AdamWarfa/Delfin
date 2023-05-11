@@ -15,13 +15,13 @@
       <img id="logo" src="" alt="" />
       <h2 id="title">Svømmeklubben Delfinen</h2>
       <nav>
-        <a class="navlink" id="home-link" href="#">Hjem</a>
-        <a class="navlink" id="membership-link" href="#">Medlemskab</a>
-        <a class="navlink" href="#">Om os</a>
-        <a class="navlink" href="#">Kontakt os</a>
+        <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
+        <a class="navlink" id="membership-link" href="#signup-section" class="view-link">Medlemskab</a>
+        <a class="navlink" href="#" class="view-link">Om os</a>
+        <a class="navlink" href="#" class="view-link">Kontakt os</a>
       </nav>
     </header>
-    <section id="home-section">
+    <section id="home-section" class="view-content">
       <article id="frontpage">
         <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
         <h3 id="welcome-h3">VELKOMMEN TIL</h3>
@@ -29,7 +29,7 @@
         <p id="welcome-p"></p>
       </article>
     </section>
-    <section id="signup-section" class="hidden">
+    <section id="signup-section" class="view-content">
       <div id="signup-container">
         <form action="" method="POST" id="signup">
           <fieldset>
@@ -44,8 +44,8 @@
             <br /><br />
             <h4>Vælg type af medlemskab</h4>
             <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-              For passivt medlemskab er taksten 500 kr. årligt.
+              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat
+              af seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
             </p>
             <label>Aktivt</label><input type="radio" id="active-member-type" name="member-type" value="active-checkbox" /> <label>Passivt</label
             ><input type="radio" id="passive-member-type" name="member-type" value="passive-checkbox" />

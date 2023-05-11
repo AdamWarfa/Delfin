@@ -3,16 +3,16 @@ body {
   margin: 0;
   background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-}
-
-.hidden {
-  display: none;
+  overflow-x: hidden;
 }
 
 .view-content {
-  display: contents;
+  display: none;
 }
 
+.view-content.active {
+  display: block;
+}
 header {
   height: 70px;
   width: 100vw;
@@ -29,6 +29,7 @@ header {
   z-index: 1;
   position: relative;
   top: 70px;
+  width: 100vw;
 }
 
 #welcome-h3 {
