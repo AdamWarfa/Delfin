@@ -17,9 +17,9 @@ async function signUpClciked(event) {
   const birthday = form.birthday.value;
 
   const response = await createMember(firstName, lastName, birthday);
-}
-if (response.ok) {
-  console.log("New movie succesfully added to Firebase 🔥");
+  if (response.ok) {
+    console.log("New movie succesfully added to Firebase 🔥");
+  }
 }
 
 async function createMember(firstName, lastName, birthday) {
@@ -37,3 +37,5 @@ async function createMember(firstName, lastName, birthday) {
 
   return response;
 }
+
+
