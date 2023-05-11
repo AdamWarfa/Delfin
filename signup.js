@@ -5,12 +5,11 @@ window.addEventListener("load", initApp);
 
 function initApp() {
   document.querySelector("#signup").addEventListener("submit", signUpClciked);
-//   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
-//   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+  //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
+  //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClciked);
 }
-
 
 function initViews() {
   window.addEventListener("hashchange", viewChange); // whenever the hash changes (you hit a link or change the hash)
@@ -51,18 +50,26 @@ async function signUpClciked(event) {
   const firstName = form.firstname.value;
   const lastName = form.lastname.value;
   const birthday = form.birthday.value;
+  const memberType = form.memberType.value;
+  const ageGroup = form.ageGroup.value;
+  const levelType = form.levelType.value;
+  const swimTypes = form.swimTypes.value;
 
-  const response = await createMember(firstName, lastName, birthday);
+  const response = await createMember(firstName, lastName, birthday, memberType, ageGroup, levelType, swimTypes);
   if (response.ok) {
     console.log("New movie succesfully added to Firebase 🔥");
   }
 }
 
-async function createMember(firstName, lastName, birthday) {
+async function createMember(firstName, lastName, birthday, memberType, ageGroup, levelType, swimTypes) {
   const newMember = {
     firstName: firstName,
     lastName: lastName,
     birthday: birthday,
+    memberType: memberType,
+    ageGroup: ageGroup,
+    levelType: levelType,
+    swimTypes: swimTypes,
   };
   const json = JSON.stringify(newMember);
 
@@ -73,13 +80,3 @@ async function createMember(firstName, lastName, birthday) {
 
   return response;
 }
-
-// function memberLinkClicked() {
-//   document.querySelector("#home-section").classList.add("hidden");
-//   document.querySelector("#signup-section").classList.remove("hidden");
-// }
-
-// function homeLinkClicked() {
-//   document.querySelector("#home-section").classList.remove("hidden");
-//   document.querySelector("#signup-section").classList.add("hidden");
-// }
