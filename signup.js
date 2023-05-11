@@ -46,6 +46,8 @@ function hideAllViews() {
 async function signUpClciked(event) {
   event.preventDefault();
 
+  const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
+
   const form = event.target;
   const firstName = form.firstname.value;
   const lastName = form.lastname.value;
@@ -53,7 +55,10 @@ async function signUpClciked(event) {
   const memberType = form.memberType.value;
   const ageGroup = form.ageGroup.value;
   const levelType = form.levelType.value;
-  const swimTypes = form.swimTypes.value;
+  const swimTypes = [];
+  checkboxes.forEach((checkbox) => {
+    swimTypes.push(checkbox.value);
+  });
 
   const response = await createMember(firstName, lastName, birthday, memberType, ageGroup, levelType, swimTypes);
   if (response.ok) {
