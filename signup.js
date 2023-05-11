@@ -5,6 +5,9 @@ window.addEventListener("load", initApp);
 
 function initApp() {
   document.querySelector("#signup").addEventListener("submit", signUpClciked);
+  document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
+  document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClciked);
 }
 
@@ -38,4 +41,12 @@ async function createMember(firstName, lastName, birthday) {
   return response;
 }
 
+function memberLinkClicked() {
+  document.querySelector("#home-section").classList.add("hidden");
+  document.querySelector("#signup-section").classList.remove("hidden");
+}
 
+function homeLinkClicked() {
+  document.querySelector("#home-section").classList.remove("hidden");
+  document.querySelector("#signup-section").classList.add("hidden");
+}

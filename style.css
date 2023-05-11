@@ -1,12 +1,86 @@
 body {
   top: 0;
   margin: 0;
+  background-color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
 }
 
-#background-image {
+.hidden {
+  display: none;
+}
+
+.view-content {
+  display: contents;
+}
+
+header {
+  height: 70px;
   width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
   position: fixed;
+  top: 0;
+  background-color: #394867;
+  z-index: 3;
+}
+#frontpage {
+  position: relative;
+}
+
+#welcome-img {
   z-index: 1;
+  position: relative;
+  top: 70px;
+}
+
+#welcome-h3 {
+  position: absolute;
+  z-index: 2;
+  top: 27vh;
+  left: 10vw;
+  color: #f1f6f9;
+  font-size: 71px;
+  font-weight: 700;
+}
+#welcome-h2 {
+  position: absolute;
+  z-index: 2;
+  top: 29vh;
+  left: 10vw;
+  color: #f1f6f9;
+  font-size: 120px;
+  font-weight: 700;
+}
+
+#title {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: #f0f3f9;
+}
+
+nav {
+  position: absolute;
+  right: 50px;
+  top: 22px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: #f0f3f9;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 50px;
+}
+#signup-container {
+  margin-top: 90px;
+}
+
+footer {
+  background-color: #9ba4b5;
+  height: 70px;
+  width: 100vw;
+  bottom: 0;
+  font-size: 17px;
+  z-index: 3;
 }
