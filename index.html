@@ -43,18 +43,40 @@
             <label>Fødselsdato:</label>
             <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
             <br /><br />
+            <label>Vejnavn</label>
+            <input type="text" name="street" placeholder="indtast vejnavn" required />
+            <label>Husnummer</label>
+            <input type="text" name="houseNumber" placeholder="indtast husnummer" required />
+            <label>Postnummer</label>
+            <input type="text" name="postCode" placeholder="indtast postnummer" required />
+            <label>By</label>
+            <br /><br />
+            <input type="text" name="city" placeholder="indtast by" required />
+            <label>Email</label>
+            <br /><br />
+            <input type="email" name="email" placeholder="indtast email" required />
+            <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+          </fieldset>
+          <fieldset>
             <h4>Vælg type af medlemskab</h4>
             <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-              For passivt medlemskab er taksten 500 kr. årligt.
+              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat
+              af seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
             </p>
-            <label>Aktivt</label><input type="radio" id="active-member-type" name="memberType" value="active" /> <label>Passivt</label><input type="radio" id="passive-member-type" name="memberType" value="passive" />
+            <label>Aktivt</label>
+            <input type="radio" id="active-member-type" name="memberType" value="active" />
+            <label>Passivt</label>
+            <input type="radio" id="passive-member-type" name="memberType" value="passive" />
             <h4>Vælg ønskede aktivitetsform</h4>
-            <label>Senior</label><input type="radio" id="senior-member-type" name="ageGroup" value="senior" /> <label>Junior</label><input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+            <label>Senior</label>
+            <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+            <label>Junior</label>
+            <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
             <br />
             <br />
-            <label>Motionist </label><input type="radio" id="motionist-member-type" name="levelType" value="motionist" /> <label>Konkurrencesvømmer</label
-            ><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+            <label>Motionist </label>
+            <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
+            <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
             <br />
             <br />
             <h4>Svømmedisciplin</h4>
@@ -62,8 +84,8 @@
             <label>Butterfly</label>
             <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
             <label>Crawl</label>
-            <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" /> <label>Rygcrawl </label
-            ><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
+            <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
+            <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
             ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
             <br />
             <br />
