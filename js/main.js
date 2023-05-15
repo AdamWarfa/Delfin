@@ -1,35 +1,47 @@
 "use strict";
 
-window.addEventListener("load", start);
+import { signUpClicked, createMember } from "./signup.js";
 
-// Globale variabler
-const date = new Date();
+const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
+window.addEventListener("load", initApp);
 
-let currentDate = `${day}-${month}-${year}`;
-
-function start() {
-  globalEventListeners();
+function initApp() {
+  document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
+  //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+  initViews();
+  //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
 }
 
-function globalEventListeners() {
-  document.querySelector;
+function initViews() {
+  window.addEventListener("hashchange", viewChange); // whenever the hash changes (you hit a link or change the hash)
+  viewChange(); // by default, call viewChange to display the first view
 }
 
-const members = {
-  name: "",
-  dob: "",
-  email: "",
-  phone: "",
-  address: "",
-  active: "",
-  restance: "",
-  type: "",
-};
+function viewChange() {
+  let hashLink = "#home-section"; // default view
 
-// navn, dob, email, tlf, aktiv, passiv, restance,
+  if (location.hash) {
+    // if there's a hash value, use as link
+    hashLink = location.hash;
+  }
 
-function seniorOrJunior(members) {}
+  hideAllViews(); // hide all views
+
+  document.querySelector(hashLink).classList.add("active"); // add .active to the view you want to show
+  setActiveLink(hashLink); // set active link in nav bar
+}
+
+function setActiveLink(view) {
+  const link = document.querySelector(`a.view-link[href="${view}"]`); // reference to link in nav bar
+  if (link) {
+    link.classList.add("active"); // add .active to active link in nav bar
+  }
+}
+
+function hideAllViews() {
+  // remove .active for all .view-content elements (all views) and .view-link elements (all links)
+  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+}
