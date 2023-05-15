@@ -77,6 +77,27 @@ nav {
   margin-top: 90px;
 }
 
+#about-section,
+#contact-section {
+  margin: 100px 5vw 0 5vw;
+  line-height: 200%;
+}
+#about-page,
+#contact-page {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+#about-right,
+#contact-right {
+  margin-left: 2%;
+  margin-top: 20%;
+}
+#about-right img,
+#contact-right img {
+  width: 60%;
+}
+
 footer {
   background-color: #9ba4b5;
   height: 70px;
