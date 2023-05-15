@@ -73,7 +73,12 @@ nav {
   font-weight: 700;
   margin-right: 50px;
 }
+
 #signup-container {
+  margin-top: 90px;
+}
+
+#resultsCreate-container {
   margin-top: 90px;
 }
 

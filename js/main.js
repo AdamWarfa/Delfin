@@ -1,6 +1,7 @@
 "use strict";
 
 import { signUpClicked, createMember } from "./signup.js";
+// import { signUpClicked, createMember } from "./results.js";
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -25,6 +26,7 @@ function viewChange() {
   if (location.hash) {
     // if there's a hash value, use as link
     hashLink = location.hash;
+    console.log(hashLink);
   }
 
   hideAllViews(); // hide all views
