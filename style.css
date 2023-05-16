@@ -29,17 +29,14 @@ main {
 #frontpage {
   position: relative;
   z-index: -1;
-  object-fit: cover;
-  width: 99vw;
+  width: 100vw;
 }
 
 #welcome-img {
-  z-index: 1;
   position: relative;
   width: 100%;
   transform: scaleX(-1);
   /* object-fit: cover; */
-
 }
 
 #welcome-h3 {
