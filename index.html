@@ -16,12 +16,22 @@
       <h2 id="title">Svømmeklubben Delfinen</h2>
       <nav>
         <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a class="navlink" id="membership-link" href="#signup-section" class="view-link">Medlemskab</a>
+        <a class="navlink" id="membership-link">Medlemskab</a>
         <a class="navlink" href="#" class="view-link">Om os</a>
         <a class="navlink" href="#" class="view-link">Kontakt os</a>
         <a class="navlink" href="#" class="view-link">Log ind</a>
       </nav>
     </header>
+
+    <div id="menu" class="menu-closed">
+      <ul id="membership-list">
+        <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+        <li>  <a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+      </ul>
+      <section id="om-medlemskab-section" class="view-content">
+        <h2>om medlemskab</h2>
+      </section>
+    </div>
     <section id="home-section" class="view-content">
       <article id="frontpage">
         <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
@@ -60,8 +70,8 @@
           <fieldset>
             <h4>Vælg type af medlemskab</h4>
             <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-              For passivt medlemskab er taksten 500 kr. årligt.
+              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat
+              af seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
             </p>
             <label>Aktivt</label>
             <input type="radio" id="active-member-type" name="memberType" value="active" />
@@ -94,6 +104,110 @@
         </form>
       </div>
     </section>
+
+    <footer>kontakt</footer>
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Svømmeklubben Delfinen</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="" alt="" />
+      <h2 id="title">Svømmeklubben Delfinen</h2>
+      <nav>
+        <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
+        <a class="navlink" id="membership-link" href="#signup-section" class="view-link">Medlemskab</a>
+        <a class="navlink" id="results-link" href="#results-section" class="view-link">Resultater</a>
+        <a class="navlink" id="about-link" href="#about-section" class="view-link">Om os</a>
+        <a class="navlink" id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
+        <a class="navlink" href="#" class="view-link">Log ind</a>
+      </nav>
+    </header>
+    <main>
+      <section id="home-section" class="view-content">
+        <article id="frontpage">
+          <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
+          <h3 id="welcome-h3">VELKOMMEN TIL</h3>
+          <h2 id="welcome-h2">DELFINEN</h2>
+          <p id="welcome-p">info tekst</p>
+        </article>
+      </section>
+
+      <section id="signup-section" class="view-content">
+        <div id="signup-container">
+          <form action="" method="POST" id="signup">
+            <fieldset>
+              <h3>Skriv dig op til medlemskab</h3>
+              <label>Fornavn</label>
+              <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
+              <label>Efternavn</label>
+              <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
+              <br /><br />
+              <label>Fødselsdato:</label>
+              <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
+              <br /><br />
+              <label>Vejnavn</label>
+              <input type="text" name="street" placeholder="Indtast vejnavn" required />
+              <label>Husnummer</label>
+              <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
+              <label>Postnummer</label>
+              <input type="text" name="postCode" placeholder="Indtast postnummer" required />
+              <label>By</label>
+              <br /><br />
+              <input type="text" name="city" placeholder="Indtast by" required />
+              <label>Email</label>
+              <br /><br />
+              <input type="email" name="email" placeholder="Indtast email" required />
+              <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+            </fieldset>
+            <fieldset>
+              <h4>Vælg type af medlemskab</h4>
+              <p>
+                For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
+                For passivt medlemskab er taksten 500 kr. årligt.
+              </p>
+              <label>Aktivt</label>
+              <input type="radio" id="active-member-type" name="memberType" value="active" />
+              <label>Passivt</label>
+              <input type="radio" id="passive-member-type" name="memberType" value="passive" />
+              <h4>Vælg ønskede aktivitetsform</h4>
+              <label>Senior</label>
+              <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+              <label>Junior</label>
+              <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+              <br />
+              <br />
+              <label>Motionist </label>
+              <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
+              <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+              <br />
+              <br />
+              <h4>Svømmedisciplin</h4>
+              <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
+              <label>Butterfly</label>
+              <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
+              <label>Crawl</label>
+              <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
+              <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
+              ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
+              <br />
+              <br />
+              <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
+            </fieldset>
+          </form>
+        </div>
+      </section>
 
       <section id="results-section" class="view-content">
         <h2>RESULTATER</h2>
