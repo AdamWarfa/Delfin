@@ -12,6 +12,9 @@ function initApp() {
   //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
+    document.querySelector("#membership-link").addEventListener("click", membershipClicked);
+
+
 }
 
 function initViews() {
@@ -44,4 +47,17 @@ function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
   document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
   document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+}
+
+
+function membershipClicked() {
+  const membershipMenu = document.querySelector("#menu");
+  document.querySelector("#menu").classList.remove("hide");
+  if (membershipMenu.classList.contains("menu-closed")) {
+    membershipMenu.classList.remove("menu-closed");
+    membershipMenu.classList.add("menu-open");
+  } else if (membershipMenu.classList.contains("menu-open")) {
+    membershipMenu.classList.remove("menu-open");
+    membershipMenu.classList.add("menu-closed");
+  }
 }

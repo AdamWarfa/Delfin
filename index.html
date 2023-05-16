@@ -16,12 +16,22 @@
       <h2 id="title">Svømmeklubben Delfinen</h2>
       <nav>
         <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a class="navlink" id="membership-link" href="#signup-section" class="view-link">Medlemskab</a>
+        <a class="navlink" id="membership-link">Medlemskab</a>
         <a class="navlink" href="#" class="view-link">Om os</a>
         <a class="navlink" href="#" class="view-link">Kontakt os</a>
         <a class="navlink" href="#" class="view-link">Log ind</a>
       </nav>
     </header>
+
+    <div id="menu" class="menu-closed">
+      <ul id="membership-list">
+        <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+        <li>  <a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+      </ul>
+      <section id="om-medlemskab-section" class="view-content">
+        <h2>om medlemskab</h2>
+      </section>
+    </div>
     <section id="home-section" class="view-content">
       <article id="frontpage">
         <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
@@ -60,8 +70,8 @@
           <fieldset>
             <h4>Vælg type af medlemskab</h4>
             <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-              For passivt medlemskab er taksten 500 kr. årligt.
+              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat
+              af seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
             </p>
             <label>Aktivt</label>
             <input type="radio" id="active-member-type" name="memberType" value="active" />

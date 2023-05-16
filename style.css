@@ -69,10 +69,73 @@ nav {
 .navlink {
   text-decoration: none;
   color: #f0f3f9;
+  cursor: pointer;
   font-size: 17px;
   font-weight: 700;
   margin-right: 50px;
 }
+
+#menu ul {
+  height: 45px;
+  background-color: rgb(202, 194, 194);
+  position: absolute;
+  top: 0;
+  margin-top: 200px;
+  width: 180px;
+  margin-right: 10px;
+  right: 343px;
+  z-index: 2;
+}
+
+.menu-closed {
+  animation: menu-closed;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.menu-open {
+  animation: menu-open;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* @keyframes menu-closed {
+  0% {
+    visibility: visible;
+  }
+
+  99% {
+    visibility: visible;
+  }
+  100% {
+    transform: translate(0, -100px);
+    visibility: hidden;
+  }
+}
+
+@keyframes menu-open {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 500);
+  }
+} */
+
+.membership-list {
+  list-style-type: none;
+  display: inline;
+}
+
+.membership-list a {
+  text-decoration: none;
+  color: rgb(255, 223, 226);
+  cursor: pointer;
+}
+
 #signup-container {
   margin-top: 90px;
 }
