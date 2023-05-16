@@ -21,6 +21,10 @@ header {
   background-color: #394867;
   z-index: 3;
 }
+
+main {
+  margin-top: 70px;
+}
 #frontpage {
   position: relative;
 }
@@ -28,7 +32,6 @@ header {
 #welcome-img {
   z-index: 1;
   position: relative;
-  top: 70px;
   width: 100vw;
 }
 
@@ -73,13 +76,10 @@ nav {
   font-weight: 700;
   margin-right: 50px;
 }
-#signup-container {
-  margin-top: 90px;
-}
 
 #about-section,
 #contact-section {
-  margin: 100px 5vw 0 5vw;
+  margin: 0 5vw;
   line-height: 200%;
 }
 #about-page,
@@ -91,10 +91,10 @@ nav {
 #about-right,
 #contact-right {
   margin-left: 2%;
-  margin-top: 20%;
 }
 #about-right img,
 #contact-right img {
+  margin-top: 10%;
   width: 60%;
 }
 
