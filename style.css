@@ -83,25 +83,22 @@ nav {
 }
 
 #menu {
-   position: fixed;
-    right: 540px;
-    top: -61px;
-    display: flex;
+  position: fixed;
+  right: 564px;
+  top: -61px;
+  display: flex;
 }
 
 #menu ul {
-  height: 45px;
+  height: 70px;
   background-color: #394867;
-  top: -131px;
   margin-top: 200px;
-  width: 147px;
-  margin-right: 0px;
-  right: 552px;
+  width: 150px;
+  padding-left: 18px;
   z-index: 3;
   text-decoration: none;
   list-style-type: none;
-  padding-left: 9px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -134,14 +131,14 @@ nav {
     visibility: visible;
   }
   100% {
-    transform: translate(0, -130px);
+    transform: translate(0, -150px);
     visibility: hidden;
   }
 }
 
 @keyframes menu-open {
   0% {
-    transform: translate(0, -100px);
+    transform: translate(0, -150px);
     visibility: hidden;
   }
 
