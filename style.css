@@ -78,7 +78,7 @@ nav {
   margin-top: 90px;
 }
 
-#resultsCreate-container {
+#results-container {
   margin-top: 90px;
 }
 
@@ -89,4 +89,31 @@ footer {
   bottom: 0;
   font-size: 17px;
   z-index: 3;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+#updateResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: orange;
+}
+
+#deleteResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+#resultsTable {
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+#createResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(65, 220, 65);
 }
