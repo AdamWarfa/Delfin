@@ -83,15 +83,15 @@ nav {
 }
 
 #menu {
+  background-color: #394867;
   position: fixed;
   right: 564px;
   top: -61px;
   display: flex;
+  border-radius: 5px;
 }
 
 #menu ul {
-  height: 70px;
-  background-color: #394867;
   margin-top: 200px;
   width: 150px;
   padding-left: 18px;
