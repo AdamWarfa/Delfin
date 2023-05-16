@@ -16,118 +16,7 @@
       <h2 id="title">Svømmeklubben Delfinen</h2>
       <nav>
         <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a class="navlink" id="membership-link">Medlemskab</a>
-        <a class="navlink" href="#" class="view-link">Om os</a>
-        <a class="navlink" href="#" class="view-link">Kontakt os</a>
-        <a class="navlink" href="#" class="view-link">Log ind</a>
-      </nav>
-    </header>
-
-    <div id="menu" class="menu-closed">
-      <ul id="membership-list">
-        <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
-        <li>  <a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
-      </ul>
-      <section id="om-medlemskab-section" class="view-content">
-        <h2>om medlemskab</h2>
-      </section>
-    </div>
-    <section id="home-section" class="view-content">
-      <article id="frontpage">
-        <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
-        <h3 id="welcome-h3">VELKOMMEN TIL</h3>
-        <h2 id="welcome-h2">DELFINEN</h2>
-        <p id="welcome-p">info tekst</p>
-      </article>
-    </section>
-    <section id="signup-section" class="view-content">
-      <div id="signup-container">
-        <form action="" method="POST" id="signup">
-          <fieldset>
-            <h3>Skriv dig op til medlemskab</h3>
-            <label>Fornavn</label>
-            <input type="text" id="first-name-signup" name="firstname" placeholder="fornavn" required />
-            <label>Efternavn</label>
-            <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
-            <br /><br />
-            <label>Fødselsdato:</label>
-            <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
-            <br /><br />
-            <label>Vejnavn</label>
-            <input type="text" name="street" placeholder="indtast vejnavn" required />
-            <label>Husnummer</label>
-            <input type="text" name="houseNumber" placeholder="indtast husnummer" required />
-            <label>Postnummer</label>
-            <input type="text" name="postCode" placeholder="indtast postnummer" required />
-            <label>By</label>
-            <br /><br />
-            <input type="text" name="city" placeholder="indtast by" required />
-            <label>Email</label>
-            <br /><br />
-            <input type="email" name="email" placeholder="indtast email" required />
-            <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
-          </fieldset>
-          <fieldset>
-            <h4>Vælg type af medlemskab</h4>
-            <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat
-              af seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
-            </p>
-            <label>Aktivt</label>
-            <input type="radio" id="active-member-type" name="memberType" value="active" />
-            <label>Passivt</label>
-            <input type="radio" id="passive-member-type" name="memberType" value="passive" />
-            <h4>Vælg ønskede aktivitetsform</h4>
-            <label>Senior</label>
-            <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
-            <label>Junior</label>
-            <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
-            <br />
-            <br />
-            <label>Motionist </label>
-            <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-            <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
-            <br />
-            <br />
-            <h4>Svømmedisciplin</h4>
-            <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
-            <label>Butterfly</label>
-            <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
-            <label>Crawl</label>
-            <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
-            <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
-            ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
-            <br />
-            <br />
-            <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
-          </fieldset>
-        </form>
-      </div>
-    </section>
-
-    <footer>kontakt</footer>
-    <script src="./js/main.js" type="module"></script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Svømmeklubben Delfinen</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <img id="logo" src="" alt="" />
-      <h2 id="title">Svømmeklubben Delfinen</h2>
-      <nav>
-        <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a class="navlink" id="membership-link" href="#signup-section" class="view-link">Medlemskab</a>
+        <a class="navlink" id="membership-link" class="view-link">Medlemskab</a>
         <a class="navlink" id="results-link" href="#results-section" class="view-link">Resultater</a>
         <a class="navlink" id="about-link" href="#about-section" class="view-link">Om os</a>
         <a class="navlink" id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
@@ -135,6 +24,19 @@
       </nav>
     </header>
     <main>
+      <div id="menu" class="menu-closed">
+        <ul id="membership-list">
+          <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+          <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+        </ul>
+      </div>
+      <section id="om-medlemskab-section" class="view-content">
+        <h2>om medlemskab</h2>
+        <p>
+          For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af
+          seniortaksten. For passivt medlemskab er taksten 500 kr. årligt.
+        </p>
+      </section>
       <section id="home-section" class="view-content">
         <article id="frontpage">
           <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
@@ -173,10 +75,6 @@
             </fieldset>
             <fieldset>
               <h4>Vælg type af medlemskab</h4>
-              <p>
-                For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-                For passivt medlemskab er taksten 500 kr. årligt.
-              </p>
               <label>Aktivt</label>
               <input type="radio" id="active-member-type" name="memberType" value="active" />
               <label>Passivt</label>
@@ -218,23 +116,24 @@
           <div id="about-left">
             <h2 id="about-h2">DELFINEN</h2>
             <p id="about-p">
-              I hjertet af den danske hovedstad blev Delfinen Svømmeklub grundlagt i 1962 af den visionære svømmeentusiast, William Andersen. Efter at have tilbragt størstedelen af sit liv i vandet og konkurreret på
-              internationalt niveau besluttede William at bruge sin passion for svømning til at skabe en unik træningsmulighed for kommende svømmere i lokalsamfundet. Ved at oprette Delfinen Svømmeklub ønskede William at
-              skabe en atmosfære, hvor svømmere i alle aldre og evneniveauer kunne udforske deres potentiale og dyrke en sund og konkurrencedygtig ånd. Klubbens motto "Dyrk dit potentiale, engagér dig i succes" blev
-              snart kendt i hele regionen, og det blev et kendetegn for Delfinen Svømmeklub.
+              I hjertet af den danske hovedstad blev Delfinen Svømmeklub grundlagt i 1962 af den visionære svømmeentusiast, William Andersen. Efter at have tilbragt størstedelen af sit liv i vandet og
+              konkurreret på internationalt niveau besluttede William at bruge sin passion for svømning til at skabe en unik træningsmulighed for kommende svømmere i lokalsamfundet. Ved at oprette
+              Delfinen Svømmeklub ønskede William at skabe en atmosfære, hvor svømmere i alle aldre og evneniveauer kunne udforske deres potentiale og dyrke en sund og konkurrencedygtig ånd. Klubbens
+              motto "Dyrk dit potentiale, engagér dig i succes" blev snart kendt i hele regionen, og det blev et kendetegn for Delfinen Svømmeklub.
               <br />
               <br />
-              I begyndelsen var klubben beskedent udstyret med en enkelt indendørs pool og et par dedikerede trænere, herunder William selv. Men Delfinen Svømmeklub voksede hurtigt i popularitet, da den tiltrak
-              talentfulde svømmere fra nær og fjern. William og hans hold af dedikerede trænere havde et fokus på at udvikle svømmere på både teknisk og personligt plan, og dette resulterede i utallige individuelle og
-              holdbaserede triumfer. I årenes løb har Delfinen Svømmeklub opnået imponerende resultater på regionale, nationale og endda internationale konkurrencer. Mange af klubbens talentfulde svømmere har opnået
-              berømmelse og anerkendelse inden for svømning, og nogle har endda repræsenteret deres land ved de olympiske lege.
+              I begyndelsen var klubben beskedent udstyret med en enkelt indendørs pool og et par dedikerede trænere, herunder William selv. Men Delfinen Svømmeklub voksede hurtigt i popularitet, da
+              den tiltrak talentfulde svømmere fra nær og fjern. William og hans hold af dedikerede trænere havde et fokus på at udvikle svømmere på både teknisk og personligt plan, og dette
+              resulterede i utallige individuelle og holdbaserede triumfer. I årenes løb har Delfinen Svømmeklub opnået imponerende resultater på regionale, nationale og endda internationale
+              konkurrencer. Mange af klubbens talentfulde svømmere har opnået berømmelse og anerkendelse inden for svømning, og nogle har endda repræsenteret deres land ved de olympiske lege.
               <br />
               <br />
-              Ud over at skabe succesrige atleter har Delfinen Svømmeklub også været en aktiv deltager i samfundet. Klubben arrangerer årligt velgørenhedsevents og svømmemaratoner for at støtte lokale organisationer og
-              vandrelaterede projekter. Dette har bidraget til at øge bevidstheden om vigtigheden af vand-sikkerhed og har skabt et tæt bånd mellem klubben og lokalsamfundet. I dag, mere end 60 år efter sin
-              grundlæggelse, fortsætter Delfinen Svømmeklub med at være en bastion for talentudvikling, fællesskab og konkurrenceånd. Klubbens faciliteter er blevet udvidet til at omfatte flere pools, topmoderne
-              træningsudstyr og endda en egen sportsklinik. Trænerteamet er blevet udvidet, og William Andersens ånd lever videre gennem deres fortsatte dedikation til klubbens medlemmer. Delfinen Svømmeklub forbliver et
-              symbol på drømme, vækst og samarbejde. Svømmere i alle aldre og baggrunde kommer til klubben for at lære, konkurrere og skabe livslange venskaber.
+              Ud over at skabe succesrige atleter har Delfinen Svømmeklub også været en aktiv deltager i samfundet. Klubben arrangerer årligt velgørenhedsevents og svømmemaratoner for at støtte lokale
+              organisationer og vandrelaterede projekter. Dette har bidraget til at øge bevidstheden om vigtigheden af vand-sikkerhed og har skabt et tæt bånd mellem klubben og lokalsamfundet. I dag,
+              mere end 60 år efter sin grundlæggelse, fortsætter Delfinen Svømmeklub med at være en bastion for talentudvikling, fællesskab og konkurrenceånd. Klubbens faciliteter er blevet udvidet
+              til at omfatte flere pools, topmoderne træningsudstyr og endda en egen sportsklinik. Trænerteamet er blevet udvidet, og William Andersens ånd lever videre gennem deres fortsatte
+              dedikation til klubbens medlemmer. Delfinen Svømmeklub forbliver et symbol på drømme, vækst og samarbejde. Svømmere i alle aldre og baggrunde kommer til klubben for at lære, konkurrere
+              og skabe livslange venskaber.
             </p>
           </div>
           <div id="about-right">
@@ -261,8 +160,8 @@
               E-mail: info@delfinensvommeklub.dk
               <br />
               <br />
-              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis også give mere
-              detaljeret information om klubbens aktiviteter og arrangementer.
+              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis
+              også give mere detaljeret information om klubbens aktiviteter og arrangementer.
             </p>
           </div>
           <div id="contact-right">

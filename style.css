@@ -3,7 +3,8 @@ body {
   margin: 0;
   background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  overflow-x: hidden;
+  width: 100vw;
+  /* overflow-x: hidden; */
 }
 
 .view-content {
@@ -27,12 +28,18 @@ main {
 }
 #frontpage {
   position: relative;
+  z-index: -1;
+  object-fit: cover;
+  width: 99vw;
 }
 
 #welcome-img {
   z-index: 1;
   position: relative;
-  width: 100vw;
+  width: 100%;
+  transform: scaleX(-1);
+  /* object-fit: cover; */
+
 }
 
 #welcome-h3 {
@@ -80,14 +87,24 @@ nav {
 
 #menu ul {
   height: 45px;
-  background-color: rgb(202, 194, 194);
-  position: absolute;
-  top: 0;
+  background-color: #394867;
+  position: fixed;
+  top: -131px;
   margin-top: 200px;
-  width: 180px;
-  margin-right: 10px;
-  right: 343px;
-  z-index: 2;
+  width: 147px;
+  margin-right: 0px;
+  right: 552px;
+  z-index: 3;
+  text-decoration: none;
+  list-style-type: none;
+  padding-left: 9px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#menu a {
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 .menu-closed {
@@ -104,8 +121,9 @@ nav {
   animation-fill-mode: forwards;
 }
 
-/* @keyframes menu-closed {
+@keyframes menu-closed {
   0% {
+    transform: translate(0, -70px);
     visibility: visible;
   }
 
@@ -113,20 +131,25 @@ nav {
     visibility: visible;
   }
   100% {
-    transform: translate(0, -100px);
+    transform: translate(0, -130px);
     visibility: hidden;
   }
 }
 
 @keyframes menu-open {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, -100px);
+    visibility: hidden;
+  }
+
+  1% {
+    visibility: visible;
   }
 
   100% {
-    transform: translate(0, 500);
+    transform: translate(0, -70px);
   }
-} */
+}
 
 .membership-list {
   list-style-type: none;
@@ -140,10 +163,13 @@ nav {
 }
 
 #about-section,
-#contact-section {
+#contact-section,
+#om-medlemskab-section,
+#results-section {
   margin: 0 5vw;
   line-height: 200%;
 }
+
 #about-page,
 #contact-page {
   display: grid;
