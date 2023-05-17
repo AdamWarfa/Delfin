@@ -3,7 +3,7 @@ body {
   margin: 0;
   background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  width: 100vw;
+  max-width: 100%;
   /* overflow-x: hidden; */
 }
 
@@ -20,21 +20,23 @@ header {
   position: fixed;
   top: 0;
   background-color: #394867;
-  z-index: 3;
+  z-index: 4;
 }
 
 main {
   margin-top: 70px;
+  width: 100%;
 }
 #frontpage {
   position: relative;
   z-index: -1;
-  width: 100vw;
+  width: 100%;
 }
 
 #welcome-img {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   transform: scaleX(-1);
   /* object-fit: cover; */
 }
@@ -83,19 +85,18 @@ nav {
 }
 
 #menu {
+  width: 150px;
+  padding-left: 0px;
   background-color: #394867;
   position: fixed;
   right: 564px;
   top: -61px;
   display: flex;
   border-radius: 5px;
+  z-index: 3;
 }
 
 #menu ul {
-  margin-top: 200px;
-  width: 150px;
-  padding-left: 18px;
-  z-index: 3;
   text-decoration: none;
   list-style-type: none;
   font-size: 15px;
@@ -104,7 +105,7 @@ nav {
 
 #menu a {
   text-decoration: none;
-  color: whitesmoke;
+  color: #f0f3f9;
 }
 
 .menu-closed {
@@ -124,7 +125,7 @@ nav {
 
 @keyframes menu-closed {
   0% {
-    transform: translate(0, -70px);
+    transform: translate(0, 125px);
     visibility: visible;
   }
 
@@ -132,14 +133,14 @@ nav {
     visibility: visible;
   }
   100% {
-    transform: translate(0, -150px);
+    transform: translate(0, 0);
     visibility: hidden;
   }
 }
 
 @keyframes menu-open {
   0% {
-    transform: translate(0, -150px);
+    transform: translate(0, 0);
     visibility: hidden;
   }
 
@@ -148,7 +149,7 @@ nav {
   }
 
   100% {
-    transform: translate(0, -70px);
+    transform: translate(0, 125px);
   }
 }
 
@@ -188,11 +189,11 @@ nav {
 }
 
 footer {
+  position: relative;
   background-color: #9ba4b5;
   height: 70px;
-  width: 100vw;
-  bottom: 0;
+  width: 100%;
+  bottom: 0%;
   font-size: 17px;
-  z-index: 3;
-  position: relative;
+  z-index: 1;
 }
