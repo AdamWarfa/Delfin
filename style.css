@@ -104,9 +104,15 @@ nav {
   font-weight: 700;
 }
 
-#menu, a {
+#menu,
+a {
   text-decoration: none;
   color: #f0f3f9;
+}
+
+#signup-link {
+  color: rgb(197, 75, 75);
+  font-weight: 800;
 }
 
 .menu-closed {
@@ -168,8 +174,7 @@ nav {
 #about-section,
 #contact-section,
 #om-medlemskab-section,
-#results-section,
-#treasurer-section {
+#results-section {
   margin: 0 5vw;
   line-height: 200%;
 }
@@ -190,6 +195,7 @@ nav {
   width: 60%;
 }
 
+
 footer {
   position: relative;
   background-color: #9ba4b5;
@@ -204,32 +210,49 @@ footer {
 
 #user-grid {
   border: 3px solid black;
-  padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 #list-name {
   font-size: 25px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-#treasurer-page {
+#treasurer-grid {
   margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#treasurer-section {
+  margin: 0 10vw;
+  line-height: 150%;
+}
+#restance-grid {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+}
+
+.list-restance {
+  width: 30vw;
+}
+
+.list-user {
+  width: 30vw;
 }
 
 .user-grid-border {
-  border: 1px solid black;
-  padding: 25px;
+  border: 0.5px solid black;
   text-align: center;
 }
 
 #user-btn-delete {
   margin: 0;
-  position: absolute;
   width: 200px;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  align-items: center;
 }

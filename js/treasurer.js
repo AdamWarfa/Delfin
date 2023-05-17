@@ -55,12 +55,15 @@ function showUser(userObject) {
 async function getUserinRestance(users) {
   users = await getUsers();
   for (let i = 0; i < users.length; i++) {
+    try {
+
     let userInRestance;
     if (users[i].restance === true) {
       userInRestance = users[i];
       showUserinRestance(userInRestance);
       console.log(userInRestance);
     }
+    }catch (error) {console.log("fejl");}
   }
   showUserinRestance(users);
 }
@@ -71,8 +74,10 @@ function showUserinRestance(users) {
     /*html*/ `
 
 <article class="list-restance">
+<div id="user-grid" class="user-grid-border">
   <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
   <p id="list-balance" >Bruger i restance: ${users.restance}</p>
+  </dic>
 </article>
 `
   );
