@@ -6,7 +6,8 @@ async function getUsers() {
   const response = await fetch(`${endpoint}/users.json`);
   const data = await response.json();
   const users = prepareUserData(data);
-  for (user of users) {
+
+  for (const user of users) {
     contingency(user);
   }
   return users;

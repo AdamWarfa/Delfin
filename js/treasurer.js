@@ -46,19 +46,3 @@ function showUser(userObject) {
 `
   );
 }
-
-  const newMember = {
-    firstName: firstName,
-    lastName: lastName,
-    birthday: birthday,
-    age: age,
-    street: street,
-    houseNumber: houseNumber,
-    postCode: postCode,
-    city: city,
-    email: email,
-    phoneNumber: phoneNumber,
-    memberType: memberType,
-    ageGroup: ageGroup,
-    levelType: levelType,
-    swimTypes: swimTypes,
