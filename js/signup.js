@@ -50,7 +50,6 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
     swimTypes: swimTypes,
   };
 
-  contingency(newMember);
   const json = JSON.stringify(newMember);
 
   const response = await fetch(`${endpoint}/users.json`, {
@@ -72,24 +71,28 @@ function getAge(birthday) {
 }
 console.log(getAge("1995/11/07"));
 
-function contingency(member) {
+function contingency(members) {
   const passiveFee = 500;
   const youthFee = 1000;
   const seniorFee = 1600;
   const seniorDiscount = 1200;
 
   let fee;
-  if (member.memberType === "passive") {
-    fee = passiveFee;
-  } else if (member.memberType === "active" && member.ageGroup === "senior") {
-    fee = seniorFee;
-    if (member.age >= 60) {
-      fee = seniorDiscount;
+  for (const member of members) {
+    if (member.memberType === "passive") {
+      fee = passiveFee;
+    } else if (member.memberType === "active" && member.ageGroup === "senior") {
+      fee = seniorFee;
+      if (member.age >= 60) {
+        fee = seniorDiscount;
+      }
+    } else if (member.memberType === "active" && member.ageGroup === "junior") {
+      fee = youthFee;
     }
-  } else if (member.memberType === "active" && member.ageGroup === "junior") {
-    fee = youthFee;
+    console.log(fee);
   }
+
   return fee;
 }
 
-export { signUpClicked, createMember };
+export { signUpClicked, createMember, contingency };

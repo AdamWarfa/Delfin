@@ -1,3 +1,5 @@
+import { contingency } from "./signup.js";
+
 // Firebase variabel
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -6,11 +8,8 @@ async function getUsers() {
   const response = await fetch(`${endpoint}/users.json`);
   const data = await response.json();
   const users = prepareUserData(data);
-
-  // for (const user of users) {
-  //   contingency(user);
-  // }
-
+  let payment = contingency(users);
+  console.log(payment);
   return users;
 
   // TO DO: tjek navngivning af variabler og funktion
