@@ -1,6 +1,7 @@
 "use strict";
 
-import { signUpClicked, createMember } from "./signup.js";
+import { signUpClicked } from "./signup.js";
+import { updateUsersGrid } from "./treasurer.js";
 
 window.addEventListener("load", initApp);
 
@@ -10,9 +11,9 @@ function initApp() {
   //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
-    document.querySelector("#membership-link").addEventListener("click", membershipClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 
-
+  // updateUsersGrid();
 }
 
 function initViews() {
@@ -46,7 +47,6 @@ function hideAllViews() {
   document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
   document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
 }
-
 
 function membershipClicked() {
   const membershipMenu = document.querySelector("#menu");

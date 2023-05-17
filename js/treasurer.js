@@ -1,5 +1,7 @@
 import { getUsers } from "./rest-service";
 
+let users;
+
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
@@ -23,7 +25,7 @@ function showUsers(listOfUsers) {
 
 // Funktion til DOM-manipulation
 function showUser(userObject) {
-  document.querySelector("#grid").insertAdjacentHTML(
+  document.querySelector("#treasurer-grid").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
@@ -46,3 +48,5 @@ function showUser(userObject) {
 `
   );
 }
+
+export { updateUsersGrid };
