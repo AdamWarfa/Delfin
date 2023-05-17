@@ -7,7 +7,8 @@ const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatab
 window.addEventListener("load", initApp);
 
 function initApp() {
-  document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  document.querySelector("#btn-sign-up").addEventListener("submit", signUpClicked);
+  document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
   //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
   //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();
@@ -37,6 +38,8 @@ function setActiveLink(view) {
   const link = document.querySelector(`a.view-link[href="${view}"]`); // reference to link in nav bar
   if (link) {
     link.classList.add("active"); // add .active to active link in nav bar
+  } else {
+    console.error(`Link not found for view: ${view}`);
   }
 }
 
