@@ -5,7 +5,7 @@ let users;
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
-  getUserinRestance(users);
+  showUsersinRestance(users);
 }
 
 function showUsers(listOfUsers) {
@@ -55,21 +55,24 @@ function showUser(userObject) {
   document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
 }
 
-async function getUserinRestance(users) {
-  users = await getUsers();
-  for (let i = 0; i < users.length; i++) {
-    try {
+function showUsersinRestance(users) {
+  document.querySelector("#restance-grid").innerHTML = "";
+ 
+  users.filter(user => user.restance).forEach(showUserinRestance);
 
-    let userInRestance;
-    if (users[i].restance === true) {
-      userInRestance = users[i];
-      showUserinRestance(userInRestance);
-      console.log(userInRestance);
-    }
-    }catch (error) {console.log("fejl");}
-  }
 
-  showUserinRestance(users);
+  // for (let i = 0; i < users.length; i++) {
+  //   try {
+  //     let userInRestance;
+  //     if (users[i].restance === true) {
+  //       userInRestance = users[i];
+  //       console.log(userInRestance);
+  //       showUserinRestance(userInRestance);
+  //     }
+  //   } catch (error) {
+  //     console.log("fejl");
+  //   }
+  // }
 }
 
 function showUserinRestance(users) {
@@ -77,15 +80,14 @@ function showUserinRestance(users) {
     "beforeend",
     /*html*/ `
 
-<article class="list-restance">
-<div id="user-grid" class="user-grid-border">
-  <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
-  <p id="list-balance" >Bruger i restance: ${users.restance}</p>
-  </dic>
-</article>
+    <article class="list-restance">
+      <div id="user-grid" class="user-grid-border">
+        <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
+        <p id="list-balance" >Bruger i restance: ${users.restance}</p>
+      </div>
+    </article>
 `
   );
-
 }
 
 export { updateUsersGrid };
