@@ -19,18 +19,19 @@ async function signUpClicked(event) {
   const memberType = form.memberType.value;
   const ageGroup = form.ageGroup.value;
   const levelType = form.levelType.value;
+  const restance = false;
   const swimTypes = [];
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox) => {
     swimTypes.push(checkbox.value);
   });
 
-  const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, swimTypes);
+  const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes);
   if (response.ok) {
     console.log("New member succesfully added to Firebase 🔥");
   }
 }
 
-async function createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, swimTypes) {
+async function createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes) {
   const newMember = {
     firstName: firstName,
     lastName: lastName,
@@ -45,6 +46,7 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
     memberType: memberType,
     ageGroup: ageGroup,
     levelType: levelType,
+    restance: restance,
     swimTypes: swimTypes,
   };
 
@@ -74,7 +76,7 @@ function contingency(member) {
   const passiveFee = 500;
   const youthFee = 1000;
   const seniorFee = 1600;
-  const seniorDiscount = 0.25;
+  const seniorDiscount = 1200;
 
   let fee;
   if (member.memberType === "passive") {
@@ -82,7 +84,7 @@ function contingency(member) {
   } else if (member.memberType === "active" && member.ageGroup === "senior") {
     fee = seniorFee;
     if (member.age >= 60) {
-      fee *= 1 - seniorDiscount;
+      fee = seniorDiscount;
     }
   } else if (member.memberType === "active" && member.ageGroup === "junior") {
     fee = youthFee;
