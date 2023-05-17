@@ -29,8 +29,9 @@ function showUser(userObject) {
     "beforeend",
     /*html*/ `
 
-<article class="list-entry">
-  <h2 id="list-name">${userObject.firstName + userObject.lastName}</h2>
+<article class="list-user">
+  <h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
+  <div id="user-grid">
   <p id="list-birthday">Fødselsdato: ${userObject.birthday}</p>
   <p id="list-age">Alder: ${userObject.age}</p>
   <p id="list-street" >Adresse: ${userObject.street}</p>
@@ -43,6 +44,7 @@ function showUser(userObject) {
   <p id="list-agegroup" >Aldersgruppe: ${userObject.ageGroup}</p>
   <p id="list-leveltype" >Aktivitetsform: ${userObject.levelType}</p>
   <p id="list-restance" >Bruger i restance: ${userObject.restance}</p>
+  </div>
   <button id="btn-delete">DELETE</button>
 </article>
 `
