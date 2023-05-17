@@ -1,4 +1,4 @@
-import { getUsers } from "./rest-service";
+import { getUsers } from "./rest-service.js";
 
 let users;
 
@@ -8,7 +8,7 @@ async function updateUsersGrid() {
 }
 
 function showUsers(listOfUsers) {
-  document.querySelector("#grid").innerHTML = "";
+  document.querySelector("#treasurer-grid").innerHTML = "";
 
   /* 
   Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.

@@ -13,7 +13,7 @@ function initApp() {
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 
-  // updateUsersGrid();
+  updateUsersGrid();
 }
 
 function initViews() {
@@ -44,8 +44,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
 }
 
 function membershipClicked() {

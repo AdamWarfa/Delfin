@@ -19,9 +19,9 @@ async function signUpClicked(event) {
   const memberType = form.memberType.value;
   const ageGroup = form.ageGroup.value;
   const levelType = form.levelType.value;
-  const restance = form.restance.value;
+  const restance = false;
   const swimTypes = [];
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox) => {
     swimTypes.push(checkbox.value);
   });
 
