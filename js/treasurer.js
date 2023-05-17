@@ -5,6 +5,7 @@ let users;
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
+  getUserinRestance(users);
 }
 
 function showUsers(listOfUsers) {
@@ -44,6 +45,32 @@ function showUser(userObject) {
   <p id="list-leveltype" >Aktivitetsform: ${userObject.levelType}</p>
   <p id="list-restance" >Bruger i restance: ${userObject.restance}</p>
   <button id="btn-delete">DELETE</button>
+</article>
+`
+  );
+}
+
+async function getUserinRestance(users) {
+  users = await getUsers();
+  for (let i = 0; i < users.length; i++) {
+    let userInRestance;
+    if (users[i].restance === true) {
+      userInRestance = users[i];
+      showUserinRestance(userInRestance);
+      console.log(userInRestance);
+    }
+  }
+  showUserinRestance(users);
+}
+
+function showUserinRestance(users) {
+  document.querySelector("#restance-grid").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+<article class="list-restance">
+  <h2 id="list-fullname">${users.firstName + " " + users.lastName}</h2>
+  <p id="list-balance" >Bruger i restance: ${users.restance}</p>
 </article>
 `
   );

@@ -103,7 +103,7 @@ nav {
   font-weight: 700;
 }
 
-#menu a {
+#menu, a {
   text-decoration: none;
   color: #f0f3f9;
 }

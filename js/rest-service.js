@@ -42,4 +42,4 @@ function prepareUserData(dataObject) {
   return userArray;
 }
 
-export { endpoint, getUsers };
+export { endpoint, getUsers};
