@@ -6,8 +6,10 @@ function updateResultClicked(event) {}
 
 ////---------- Update and show results ----------////
 
-async function updateResults() {
+async function updateShownResults() {
   console.log("Updating results");
+  document.querySelector("#resultsTableBody").innerHTML = "";
+  document.querySelector("#resultsTableHeader").innerHTML = "";
   const results = await getResults();
   showResults(results);
 }
@@ -56,17 +58,16 @@ function showResult(resultObject) {
       </tr>
     `
   );
+
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", () => deleteResultClicked(resultObject));
 }
 
 ////---------- GET results ----------////
 
 async function getResults() {
   const response = await fetch(`${endpoint}/results.json`); // fetch request, (GET)    method: "GET",
-  console.log(response);
   const data = await response.json(); // parse JSON to JavaScript
-  console.log(data);
   const results = prepareData(data); // convert object of object to array of objects
-  console.log(results);
   return results; // return results
 }
 
@@ -91,7 +92,6 @@ function prepareData(dataObject) {
 
 async function createResultClicked(event) {
   console.log("TEST");
-  event.preventDefault();
 
   const form = event.target;
   const discipline = form.discipline.value;
@@ -99,26 +99,31 @@ async function createResultClicked(event) {
   const swimmer = form.swimmer.value;
   const time = form.time.value;
   const type = form.type.value;
+  const id = form.getAttribute("data-id");
 
-  const response = await createResult(discipline, meetName, swimmer, time, type);
+  console.log(id);
+
+  const response = await createResult(discipline, meetName, swimmer, time, type, id);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     console.log("New result added to the DB");
-    // Update shown results to include newest addition
-    updateResults();
+    //// Remove HTML from table and update shown results
+    updateShownResults();
     form.reset();
-    closeDialog();
     alert("Result added");
   }
 }
 
-async function createResult(discipline, meetName, swimmer, time, type) {
+////---------- CREATE REST ----------////
+
+async function createResult(discipline, meetName, swimmer, time, type, id) {
   const newResult = {
     discipline: discipline,
     meetName: meetName,
     swimmer: swimmer,
     time: time,
     type: type,
+    id: id,
   };
   const json = JSON.stringify(newResult);
 
@@ -153,12 +158,24 @@ async function updateResult(discipline, meetName, swimmer, time, type) {
 
 ////---------- DELETE results ----------////
 
-async function deleteResultClicked(id) {
-  const response = await fetch(`${endpoint}/results/${id}.json`, {
+async function deleteResultClicked(resultObject) {
+  const response = await deleteResult(resultObject);
+
+  // Tjekker hvis response er okay, hvis response er succesfuld ->
+  if (response.ok) {
+    //// Remove HTML from table and update shown results
+    updateShownResults();
+  }
+}
+
+////---------- DELETE REST ----------////
+
+async function deleteResult(resultObject) {
+  const response = await fetch(`${endpoint}/results/${resultObject.id}.json`, {
     method: "DELETE",
   });
 
   return response;
 }
 
-export { getResults, createResult, updateResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked };
+export { getResults, createResult, updateShownResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked };

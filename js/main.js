@@ -1,7 +1,7 @@
 "use strict";
 
 import { signUpClicked, createMember } from "./signup.js";
-import { getResults, updateResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
+import { getResults, updateShownResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -13,10 +13,8 @@ function initApp() {
   //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
-  document.querySelector("#results-link").addEventListener("click", updateResults);
+  document.querySelector("#results-link").addEventListener("click", updateShownResults);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
-  document.querySelector("#deleteResult-btn").addEventListener("click", deleteResultClicked);
-  // document.querySelector("#updateResult-btn").addEventListener("click", createResultClicked);
 }
 
 function initViews() {

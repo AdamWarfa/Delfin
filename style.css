@@ -107,13 +107,13 @@ td {
   background-color: red;
 }
 
-#resultsTable {
-  width: 80%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-}
-
 #createResult-btn {
   color: rgb(255, 255, 255);
   background-color: rgb(65, 220, 65);
+}
+
+table {
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }

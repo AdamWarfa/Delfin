@@ -97,32 +97,34 @@
     </section>
     <section id="results-section" class="view-content">
       <div id="results-container">
+        <table id="resultsTable">
+          <thead id="resultsTableHeader"></thead>
+          <tbody id="resultsTableBody"></tbody>
+        </table>
         <form id="createResultForm">
-          <table id="resultsTable">
-            <thead id="resultsTableHeader"></thead>
-            <tbody id="resultsTableBody"></tbody>
-            <tbody>
-              <tr>
-                <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
-                <td>
-                  <select name="discipline" id="discipline">
-                    <option value="Crawl">Crawl</option>
-                    <option value="Brystsvømning">Brystsvømning</option>
-                    <option value="Rygcrawl">Rygcrawl</option>
-                    <option value="Butterfly">Butterfly</option>
-                  </select>
-                </td>
-                <td><input type="text" id="time" placeholder="00:00:00" /></td>
-                <td>                  <select name="type" id="type">
-                  <option value="meet">Meet</option>
-                  <option value="training">Training</option
-                </select></td>
-                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                <td><button id="createResult-btn">Create</button></td>
-              </tr>
-            </tbody>
-          </table>
+        <table>
+          <tbody>
+            <tr>
+              <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+              <td>
+                <select name="discipline" id="discipline">
+                  <option value="Crawl">Crawl</option>
+                  <option value="Brystsvømning">Brystsvømning</option>
+                  <option value="Rygcrawl">Rygcrawl</option>
+                  <option value="Butterfly">Butterfly</option>
+                </select>
+              </td>
+              <td><input type="text" id="time" placeholder="00:00:00" /></td>
+              <td>                  <select name="type" id="type">
+                <option value="meet">Meet</option>
+                <option value="training">Training</option>
+              </select></td>
+              <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+              <td><button id="createResult-btn">Create</button></td>
+            </tr>
+          </tbody>
         </form>
+        </table>
       </div>
     </section>
     <footer>kontakt</footer>
