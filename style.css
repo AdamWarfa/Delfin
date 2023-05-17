@@ -14,6 +14,7 @@ body {
 .view-content.active {
   display: block;
 }
+
 header {
   height: 70px;
   width: 100vw;
@@ -166,7 +167,8 @@ nav {
 #about-section,
 #contact-section,
 #om-medlemskab-section,
-#results-section {
+#results-section,
+#treasurer-section {
   margin: 0 5vw;
   line-height: 200%;
 }
@@ -195,4 +197,21 @@ footer {
   font-size: 17px;
   z-index: 3;
   position: relative;
+}
+
+/* =============== KASSERENS SIDE STYLING =============== */
+
+#user-grid {
+  border: 1px solid black;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#list-name {
+  font-size: 20px;
+  text-align: center;
+}
+#treasurer-page {
+  margin-top: 90px;
 }
