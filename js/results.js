@@ -2,7 +2,7 @@
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
-function updateResultClicked(event) {}
+function editResultClicked(event) {}
 
 ////---------- Update and show results ----------////
 
@@ -18,7 +18,8 @@ function showResults(listOfResults) {
   console.log("Showing results");
   document.querySelector("#resultsTableHeader").insertAdjacentHTML(
     "beforeend",
-    /* HTML */ `
+    /* html */
+    `
       <tr>
         <td>Svømmer</td>
         <td>Disciplin</td>
@@ -28,7 +29,6 @@ function showResults(listOfResults) {
       </tr>
     `
   );
-
   /* 
   Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
   Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
@@ -53,13 +53,20 @@ function showResult(resultObject) {
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
-        <td><button id="updateResult-btn">Edit</button></td>
+        <td><button id="editResult-btn">Edit</button></td>
         <td><button id="deleteResult-btn">Delete</button></td>
       </tr>
     `
   );
 
-  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", () => deleteResultClicked(resultObject));
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
+    event.preventDefault();
+    deleteResultClicked(resultObject);
+  });
+  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
+    event.preventDefault();
+    editResultClicked(resultObject);
+  });
 }
 
 ////---------- GET results ----------////
@@ -159,6 +166,7 @@ async function updateResult(discipline, meetName, swimmer, time, type) {
 ////---------- DELETE results ----------////
 
 async function deleteResultClicked(resultObject) {
+  console.log("Delete result " + resultObject.id);
   const response = await deleteResult(resultObject);
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
@@ -178,4 +186,4 @@ async function deleteResult(resultObject) {
   return response;
 }
 
-export { getResults, createResult, updateShownResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked };
+export { getResults, createResult, updateShownResults, prepareData, showResults, editResultClicked, deleteResultClicked, createResultClicked };

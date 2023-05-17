@@ -1,7 +1,7 @@
 "use strict";
 
 import { signUpClicked, createMember } from "./signup.js";
-import { getResults, updateShownResults, prepareData, showResults, updateResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
+import { getResults, updateShownResults, prepareData, showResults, editResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
