@@ -69,7 +69,7 @@ function showUserinRestance(users) {
     /*html*/ `
 
 <article class="list-restance">
-  <h2 id="list-fullname">${users.firstName + " " + users.lastName}</h2>
+  <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
   <p id="list-balance" >Bruger i restance: ${users.restance}</p>
 </article>
 `
