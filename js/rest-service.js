@@ -22,3 +22,5 @@ async function getResults() {
 
   // TO DO: tjek navngivning af variabler og funktion
 }
+
+export { endpoint };
