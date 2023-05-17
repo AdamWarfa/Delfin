@@ -6,7 +6,6 @@ import { updateUsersGrid } from "./treasurer.js";
 window.addEventListener("load", initApp);
 
 function initApp() {
-
   //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
   //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
   initViews();

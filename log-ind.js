@@ -23,8 +23,8 @@ function userIsSignedOut() {
 }
 
 function runApp() {
-  document.querySelector("#btn-sign-up").addEventListener("submit", signUpClicked);
-  document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
+  document.querySelector("#btn-sign-up").addEventListener("submit", login);
+  // document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 }
 function login(event) {
   event.preventDefault();
@@ -41,14 +41,11 @@ function login(event) {
   }
 }
 
-function signUpClicked(event) {
-  event.preventDefault();
-  console.log("Log ind knap blev trykket");
-}
-
 function signOutUser() {
   localStorage.removeItem("authUser");
   userIsSignedOut();
+
+  // allerede udkommenteret 
   // location.hash = "#home-section";
   //  document.querySelector("nav").classList.remove("hide");
   //  console.log("User signed out");
