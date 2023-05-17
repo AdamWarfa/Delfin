@@ -68,6 +68,7 @@ async function getUserinRestance(users) {
     }
     }catch (error) {console.log("fejl");}
   }
+
   showUserinRestance(users);
 }
 
@@ -84,6 +85,7 @@ function showUserinRestance(users) {
 </article>
 `
   );
+
 }
 
 export { updateUsersGrid };
