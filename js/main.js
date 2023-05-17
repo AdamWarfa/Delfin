@@ -6,14 +6,14 @@ import { updateUsersGrid } from "./treasurer.js";
 window.addEventListener("load", initApp);
 
 function initApp() {
-  document.querySelector("#signup").addEventListener("submit", signUpClicked);
-  //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
-  //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+  globalEventListeners();
   initViews();
-  //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
-  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
-
   updateUsersGrid();
+}
+
+function globalEventListeners() {
+  document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 }
 
 function initViews() {
@@ -44,8 +44,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
 }
 
 function membershipClicked() {

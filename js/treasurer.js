@@ -30,21 +30,23 @@ function showUser(userObject) {
     "beforeend",
     /*html*/ `
 
-<article class="list-entry">
-  <h2 id="list-name">${userObject.firstName + userObject.lastName}</h2>
-  <p id="list-birthday">Fødselsdato: ${userObject.birthday}</p>
-  <p id="list-age">Alder: ${userObject.age}</p>
-  <p id="list-street" >Adresse: ${userObject.street}</p>
-  <p id="list-housenumber" >Husnummer: ${userObject.houseNumber}</p>
-  <p id="list-postcode" >Postkode: ${userObject.postCode}</p>
-  <p id="list-city" >By: ${userObject.city}</p>
-  <p id="list-email" >Email: ${userObject.email}</p>
-  <p id="list-phonenumber" >Telefon nummer: ${userObject.phoneNumber}</p>
-  <p id="list-membertype" >Medlemsskab: ${userObject.memberType}</p>
-  <p id="list-agegroup" >Aldersgruppe: ${userObject.ageGroup}</p>
-  <p id="list-leveltype" >Aktivitetsform: ${userObject.levelType}</p>
-  <p id="list-restance" >Bruger i restance: ${userObject.restance}</p>
-  <button id="btn-delete">DELETE</button>
+<article class="list-user">
+<h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
+<div id="user-grid" class="user-grid-border">
+  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday}</p>
+  <p id="list-age" class="user-grid-border">Alder: ${userObject.age}</p>
+  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street}</p>
+  <p id="list-housenumber"class="user-grid-border">Husnummer: ${userObject.houseNumber}</p>
+  <p id="list-postcode" class="user-grid-border">Postkode: ${userObject.postCode}</p>
+  <p id="list-city" class="user-grid-border">By: ${userObject.city}</p>
+  <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
+  <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
+  <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
+  <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
+  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: ${userObject.levelType}</p>
+  <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
+  </div>
+  <button id="user-btn-delete">DELETE</button>
 </article>
 `
   );
