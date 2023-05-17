@@ -21,78 +21,16 @@
         <a class="navlink" href="#" class="view-link">Om os</a>
         <a class="navlink" href="#" class="view-link">Kontakt os</a>
         <a class="navlink" href="#" class="view-link">Log ind</a>
+        <a class="navlink" id="treasurer-link" href="#treasurer-section" class="view-link">Kaspers Side</a>
       </nav>
     </header>
-    <section id="home-section" class="view-content">
-      <article id="frontpage">
-        <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
-        <h3 id="welcome-h3">VELKOMMEN TIL</h3>
-        <h2 id="welcome-h2">DELFINEN</h2>
-        <p id="welcome-p">info tekst</p>
-      </article>
-    </section>
-    <section id="signup-section" class="view-content">
-      <div id="signup-container">
-        <form action="" method="POST" id="signup">
-          <fieldset>
-            <h3>Skriv dig op til medlemskab</h3>
-            <label>Fornavn</label>
-            <input type="text" id="first-name-signup" name="firstname" placeholder="fornavn" required />
-            <label>Efternavn</label>
-            <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
-            <br /><br />
-            <label>Fødselsdato:</label>
-            <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
-            <br /><br />
-            <label>Vejnavn</label>
-            <input type="text" name="street" placeholder="indtast vejnavn" required />
-            <label>Husnummer</label>
-            <input type="text" name="houseNumber" placeholder="indtast husnummer" required />
-            <label>Postnummer</label>
-            <input type="text" name="postCode" placeholder="indtast postnummer" required />
-            <label>By</label>
-            <br /><br />
-            <input type="text" name="city" placeholder="indtast by" required />
-            <label>Email</label>
-            <br /><br />
-            <input type="email" name="email" placeholder="indtast email" required />
-            <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
-          </fieldset>
-          <fieldset>
-            <h4>Vælg type af medlemskab</h4>
-            <p>
-              For aktive medlemmer er kontingentet for ungdomssvømmere (under 18 år) 1000 kr. årligt, for seniorsvømmere (18 år og over) 1600 kr. årligt. For medlemmer over 60 år gives der 25 % rabat af seniortaksten.
-              For passivt medlemskab er taksten 500 kr. årligt.
-            </p>
-            <label>Aktivt</label>
-            <input type="radio" id="active-member-type" name="memberType" value="active" />
-            <label>Passivt</label>
-            <input type="radio" id="passive-member-type" name="memberType" value="passive" />
-            <h4>Vælg ønskede aktivitetsform</h4>
-            <label>Senior</label>
-            <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
-            <label>Junior</label>
-            <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
-            <br />
-            <br />
-            <label>Motionist </label>
-            <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-            <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
-            <br />
-            <br />
-            <h4>Svømmedisciplin</h4>
-            <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
-            <label>Butterfly</label>
-            <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
-            <label>Crawl</label>
-            <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
-            <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
-            ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
-            <br />
-            <br />
-            <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
-          </fieldset>
-        </form>
+    <main>
+      <div id="menu" class="menu-closed">
+        <ul id="membership-list">
+          <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+          <br />
+          <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+        </ul>
       </div>
     </section>
     <section id="results-section" class="view-content">
@@ -130,5 +68,187 @@
     </section>
     <footer>kontakt</footer>
     <script src="/js/main.js" type="module"></script>
+
+      <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
+
+      <section id="om-medlemskab-section" class="view-content">
+        <article id="om-medlemskab-page">
+          <h1>Velkommen til vores svømmeklub!</h1>
+          <h4>Medlemstyper</h4>
+          <p>
+            Vi tilbyder forskellige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster
+            baseret på alderen: Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr.
+            <br /><br />
+            Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af
+            seniortaksten. Det betyder, at medlemmer over 60 år betaler et årligt kontingent på 1200 kr. Hvis du ikke er interesseret i at svømme aktivt, men stadig ønsker at være en del af vores
+            svømmeklub, tilbyder vi et passivt medlemskab. For passivt medlemskab er taksten 500 kr. årligt.
+            <br /><br />
+            Vi er stolte af at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab,
+            er du velkommen til at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration.
+            Vi ser frem til at byde dig velkommen og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
+            <br><br>
+            <a href="#signup-section">Skriv dig op til medlemskab her</a>
+          </p>
+        </article>
+      </section>
+      <section id="home-section" class="view-content">
+        <article id="frontpage">
+          <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
+          <h3 id="welcome-h3">VELKOMMEN TIL</h3>
+          <h2 id="welcome-h2">DELFINEN</h2>
+        </article>
+      </section>
+
+      <!-- =============== MEDLEMSKAB SIGNUP SIDE SEKTION =============== -->
+
+      <section id="signup-section" class="view-content">
+        <div id="signup-container">
+          <form action="" method="POST" id="signup">
+            <fieldset>
+              <h3>Skriv dig op til medlemskab</h3>
+              <label>Fornavn</label>
+              <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
+              <label>Efternavn</label>
+              <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
+              <br /><br />
+              <label>Fødselsdato:</label>
+              <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
+              <br /><br />
+              <label>Vejnavn</label>
+              <input type="text" name="street" placeholder="Indtast vejnavn" required />
+              <label>Husnummer</label>
+              <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
+              <label>Postnummer</label>
+              <input type="text" name="postCode" placeholder="Indtast postnummer" required />
+              <label>By</label>
+              <br /><br />
+              <input type="text" name="city" placeholder="Indtast by" required />
+              <label>Email</label>
+              <br /><br />
+              <input type="email" name="email" placeholder="Indtast email" required />
+              <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+            </fieldset>
+            <fieldset>
+              <h4>Vælg type af medlemskab</h4>
+              <label>Aktivt</label>
+              <input type="radio" id="active-member-type" name="memberType" value="active" />
+              <label>Passivt</label>
+              <input type="radio" id="passive-member-type" name="memberType" value="passive" />
+              <h4>Vælg ønskede aktivitetsform</h4>
+              <label>Senior</label>
+              <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+              <label>Junior</label>
+              <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+              <br />
+              <br />
+              <label>Motionist </label>
+              <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
+              <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+              <br />
+              <br />
+              <h4>Svømmedisciplin</h4>
+              <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
+              <label>Butterfly</label>
+              <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
+              <label>Crawl</label>
+              <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
+              <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
+              ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
+              <br />
+              <br />
+              <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+
+      <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
+
+      <section id="results-section" class="view-content">
+        <article id="results-page">
+          <h2>RESULTATER</h2>
+        </article>
+      </section>
+
+      <!-- =============== OM OS SIDE SEKTION =============== -->
+
+      <section id="about-section" class="view-content">
+        <article id="about-page">
+          <div id="about-left">
+            <h2 id="about-h2">DELFINEN</h2>
+            <p id="about-p">
+              I hjertet af den danske hovedstad blev Delfinen Svømmeklub grundlagt i 1962 af den visionære svømmeentusiast, William Andersen. Efter at have tilbragt størstedelen af sit liv i vandet og
+              konkurreret på internationalt niveau besluttede William at bruge sin passion for svømning til at skabe en unik træningsmulighed for kommende svømmere i lokalsamfundet. Ved at oprette
+              Delfinen Svømmeklub ønskede William at skabe en atmosfære, hvor svømmere i alle aldre og evneniveauer kunne udforske deres potentiale og dyrke en sund og konkurrencedygtig ånd. Klubbens
+              motto "Dyrk dit potentiale, engagér dig i succes" blev snart kendt i hele regionen, og det blev et kendetegn for Delfinen Svømmeklub.
+              <br />
+              <br />
+              I begyndelsen var klubben beskedent udstyret med en enkelt indendørs pool og et par dedikerede trænere, herunder William selv. Men Delfinen Svømmeklub voksede hurtigt i popularitet, da
+              den tiltrak talentfulde svømmere fra nær og fjern. William og hans hold af dedikerede trænere havde et fokus på at udvikle svømmere på både teknisk og personligt plan, og dette
+              resulterede i utallige individuelle og holdbaserede triumfer. I årenes løb har Delfinen Svømmeklub opnået imponerende resultater på regionale, nationale og endda internationale
+              konkurrencer. Mange af klubbens talentfulde svømmere har opnået berømmelse og anerkendelse inden for svømning, og nogle har endda repræsenteret deres land ved de olympiske lege.
+              <br />
+              <br />
+              Ud over at skabe succesrige atleter har Delfinen Svømmeklub også været en aktiv deltager i samfundet. Klubben arrangerer årligt velgørenhedsevents og svømmemaratoner for at støtte lokale
+              organisationer og vandrelaterede projekter. Dette har bidraget til at øge bevidstheden om vigtigheden af vand-sikkerhed og har skabt et tæt bånd mellem klubben og lokalsamfundet. I dag,
+              mere end 60 år efter sin grundlæggelse, fortsætter Delfinen Svømmeklub med at være en bastion for talentudvikling, fællesskab og konkurrenceånd. Klubbens faciliteter er blevet udvidet
+              til at omfatte flere pools, topmoderne træningsudstyr og endda en egen sportsklinik. Trænerteamet er blevet udvidet, og William Andersens ånd lever videre gennem deres fortsatte
+              dedikation til klubbens medlemmer. Delfinen Svømmeklub forbliver et symbol på drømme, vækst og samarbejde. Svømmere i alle aldre og baggrunde kommer til klubben for at lære, konkurrere
+              og skabe livslange venskaber.
+            </p>
+          </div>
+          <div id="about-right">
+            <img src="https://c0.wallpaperflare.com/preview/740/700/962/sportvarious-competition.jpg" alt="" />
+            <p>Olympisk pool</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- =============== KONTAKT OS SIDE SEKTION =============== -->
+
+      <section id="contact-section" class="view-content">
+        <article id="contact-page">
+          <div id="contact-left">
+            <h2 id="contact-p">KONTAKT OS</h2>
+            <p>
+              Svømmeklub Delfinen
+              <br />
+              <br />
+              Adresse: Vesterbrogade 45, 1620 København V, Danmark
+              <br />
+              <br />
+              Telefonnummer: +45 98 76 54 32
+              <br />
+              <br />
+              E-mail: info@delfinensvommeklub.dk
+              <br />
+              <br />
+              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis
+              også give mere detaljeret information om klubbens aktiviteter og arrangementer.
+            </p>
+          </div>
+          <div id="contact-right">
+            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQs-h0_mnpx90sXr-c6tVI6MUiuYtpjQ7rgIrX8SXEdMRyjysbxQnxmYdD2f9hB6gppwCTsR2KhhcNqjTE" alt="" />
+            <p>
+              Formand: Aksel L. Holst
+              <br />
+              Telefonnummer: +45 28 22 45 42
+              <br />
+              E-mail: AkselLHolst@hotmail.dk
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- =============== TREASURER SIDE SEKTION =============== -->
+
+      <section id="treasurer-section" class="view-content">
+        <article id="treasurer-page">
+          <div id="treasurer-grid"></div>
+        </article>
+      </section>
+    </main>
+    <footer>Wagwan lil mamacitas</footer>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

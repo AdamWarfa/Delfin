@@ -1,7 +1,8 @@
 "use strict";
 
-import { signUpClicked, createMember } from "./signup.js";
 import { getResults, updateShownResults, prepareData, showResults, editResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
+import { signUpClicked } from "./signup.js";
+import { updateUsersGrid } from "./treasurer.js";
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -15,6 +16,9 @@ function initApp() {
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#results-link").addEventListener("click", updateShownResults);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
+
+  updateUsersGrid();
 }
 
 function initViews() {
@@ -47,4 +51,16 @@ function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
   document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
   document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
+}
+
+function membershipClicked() {
+  const membershipMenu = document.querySelector("#menu");
+  document.querySelector("#menu").classList.remove("hide");
+  if (membershipMenu.classList.contains("menu-closed")) {
+    membershipMenu.classList.remove("menu-closed");
+    membershipMenu.classList.add("menu-open");
+  } else if (membershipMenu.classList.contains("menu-open")) {
+    membershipMenu.classList.remove("menu-open");
+    membershipMenu.classList.add("menu-closed");
+  }
 }

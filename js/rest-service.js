@@ -3,9 +3,13 @@ const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatab
 
 async function getUsers() {
   // Fetch JSON data fra vores database
-  const response = await fetch(`${endpoint}/users.json`); //indsæt json
+  const response = await fetch(`${endpoint}/users.json`);
   const data = await response.json();
   const users = prepareUserData(data);
+
+  // for (const user of users) {
+  //   contingency(user);
+  // }
 
   return users;
 
@@ -22,3 +26,20 @@ async function getResults() {
 
   // TO DO: tjek navngivning af variabler og funktion
 }
+
+function prepareUserData(dataObject) {
+  const userArray = [];
+
+  for (const key in dataObject) {
+    try {
+      const user = dataObject[key];
+      user.id = key;
+      userArray.push(user);
+    } catch (error) {
+      console.log(`Nogen har ødelagt vores user så de giver ${dataObject[key]}`);
+    }
+  }
+  return userArray;
+}
+
+export { endpoint, getUsers };

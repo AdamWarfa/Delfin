@@ -1,8 +1,4 @@
-"use strict";
-
-export { signUpClicked, createMember };
-
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
+import { endpoint } from "./rest-service.js";
 
 async function signUpClicked(event) {
   event.preventDefault();
@@ -13,6 +9,7 @@ async function signUpClicked(event) {
   const firstName = form.firstname.value;
   const lastName = form.lastname.value;
   const birthday = form.birthday.value;
+  const age = getAge(birthday);
   const street = form.street.value;
   const houseNumber = form.houseNumber.value;
   const postCode = form.postCode.value;
@@ -22,22 +19,24 @@ async function signUpClicked(event) {
   const memberType = form.memberType.value;
   const ageGroup = form.ageGroup.value;
   const levelType = form.levelType.value;
+  const restance = false;
   const swimTypes = [];
   checkboxes.forEach((checkbox) => {
     swimTypes.push(checkbox.value);
   });
 
-  const response = await createMember(firstName, lastName, birthday, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, swimTypes);
+  const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes);
   if (response.ok) {
-    console.log("New movie succesfully added to Firebase 🔥");
+    console.log("New member succesfully added to Firebase 🔥");
   }
 }
 
-async function createMember(firstName, lastName, birthday, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, swimTypes) {
+async function createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes) {
   const newMember = {
     firstName: firstName,
     lastName: lastName,
     birthday: birthday,
+    age: age,
     street: street,
     houseNumber: houseNumber,
     postCode: postCode,
@@ -47,8 +46,11 @@ async function createMember(firstName, lastName, birthday, street, houseNumber, 
     memberType: memberType,
     ageGroup: ageGroup,
     levelType: levelType,
+    restance: restance,
     swimTypes: swimTypes,
   };
+
+  contingency(newMember);
   const json = JSON.stringify(newMember);
 
   const response = await fetch(`${endpoint}/users.json`, {
@@ -58,3 +60,36 @@ async function createMember(firstName, lastName, birthday, street, houseNumber, 
 
   return response;
 }
+
+function getAge(birthday) {
+  let birthDate = new Date(birthday);
+  let age = new Date().getFullYear() - birthDate.getFullYear();
+  let month = new Date().getMonth() - birthDate.getMonth();
+  if (month < 0 || (month === 0 && new Date().getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+console.log(getAge("1995/11/07"));
+
+function contingency(member) {
+  const passiveFee = 500;
+  const youthFee = 1000;
+  const seniorFee = 1600;
+  const seniorDiscount = 1200;
+
+  let fee;
+  if (member.memberType === "passive") {
+    fee = passiveFee;
+  } else if (member.memberType === "active" && member.ageGroup === "senior") {
+    fee = seniorFee;
+    if (member.age >= 60) {
+      fee = seniorDiscount;
+    }
+  } else if (member.memberType === "active" && member.ageGroup === "junior") {
+    fee = youthFee;
+  }
+  return fee;
+}
+
+export { signUpClicked, createMember };
