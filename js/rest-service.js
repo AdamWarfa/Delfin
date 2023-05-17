@@ -7,9 +7,10 @@ async function getUsers() {
   const data = await response.json();
   const users = prepareUserData(data);
 
-  for (const user of users) {
-    contingency(user);
-  }
+  // for (const user of users) {
+  //   contingency(user);
+  // }
+
   return users;
 
   // TO DO: tjek navngivning af variabler og funktion
@@ -24,6 +25,21 @@ async function getResults() {
   return results;
 
   // TO DO: tjek navngivning af variabler og funktion
+}
+
+function prepareUserData(dataObject) {
+  const userArray = [];
+
+  for (const key in dataObject) {
+    try {
+      const user = dataObject[key];
+      user.id = key;
+      userArray.push(user);
+    } catch (error) {
+      console.log(`Nogen har ødelagt vores user så de giver ${dataObject[key]}`);
+    }
+  }
+  return userArray;
 }
 
 export { endpoint, getUsers };
