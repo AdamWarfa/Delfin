@@ -33,6 +33,39 @@
         </ul>
       </div>
     </section>
+
+          <!-- =============== RESULTS SIDE SEKTION =============== -->
+
+          <dialog id="dialog-edit-result">
+            <form id="editResultForm">
+            <table id="editResultsTable">
+              <tbody>
+                <tr>
+                  <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td>
+                    <select name="discipline" id="discipline">
+                      <option value="Crawl">Crawl</option>
+                      <option value="Brystsvømning">Brystsvømning</option>
+                      <option value="Rygcrawl">Rygcrawl</option>
+                      <option value="Butterfly">Butterfly</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td>
+                    <select name="type" id="type">
+                      <option value="Meet">Meet</option>
+                      <option value="Training">Training</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td><button id="updateResult-btn" type="submit">Update</button></td>
+                  <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </dialog>
+
     <section id="results-section" class="view-content">
       <div id="results-container">
         <form id="createResultForm">
@@ -54,8 +87,8 @@
                 <td><input type="text" id="time" placeholder="00:00:00" /></td>
                 <td>
                   <select name="type" id="type">
-                    <option value="meet">Meet</option>
-                    <option value="training">Training</option>
+                    <option value="Meet">Meet</option>
+                    <option value="Training">Training</option>
                   </select>
                 </td>
                 <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
@@ -66,8 +99,6 @@
         </form>
       </div>
     </section>
-    <footer>kontakt</footer>
-    <script src="/js/main.js" type="module"></script>
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
@@ -247,6 +278,7 @@
           <div id="treasurer-grid"></div>
         </article>
       </section>
+    
     </main>
     <footer>Wagwan lil mamacitas</footer>
     <script src="js/main.js" type="module"></script>

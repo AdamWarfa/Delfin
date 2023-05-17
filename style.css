@@ -1,7 +1,6 @@
 body {
   top: 0;
   margin: 0;
-  background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
   /* overflow-x: hidden; */
@@ -24,6 +23,7 @@ header {
 }
 
 main {
+  background-color: #f1f6f9;
   margin-top: 70px;
   width: 100%;
 }
@@ -31,6 +31,10 @@ main {
   position: relative;
   z-index: -1;
   width: 100%;
+}
+
+.dim {
+  filter: brightness(30%);
 }
 
 #welcome-img {
@@ -211,6 +215,7 @@ td {
 #editResult-btn {
   color: rgb(255, 255, 255);
   background-color: orange;
+  width: 100%;
 }
 
 #deleteResult-btn {
@@ -223,7 +228,7 @@ td {
   background-color: rgb(65, 220, 65);
 }
 
-table {
+#resultsTable {
   width: 80%;
   margin-left: 5%;
   margin-bottom: 5%;

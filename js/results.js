@@ -2,7 +2,27 @@
 
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
-function editResultClicked(event) {}
+function editResultClicked(resultObject) {
+  const updateForm = document.querySelector("#editResultForm");
+
+  updateForm.swimmer.value = resultObject.swimmer;
+  updateForm.discipline.value = resultObject.discipline;
+  updateForm.time.value = resultObject.time;
+  updateForm.type.value = resultObject.type;
+  updateForm.meetName.value = resultObject.meetName;
+  updateForm.setAttribute("data-id", resultObject.id);
+
+  document.querySelector("#dialog-edit-result").showModal();
+  document.querySelector("main").classList.add("dim");
+  document.querySelector("header").classList.add("dim");
+}
+
+function closeDialog() {
+  // Lukker dialog, fjerner formørkelse
+  document.querySelector("#dialog-edit-movie").close();
+  document.querySelector("#results-section").classList.remove("dim");
+  document.querySelector("header").classList.remove("dim");
+}
 
 ////---------- Update and show results ----------////
 
@@ -66,6 +86,12 @@ function showResult(resultObject) {
   document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
     event.preventDefault();
     editResultClicked(resultObject);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeDialog();
+    }
   });
 }
 
@@ -142,9 +168,34 @@ async function createResult(discipline, meetName, swimmer, time, type, id) {
   return response;
 }
 
-////---------- UPDATE results ----------////
+////---------- EDIT RESULT ----------////
 
-async function updateResult(discipline, meetName, swimmer, time, type) {
+async function updateResultClicked(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const discipline = form.discipline - update.value;
+  const meetName = form.meetName - update.value;
+  const swimmer = form.swimmer - update.value;
+  const time = form.time - update.value;
+  const type = form.type - update.value;
+  const id = form.getAttribute("data-id");
+
+  const response = await updateResult(discipline, meetName, swimmer, time, type, id);
+
+  // Tjekker hvis response er okay, hvis response er succesfuld ->
+  if (response.ok) {
+    console.log("Update  clicked!", id);
+    // Opdater MoviesGrid til at displaye all film og den nye film
+    updateShownResults();
+    closeDialog();
+    alert("Result updated!");
+  }
+}
+
+////---------- UPDATE REST ----------////
+
+async function updateResult(discipline, meetName, swimmer, time, type, id) {
   // Opdaterer objekt med opdateret filminformation
   const resultToUpdate = {
     discipline,
@@ -186,4 +237,4 @@ async function deleteResult(resultObject) {
   return response;
 }
 
-export { getResults, createResult, updateShownResults, prepareData, showResults, editResultClicked, deleteResultClicked, createResultClicked };
+export { updateShownResults, createResultClicked };

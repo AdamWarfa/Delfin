@@ -1,6 +1,6 @@
 "use strict";
 
-import { getResults, updateShownResults, prepareData, showResults, editResultClicked, deleteResultClicked, createResultClicked } from "./results.js";
+import { updateShownResults, createResultClicked } from "./results.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
 
