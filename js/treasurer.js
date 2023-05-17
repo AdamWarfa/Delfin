@@ -1,4 +1,4 @@
-import { getUsers } from "./rest-service.js";
+import { getUsers, deleteUserClicked } from "./rest-service.js";
 
 let users;
 
@@ -50,6 +50,9 @@ function showUser(userObject) {
 </article>
 `
   );
+
+  // Click events til at slette brugere
+  document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
 }
 
 async function getUserinRestance(users) {

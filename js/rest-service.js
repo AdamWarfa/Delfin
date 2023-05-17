@@ -42,4 +42,20 @@ function prepareUserData(dataObject) {
   return userArray;
 }
 
-export { endpoint, getUsers};
+
+async function deleteUserClicked(userObject) {
+  const response = await deleteUser(userObject);
+
+  if (response.ok) {
+    updateUsersGrid();
+  }
+}
+
+async function deleteUser(userObject) {
+  const response = await fetch(`${endpoint}/users/${userObject.id}.json`, {
+    method: "DELETE",
+  });
+  return response;
+}
+
+export { endpoint, getUsers, deleteUserClicked };
