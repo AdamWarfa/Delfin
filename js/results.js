@@ -13,15 +13,13 @@ function editResultClicked(resultObject) {
   updateForm.setAttribute("data-id", resultObject.id);
 
   document.querySelector("#dialog-edit-result").showModal();
-  document.querySelector("main").classList.add("dim");
-  document.querySelector("header").classList.add("dim");
+
+  document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
 }
 
 function closeDialog() {
   // Lukker dialog, fjerner formørkelse
-  document.querySelector("#dialog-edit-movie").close();
-  document.querySelector("#results-section").classList.remove("dim");
-  document.querySelector("header").classList.remove("dim");
+  document.querySelector("#dialog-edit-result").close();
 }
 
 ////---------- Update and show results ----------////
@@ -174,11 +172,11 @@ async function updateResultClicked(event) {
   event.preventDefault();
 
   const form = event.target;
-  const discipline = form.discipline - update.value;
-  const meetName = form.meetName - update.value;
-  const swimmer = form.swimmer - update.value;
-  const time = form.time - update.value;
-  const type = form.type - update.value;
+  const discipline = form.discipline.value;
+  const meetName = form.meetName.value;
+  const swimmer = form.swimmer.value;
+  const time = form.time.value;
+  const type = form.type.value;
   const id = form.getAttribute("data-id");
 
   const response = await updateResult(discipline, meetName, swimmer, time, type, id);
@@ -204,7 +202,7 @@ async function updateResult(discipline, meetName, swimmer, time, type, id) {
     time,
     type,
   };
-  const json = JSON.stringify(movieToUpdate);
+  const json = JSON.stringify(resultToUpdate);
 
   const response = await fetch(`${endpoint}/results/${id}.json`, {
     method: "PUT",

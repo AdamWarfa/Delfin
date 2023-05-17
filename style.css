@@ -34,8 +34,8 @@ main {
   width: 100%;
 }
 
-.dim {
-  filter: brightness(30%);
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #welcome-img {
@@ -211,6 +211,10 @@ td {
 }
 
 /* =============== RESULTS SIDE STYLING =============== */
+
+#dialog-edit-result {
+  padding: 0%;
+}
 
 #results-container {
   margin-top: 90px;
