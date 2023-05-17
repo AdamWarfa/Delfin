@@ -9,9 +9,7 @@ const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatab
 window.addEventListener("load", initApp);
 
 function initApp() {
-  document.querySelector("#signup").addEventListener("submit", signUpClicked);
-  //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
-  //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+  globalEventListeners();
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#results-link").addEventListener("click", updateShownResults);
@@ -19,6 +17,11 @@ function initApp() {
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 
   updateUsersGrid();
+}
+
+function globalEventListeners() {
+  document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 }
 
 function initViews() {
