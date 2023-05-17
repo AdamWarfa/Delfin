@@ -11,7 +11,8 @@ body {
   margin: 0;
   background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  overflow-x: hidden;
+  width: 100vw;
+  /* overflow-x: hidden; */
 }
 
 .view-content {
@@ -29,15 +30,21 @@ header {
   background-color: #394867;
   z-index: 3;
 }
+
+main {
+  margin-top: 70px;
+}
 #frontpage {
   position: relative;
+  z-index: -1;
+  width: 100vw;
 }
 
 #welcome-img {
-  z-index: 1;
   position: relative;
-  top: 70px;
-  width: 100vw;
+  width: 100%;
+  transform: scaleX(-1);
+  /* object-fit: cover; */
 }
 
 #welcome-h3 {
@@ -77,10 +84,115 @@ nav {
 .navlink {
   text-decoration: none;
   color: #f0f3f9;
+  cursor: pointer;
   font-size: 17px;
   font-weight: 700;
   margin-right: 50px;
 }
+
+#menu {
+  background-color: #394867;
+  position: fixed;
+  right: 564px;
+  top: -61px;
+  display: flex;
+  border-radius: 5px;
+}
+
+#menu ul {
+  margin-top: 200px;
+  width: 150px;
+  padding-left: 18px;
+  z-index: 3;
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#menu a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.menu-closed {
+  animation: menu-closed;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.menu-open {
+  animation: menu-open;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes menu-closed {
+  0% {
+    transform: translate(0, -70px);
+    visibility: visible;
+  }
+
+  99% {
+    visibility: visible;
+  }
+  100% {
+    transform: translate(0, -150px);
+    visibility: hidden;
+  }
+}
+
+@keyframes menu-open {
+  0% {
+    transform: translate(0, -150px);
+    visibility: hidden;
+  }
+
+  1% {
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate(0, -70px);
+  }
+}
+
+.membership-list {
+  list-style-type: none;
+  display: inline;
+}
+
+.membership-list a {
+  text-decoration: none;
+  color: rgb(255, 223, 226);
+  cursor: pointer;
+}
+
+#about-section,
+#contact-section,
+#om-medlemskab-section,
+#results-section {
+  margin: 0 5vw;
+  line-height: 200%;
+}
+
+#about-page,
+#contact-page {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+#about-right,
+#contact-right {
+  margin-left: 2%;
+}
+#about-right img,
+#contact-right img {
+  margin-top: 10%;
+  width: 60%;
 .view-content.active {
     display: block;
 }
@@ -162,4 +274,5 @@ footer {
   bottom: 0;
   font-size: 17px;
   z-index: 3;
+  position: relative;
 }
