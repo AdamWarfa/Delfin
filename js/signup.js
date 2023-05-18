@@ -89,9 +89,8 @@ function contingency(members) {
     } else if (member.memberType === "active" && member.ageGroup === "junior") {
       fee = youthFee;
     }
-    console.log(fee);
   }
-
+  console.log(fee);
   return fee;
 }
 
