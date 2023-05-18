@@ -30,14 +30,14 @@
         <ul id="membership-list">
           <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
           <br />
-          <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+          <li><a href="#signup-section" id="signup-nav-link">Opret medlemskab</a></li>
         </ul>
       </div>
       <div id="menu-accounting" class="menu-closed">
         <ul id="accounting-list">
-          <li><a href="#treasurer-section" id="member-overview">Medlemsoversigt</a></li>
+          <li><a href="#treasurer-section" id="member-overview-link">Medlemsoversigt</a></li>
           <br />
-          <li><a href="#accounting-section" id="accounting">Opgørelse</a></li>
+          <li><a href="#accounting-section" id="accounting-link">Opgørelse</a></li>
         </ul>
       </div>
 
@@ -289,6 +289,12 @@
         </form>
       </section>
 
+      <dialog id="log-out-dialog">
+        <p>Er du sikker på du gerne vil logge ud?</p>
+        <button id="btn-log-out-final" type="button">JA</button>
+        <button id="btn-log-out-cancel" type="button">NEJ</button>
+      </dialog>
+
       <!-- =============== TREASURER SIDE SEKTION =============== -->
 
       <section id="treasurer-section" class="view-content">
@@ -306,7 +312,7 @@
         </article>
       </section>
     </main>
-    <footer>Wagwan lil mamacitas</footer>
+    <!-- <footer>Wagwan lil mamacitas</footer> -->
     <script src="js/main.js" type="module"></script>
     <script src="log-ind.js"></script>
   </body>
