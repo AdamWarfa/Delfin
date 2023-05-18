@@ -1,18 +1,27 @@
 "use strict";
 
+import { updateShownResults, createResultClicked } from "./results.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
+
+const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 window.addEventListener("load", initApp);
 
 function initApp() {
-  //   document.querySelector("#membership-link").addEventListener("click", memberLinkClicked);
-  //   document.querySelector("#home-link").addEventListener("click", homeLinkClicked);
+  globalEventListeners();
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
+  document.querySelector("#results-link").addEventListener("click", updateShownResults);
+  document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 
   updateUsersGrid();
+}
+
+function globalEventListeners() {
+  document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 }
 
 function initViews() {
@@ -45,8 +54,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
 }
 
 function membershipClicked() {

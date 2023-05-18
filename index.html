@@ -32,6 +32,73 @@
           <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
         </ul>
       </div>
+    </section>
+
+          <!-- =============== RESULTS SIDE SEKTION =============== -->
+
+          <dialog id="dialog-edit-result">
+            <form id="editResultForm">
+            <table id="editResultsTable">
+              <tbody>
+                <tr>
+                  <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td>
+                    <select name="discipline" id="discipline">
+                      <option value="Crawl">Crawl</option>
+                      <option value="Brystsvømning">Brystsvømning</option>
+                      <option value="Rygcrawl">Rygcrawl</option>
+                      <option value="Butterfly">Butterfly</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td>
+                    <select name="type" id="type">
+                      <option value="Meet">Meet</option>
+                      <option value="Training">Training</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td><button id="updateResult-btn" type="submit">Update</button></td>
+                  <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </dialog>
+
+    <section id="results-section" class="view-content">
+      <div id="results-container">
+        <form id="createResultForm">
+          <table id="resultsTable">
+            <thead id="resultsTableHeader"></thead>
+            <tbody id="resultsTableBody"></tbody>
+
+            <tbody>
+              <tr>
+                <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                <td>
+                  <select name="discipline" id="discipline">
+                    <option value="Crawl">Crawl</option>
+                    <option value="Brystsvømning">Brystsvømning</option>
+                    <option value="Rygcrawl">Rygcrawl</option>
+                    <option value="Butterfly">Butterfly</option>
+                  </select>
+                </td>
+                <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                <td>
+                  <select name="type" id="type">
+                    <option value="Meet">Meet</option>
+                    <option value="Training">Training</option>
+                  </select>
+                </td>
+                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                <td><button id="createResult-btn" type="submit">Create</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </section>
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
@@ -41,21 +108,26 @@
           <h4>Medlemstyper</h4>
           <p>
             Vi tilbyder forskellige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster
-            baseret på alderen: Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr. Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores
-            erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af seniortaksten. Det betyder, at medlemmer over 60 år betaler et årligt kontingent på 1200 kr. Hvis du ikke er
-            interesseret i at svømme aktivt, men stadig ønsker at være en del af vores svømmeklub, tilbyder vi et passivt medlemskab. For passivt medlemskab er taksten 500 kr. årligt. Vi er stolte af
-            at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab, er du velkommen
-            til at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration. Vi ser frem til
-            at byde dig velkommen og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
+            baseret på alderen: Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr.
+            <br /><br />
+            Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af
+            seniortaksten. Det betyder, at medlemmer over 60 år betaler et årligt kontingent på 1200 kr. Hvis du ikke er interesseret i at svømme aktivt, men stadig ønsker at være en del af vores
+            svømmeklub, tilbyder vi et passivt medlemskab. For passivt medlemskab er taksten 500 kr. årligt.
+            <br /><br />
+            Vi er stolte af at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab,
+            er du velkommen til at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration.
+            Vi ser frem til at byde dig velkommen og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
+            <br /><br />
+            <a  id="signup-link" href="#signup-section">Klik her for at skrive dig op til medlemskab</a>
           </p>
         </article>
       </section>
+      
       <section id="home-section" class="view-content">
         <article id="frontpage">
           <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
           <h3 id="welcome-h3">VELKOMMEN TIL</h3>
           <h2 id="welcome-h2">DELFINEN</h2>
-          <p id="welcome-p">info tekst</p>
         </article>
       </section>
 
@@ -170,6 +242,32 @@
         <article id="contact-page">
           <div id="contact-left">
             <h2 id="contact-p">KONTAKT OS</h2>
+            <p>
+              Svømmeklub Delfinen
+              <br />
+              <br />
+              Adresse: Vesterbrogade 45, 1620 København V, Danmark
+              <br />
+              <br />
+              Telefonnummer: +45 98 76 54 32
+              <br />
+              <br />
+              E-mail: info@delfinensvommeklub.dk
+              <br />
+              <br />
+              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis
+              også give mere detaljeret information om klubbens aktiviteter og arrangementer.
+            </p>
+          </div>
+          <div id="contact-right">
+            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQs-h0_mnpx90sXr-c6tVI6MUiuYtpjQ7rgIrX8SXEdMRyjysbxQnxmYdD2f9hB6gppwCTsR2KhhcNqjTE" alt="" />
+            <p>
+              Formand: Aksel L. Holst
+              <br />
+              Telefonnummer: +45 28 22 45 42
+              <br />
+              E-mail: AkselLHolst@hotmail.dk
+            </p>
           </div>
         </article>
       </section>
@@ -191,7 +289,11 @@
         <article id="treasurer-page">
           <div id="treasurer-grid"></div>
         </article>
+        <article id="restance-page">
+          <div id="restance-grid"></div>
+        </article>
       </section>
+    
     </main>
     <footer>Wagwan lil mamacitas</footer>
     <script src="js/main.js" type="module"></script>
