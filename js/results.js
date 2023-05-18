@@ -15,6 +15,7 @@ function editResultClicked(resultObject) {
   document.querySelector("#dialog-edit-result").showModal();
 
   document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
+  document.querySelector("#cancelUpdateResult-btn").addEventListener("click", closeDialog);
 }
 
 function closeDialog() {
