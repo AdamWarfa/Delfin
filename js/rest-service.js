@@ -20,7 +20,7 @@ async function getResults() {
   // Fetch JSON data fra vores database
   const response = await fetch(`${endpoint}/results.json`); //indsæt json
   const data = await response.json();
-  const users = prepareUserData(data);
+  const results = prepareUserData(data);
 
   return results;
 
@@ -57,4 +57,4 @@ async function deleteUser(userObject) {
   return response;
 }
 
-export { endpoint, getUsers, deleteUserClicked };
+export { endpoint, getUsers, getResults, deleteUserClicked };

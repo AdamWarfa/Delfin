@@ -36,12 +36,24 @@
 
           <!-- =============== RESULTS SIDE SEKTION =============== -->
 
+          <dialog id="conform-delete-result">
+              <form>
+                <table>
+                  <td><button id="confirmDeleteResult-btn" class="greenBtn" type="submit">Delete</button></td>
+                  <td><button id="cancelDeleteResult-btn" type="button" class="redBtn" >Cancel</button></td>
+                </table>
+              </form>
+          </dialog>
+
           <dialog id="dialog-edit-result">
             <form id="editResultForm">
             <table id="editResultsTable">
               <tbody>
                 <tr>
-                  <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td>                  
+                    <select name="swimmer" id="resultUsersEdit">
+                    </select>
+                  </td>
                   <td>
                     <select name="discipline" id="discipline">
                       <option value="Crawl">Crawl</option>
@@ -58,8 +70,8 @@
                     </select>
                   </td>
                   <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                  <td><button id="updateResult-btn" type="submit">Update</button></td>
-                  <td><button id="cancelUpdateResult-btn" type="button" >Cancel</button></td>
+                  <td><button id="updateResult-btn" class="greenBtn" type="submit">Update</button></td>
+                  <td><button id="cancelUpdateResult-btn" type="button" class="redBtn" >Cancel</button></td>
                 </tr>
               </tbody>
             </table>
@@ -75,24 +87,27 @@
 
             <tbody>
               <tr>
-                <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                <td>                 
+                  <select name="swimmer" id="resultUsersCreate" required>
+                  </select>
+                </td>
                 <td>
-                  <select name="discipline" id="discipline">
+                  <select name="discipline" id="discipline" required>
                     <option value="Crawl">Crawl</option>
                     <option value="Brystsvømning">Brystsvømning</option>
                     <option value="Rygcrawl">Rygcrawl</option>
                     <option value="Butterfly">Butterfly</option>
                   </select>
                 </td>
-                <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                <td><input type="text" id="time" placeholder="00:00:00" required /></td>
                 <td>
-                  <select name="type" id="type">
+                  <select name="type" id="type" required>
                     <option value="Meet">Meet</option>
-                    <option value="Training">Training</option>
+                    <option value="Training" selected="selected">Training</option>
                   </select>
                 </td>
-                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                <td><button id="createResult-btn" type="submit">Create</button></td>
+                <td><input type="text" id="meetName" placeholder="Meet Name" required /></td>
+                <td><button id="createResult-btn" class="greenBtn" type="submit">Create</button></td>
               </tr>
             </tbody>
           </table>

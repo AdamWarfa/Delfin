@@ -220,18 +220,18 @@ td {
   margin-top: 90px;
 }
 
-#editResult-btn {
+.orangeBtn {
   color: rgb(255, 255, 255);
   background-color: orange;
   width: 100%;
 }
 
-#deleteResult-btn {
+.redBtn {
   color: rgb(255, 255, 255);
   background-color: red;
 }
 
-#createResult-btn {
+.greenBtn {
   color: rgb(255, 255, 255);
   background-color: rgb(65, 220, 65);
 }

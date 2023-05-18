@@ -1,5 +1,7 @@
 "use strict";
 
+import { getUsers, getResults } from "./rest-service.js";
+
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function editResultClicked(resultObject) {
@@ -25,12 +27,37 @@ function closeDialog() {
 
 ////---------- Update and show results ----------////
 
-async function updateShownResults() {
+async function updateResultsPage() {
   console.log("Updating results");
   document.querySelector("#resultsTableBody").innerHTML = "";
   document.querySelector("#resultsTableHeader").innerHTML = "";
+  document.querySelector("#resultUsersCreate").innerHTML = "";
+  document.querySelector("#resultUsersEdit").innerHTML = "";
+
   const results = await getResults();
+  const users = await getUsers();
   showResults(results);
+  insertSwimmersDropdown(users);
+}
+
+function insertSwimmersDropdown(listOfUsers) {
+  console.log("TEST");
+  for (const user of listOfUsers) {
+    try {
+      insertSwimmerDropdown(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function insertSwimmerDropdown(resultObject) {
+    document
+      .querySelector("#resultUsersEdit")
+      .insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}">${resultObject.firstName} ${resultObject.lastName}</option> `);
+    document
+      .querySelector("#resultUsersCreate")
+      .insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}">${resultObject.firstName} ${resultObject.lastName}</option> `);
+  }
 }
 
 function showResults(listOfResults) {
@@ -72,15 +99,15 @@ function showResult(resultObject) {
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
-        <td><button id="editResult-btn">Edit</button></td>
-        <td><button id="deleteResult-btn">Delete</button></td>
+        <td><button id="editResult-btn" class="orangeBtn">Edit</button></td>
+        <td><button id="deleteResult-btn" class="redBtn">Delete</button></td>
       </tr>
     `
   );
 
   document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
     event.preventDefault();
-    deleteResultClicked(resultObject);
+    confirmDelete(resultObject);
   });
   document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
     event.preventDefault();
@@ -92,32 +119,6 @@ function showResult(resultObject) {
       closeDialog();
     }
   });
-}
-
-////---------- GET results ----------////
-
-async function getResults() {
-  const response = await fetch(`${endpoint}/results.json`); // fetch request, (GET)    method: "GET",
-  const data = await response.json(); // parse JSON to JavaScript
-  const results = prepareData(data); // convert object of object to array of objects
-  return results; // return results
-}
-
-function prepareData(dataObject) {
-  const resultsArray = [];
-
-  // for in som pusher fetchede JSON data ind i vores array
-  for (const key in dataObject) {
-    try {
-      const result = dataObject[key];
-      result.id = key;
-      resultsArray.push(result);
-    } catch (error) {
-      console.log(`Nogen har ødelagt vores result så de giver ${dataObject[key]}`);
-    }
-  }
-  // console.log(movieArray);
-  return resultsArray;
 }
 
 ////---------- CREATE results ----------////
@@ -140,8 +141,8 @@ async function createResultClicked(event) {
   if (response.ok) {
     console.log("New result added to the DB");
     //// Remove HTML from table and update shown results
-    updateShownResults();
     form.reset();
+    updateResultsPage();
   }
 }
 
@@ -185,7 +186,8 @@ async function updateResultClicked(event) {
   if (response.ok) {
     console.log("Update  clicked!", id);
     // Opdater MoviesGrid til at displaye all film og den nye film
-    updateShownResults();
+    updateResultsPage();
+    form.reset();
     closeDialog();
   }
 }
@@ -213,6 +215,10 @@ async function updateResult(discipline, meetName, swimmer, time, type, id) {
 
 ////---------- DELETE results ----------////
 
+async function confirmDelete(dataObject) {
+  deleteResultClicked(dataObject);
+}
+
 async function deleteResultClicked(resultObject) {
   console.log("Delete result " + resultObject.id);
   const response = await deleteResult(resultObject);
@@ -220,7 +226,7 @@ async function deleteResultClicked(resultObject) {
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     //// Remove HTML from table and update shown results
-    updateShownResults();
+    updateResultsPage();
   }
 }
 
@@ -234,4 +240,4 @@ async function deleteResult(resultObject) {
   return response;
 }
 
-export { updateShownResults, createResultClicked };
+export { updateResultsPage, createResultClicked };
