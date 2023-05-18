@@ -1,7 +1,6 @@
 body {
   top: 0;
   margin: 0;
-  background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
   /* overflow-x: hidden; */
@@ -25,6 +24,7 @@ header {
 }
 
 main {
+  background-color: #f1f6f9;
   margin-top: 70px;
   width: 100%;
 }
@@ -32,6 +32,10 @@ main {
   position: relative;
   z-index: -1;
   width: 100%;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #welcome-img {
@@ -198,6 +202,44 @@ footer {
   bottom: 0%;
   font-size: 17px;
   z-index: 1;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+/* =============== RESULTS SIDE STYLING =============== */
+
+#dialog-edit-result {
+  padding: 0%;
+}
+
+#results-container {
+  margin-top: 90px;
+}
+
+#editResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: orange;
+  width: 100%;
+}
+
+#deleteResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+#createResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(65, 220, 65);
+}
+
+#resultsTable {
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 /* =============== KASSERENS SIDE STYLING =============== */
