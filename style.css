@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
+  background-color: #f1f6f9;
   /* overflow-x: hidden; */
 }
 
@@ -24,7 +25,6 @@ header {
 }
 
 main {
-  background-color: #f1f6f9;
   margin-top: 70px;
   width: 100%;
 }
@@ -198,7 +198,6 @@ a {
   margin-top: 10%;
   width: 60%;
 }
-
 
 footer {
   position: relative;
