@@ -1,4 +1,5 @@
 import { contingency } from "./signup.js";
+import { updateUsersGrid } from "./treasurer.js";
 
 // Firebase variabel
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -41,7 +42,9 @@ function prepareUserData(dataObject) {
   return userArray;
 }
 
+
 async function deleteUserClicked(userObject) {
+
   const response = await deleteUser(userObject);
 
   if (response.ok) {

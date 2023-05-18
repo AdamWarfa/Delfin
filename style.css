@@ -1,9 +1,8 @@
 body {
   top: 0;
   margin: 0;
-  background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  width: 100vw;
+  max-width: 100%;
   /* overflow-x: hidden; */
 }
 
@@ -21,21 +20,28 @@ header {
   position: fixed;
   top: 0;
   background-color: #394867;
-  z-index: 3;
+  z-index: 4;
 }
 
 main {
+  background-color: #f1f6f9;
   margin-top: 70px;
+  width: 100%;
 }
 #frontpage {
   position: relative;
   z-index: -1;
-  width: 100vw;
+  width: 100%;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #welcome-img {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   transform: scaleX(-1);
   /* object-fit: cover; */
 }
@@ -84,28 +90,33 @@ nav {
 }
 
 #menu {
+  width: 150px;
+  padding-left: 0px;
   background-color: #394867;
   position: fixed;
-  right: 564px;
+  right: 747px;
   top: -61px;
   display: flex;
   border-radius: 5px;
+  z-index: 3;
 }
 
 #menu ul {
-  margin-top: 200px;
-  width: 150px;
-  padding-left: 18px;
-  z-index: 3;
   text-decoration: none;
   list-style-type: none;
   font-size: 15px;
   font-weight: 700;
 }
 
-#menu a {
+#menu,
+a {
   text-decoration: none;
-  color: whitesmoke;
+  color: #f0f3f9;
+}
+
+#signup-link {
+  color: rgb(197, 75, 75);
+  font-weight: 800;
 }
 
 .menu-closed {
@@ -125,7 +136,7 @@ nav {
 
 @keyframes menu-closed {
   0% {
-    transform: translate(0, -70px);
+    transform: translate(0, 125px);
     visibility: visible;
   }
 
@@ -133,14 +144,14 @@ nav {
     visibility: visible;
   }
   100% {
-    transform: translate(0, -150px);
+    transform: translate(0, 0);
     visibility: hidden;
   }
 }
 
 @keyframes menu-open {
   0% {
-    transform: translate(0, -150px);
+    transform: translate(0, 0);
     visibility: hidden;
   }
 
@@ -149,7 +160,7 @@ nav {
   }
 
   100% {
-    transform: translate(0, -70px);
+    transform: translate(0, 125px);
   }
 }
 
@@ -167,8 +178,7 @@ nav {
 #about-section,
 #contact-section,
 #om-medlemskab-section,
-#results-section,
-#treasurer-section {
+#results-section {
   margin: 0 5vw;
   line-height: 200%;
 }
@@ -189,46 +199,102 @@ nav {
   width: 60%;
 }
 
+
 footer {
+  position: relative;
   background-color: #9ba4b5;
   height: 70px;
-  width: 100vw;
-  bottom: 0;
+  width: 100%;
+  bottom: 0%;
   font-size: 17px;
-  z-index: 3;
-  position: relative;
+  z-index: 1;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+/* =============== RESULTS SIDE STYLING =============== */
+
+#dialog-edit-result {
+  padding: 0%;
+}
+
+#results-container {
+  margin-top: 90px;
+}
+
+#editResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: orange;
+  width: 100%;
+}
+
+#deleteResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+#createResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(65, 220, 65);
+}
+
+#resultsTable {
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 /* =============== KASSERENS SIDE STYLING =============== */
 
 #user-grid {
   border: 3px solid black;
-  padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 #list-name {
   font-size: 25px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-#treasurer-page {
+#treasurer-grid {
   margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#treasurer-section {
+  margin: 0 10vw;
+  line-height: 150%;
+}
+#restance-grid {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+}
+
+.list-restance {
+  width: 30vw;
+}
+
+.list-user {
+  width: 30vw;
 }
 
 .user-grid-border {
-  border: 1px solid black;
-  padding: 25px;
+  border: 0.5px solid black;
   text-align: center;
 }
 
 #user-btn-delete {
   margin: 0;
-  position: absolute;
   width: 200px;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  align-items: center;
 }

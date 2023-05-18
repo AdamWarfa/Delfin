@@ -1,13 +1,21 @@
 "use strict";
 
+import { updateShownResults, createResultClicked } from "./results.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
+
+const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 window.addEventListener("load", initApp);
 
 function initApp() {
   globalEventListeners();
   initViews();
+  //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
+  document.querySelector("#results-link").addEventListener("click", updateShownResults);
+  document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
+
   updateUsersGrid();
 }
 
