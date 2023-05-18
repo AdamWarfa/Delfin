@@ -23,16 +23,25 @@
         <a class="navlink" id="results-link" href="#results-section" class="view-link">Resultater</a>
         <a class="navlink" id="about-link" href="#about-section" class="view-link">Om os</a>
         <a class="navlink" id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
-        <a class="navlink" href="#" class="view-link">Log ind</a>
-        <a class="navlink" id="treasurer-link" href="#treasurer-section" class="view-link">Kaspers Side</a>
+        <a class="navlink" id="log-ind-link" href="#login-section" class="view-link">Log ind</a>
+        <a class="navlink" id="treasurer-link" class="view-link" class="log-in-hidden">Kaspers Side</a>
+        <a class="navlink" id="btn-sign-out" class="view-link" class="log-in-hidden">Log ud</a>
       </nav>
     </header>
     <main>
-      <div id="menu" class="menu-closed">
+      <div id="menu-membership" class="menu-closed">
         <ul id="membership-list">
           <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
           <br />
           <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
+        </ul>
+      </div>
+
+      <div id="menu-accounting" class="menu-closed">
+        <ul id="accounting-list">
+          <li><a href="#treasurer-section" id="member-overview">Medlemsoversigt</a></li>
+          <br />
+          <li><a href="#accounting-section" id="accounting">Opgørelse</a></li>
         </ul>
       </div>
 
@@ -273,6 +282,17 @@
         </article>
       </section>
 
+      <section id="login-section" class="view-content">
+        <h2>Log ind</h2>
+        <p id="signin-message"></p>
+        <form id="login-form">
+          <input name="mail" type="email" placeholder="Type email" />
+          <input name="password" type="password" placeholder="Password" />
+          <button id="btn-sign-up" type="submit">Log ind</button>
+          <!-- <button id="btn-sign-out" type="button">Log ud</button> -->
+        </form>
+      </section>
+
       <!-- =============== TREASURER SIDE SEKTION =============== -->
 
       <section id="treasurer-section" class="view-content">
@@ -283,8 +303,16 @@
           <div id="restance-grid"></div>
         </article>
       </section>
+    
+      <section id="accounting-section" class="view-content">
+        <article id="accounting-page">
+          <h2>Opgørelse</h2>
+        </article>
+      </section>
+
     </main>
     <footer>Wagwan lil mamacitas</footer>
     <script src="js/main.js" type="module"></script>
+    <script src="log-ind.js"></script>
   </body>
 </html>
