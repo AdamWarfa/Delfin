@@ -13,7 +13,6 @@ function editResultClicked(resultObject) {
   updateForm.setAttribute("data-id", resultObject.id);
 
   document.querySelector("#dialog-edit-result").showModal();
-
   document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
 }
 
