@@ -17,7 +17,7 @@ function initAuth() {
   }
 }
 function userIsSignedIn() {
-  location.hash = "#home-link";
+  location.hash = "#treasurer-section";
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
