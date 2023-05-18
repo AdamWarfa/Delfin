@@ -57,9 +57,8 @@ function showUser(userObject) {
 
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
- 
-  users.filter(user => user.restance).forEach(showUserinRestance);
 
+  users.filter((user) => user.restance).forEach(showUserinRestance);
 
   // for (let i = 0; i < users.length; i++) {
   //   try {
@@ -83,7 +82,7 @@ function showUserinRestance(users) {
     <article class="list-restance">
       <div id="user-grid" class="user-grid-border">
         <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
-        <p id="list-balance" >Bruger i restance: ${users.restance}</p>
+        <p id="list-balance" >${users.firstName} er i restance</p>
       </div>
     </article>
 `
