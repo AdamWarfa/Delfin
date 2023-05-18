@@ -32,6 +32,73 @@
           <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
         </ul>
       </div>
+    </section>
+
+          <!-- =============== RESULTS SIDE SEKTION =============== -->
+
+          <dialog id="dialog-edit-result">
+            <form id="editResultForm">
+            <table id="editResultsTable">
+              <tbody>
+                <tr>
+                  <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td>
+                    <select name="discipline" id="discipline">
+                      <option value="Crawl">Crawl</option>
+                      <option value="Brystsvømning">Brystsvømning</option>
+                      <option value="Rygcrawl">Rygcrawl</option>
+                      <option value="Butterfly">Butterfly</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td>
+                    <select name="type" id="type">
+                      <option value="Meet">Meet</option>
+                      <option value="Training">Training</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td><button id="updateResult-btn" type="submit">Update</button></td>
+                  <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </dialog>
+
+    <section id="results-section" class="view-content">
+      <div id="results-container">
+        <form id="createResultForm">
+          <table id="resultsTable">
+            <thead id="resultsTableHeader"></thead>
+            <tbody id="resultsTableBody"></tbody>
+
+            <tbody>
+              <tr>
+                <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                <td>
+                  <select name="discipline" id="discipline">
+                    <option value="Crawl">Crawl</option>
+                    <option value="Brystsvømning">Brystsvømning</option>
+                    <option value="Rygcrawl">Rygcrawl</option>
+                    <option value="Butterfly">Butterfly</option>
+                  </select>
+                </td>
+                <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                <td>
+                  <select name="type" id="type">
+                    <option value="Meet">Meet</option>
+                    <option value="Training">Training</option>
+                  </select>
+                </td>
+                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                <td><button id="createResult-btn" type="submit">Create</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </section>
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
@@ -55,6 +122,7 @@
           </p>
         </article>
       </section>
+      
       <section id="home-section" class="view-content">
         <article id="frontpage">
           <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
@@ -214,6 +282,7 @@
           <div id="restance-grid"></div>
         </article>
       </section>
+    
     </main>
     <footer>Wagwan lil mamacitas</footer>
     <script src="js/main.js" type="module"></script>
