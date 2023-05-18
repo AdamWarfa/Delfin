@@ -21,61 +21,34 @@
         <a class="navlink" id="about-link" href="#about-section" class="view-link">Om os</a>
         <a class="navlink" id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
         <a class="navlink" id="log-ind-link" href="#login-section" class="view-link">Log ind</a>
-        <a class="navlink" id="treasurer-link" href="#treasurer-section" class="view-link" class="log-in-hidden">Kaspers Side</a>
+        <a class="navlink" id="treasurer-link" class="view-link" class="log-in-hidden">Kaspers Side</a>
+        <a class="navlink" id="btn-sign-out" class="view-link" class="log-in-hidden">Log ud</a>
       </nav>
     </header>
     <main>
-      <div id="menu" class="menu-closed">
+      <div id="menu-membership" class="menu-closed">
         <ul id="membership-list">
           <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
           <br />
           <li><a href="#signup-section" id="#signup-section">Opret medlemskab</a></li>
         </ul>
       </div>
-    </section>
+      <div id="menu-accounting" class="menu-closed">
+        <ul id="accounting-list">
+          <li><a href="#treasurer-section" id="member-overview">Medlemsoversigt</a></li>
+          <br />
+          <li><a href="#accounting-section" id="accounting">Opgørelse</a></li>
+        </ul>
+      </div>
 
-          <!-- =============== RESULTS SIDE SEKTION =============== -->
+      <!-- =============== RESULTS SIDE SEKTION =============== -->
 
-          <dialog id="dialog-edit-result">
-            <form id="editResultForm">
-            <table id="editResultsTable">
-              <tbody>
-                <tr>
-                  <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
-                  <td>
-                    <select name="discipline" id="discipline">
-                      <option value="Crawl">Crawl</option>
-                      <option value="Brystsvømning">Brystsvømning</option>
-                      <option value="Rygcrawl">Rygcrawl</option>
-                      <option value="Butterfly">Butterfly</option>
-                    </select>
-                  </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
-                  <td>
-                    <select name="type" id="type">
-                      <option value="Meet">Meet</option>
-                      <option value="Training">Training</option>
-                    </select>
-                  </td>
-                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                  <td><button id="updateResult-btn" type="submit">Update</button></td>
-                  <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
-        </dialog>
-
-    <section id="results-section" class="view-content">
-      <div id="results-container">
-        <form id="createResultForm">
-          <table id="resultsTable">
-            <thead id="resultsTableHeader"></thead>
-            <tbody id="resultsTableBody"></tbody>
-
+      <dialog id="dialog-edit-result">
+        <form id="editResultForm">
+          <table id="editResultsTable">
             <tbody>
               <tr>
-                <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
                 <td>
                   <select name="discipline" id="discipline">
                     <option value="Crawl">Crawl</option>
@@ -92,13 +65,47 @@
                   </select>
                 </td>
                 <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                <td><button id="createResult-btn" type="submit">Create</button></td>
+                <td><button id="updateResult-btn" type="submit">Update</button></td>
+                <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
               </tr>
             </tbody>
           </table>
         </form>
-      </div>
-    </section>
+      </dialog>
+
+      <section id="results-section" class="view-content">
+        <div id="results-container">
+          <form id="createResultForm">
+            <table id="resultsTable">
+              <thead id="resultsTableHeader"></thead>
+              <tbody id="resultsTableBody"></tbody>
+
+              <tbody>
+                <tr>
+                  <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td>
+                    <select name="discipline" id="discipline">
+                      <option value="Crawl">Crawl</option>
+                      <option value="Brystsvømning">Brystsvømning</option>
+                      <option value="Rygcrawl">Rygcrawl</option>
+                      <option value="Butterfly">Butterfly</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td>
+                    <select name="type" id="type">
+                      <option value="Meet">Meet</option>
+                      <option value="Training">Training</option>
+                    </select>
+                  </td>
+                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td><button id="createResult-btn" type="submit">Create</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </section>
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
@@ -107,22 +114,22 @@
           <h1>Velkommen til vores svømmeklub!</h1>
           <h4>Medlemstyper</h4>
           <p>
-            Vi tilbyder forskellige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster
-            baseret på alderen: Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr.
+            Vi tilbyder forskellige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster baseret på alderen:
+            Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr.
             <br /><br />
-            Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af
-            seniortaksten. Det betyder, at medlemmer over 60 år betaler et årligt kontingent på 1200 kr. Hvis du ikke er interesseret i at svømme aktivt, men stadig ønsker at være en del af vores
-            svømmeklub, tilbyder vi et passivt medlemskab. For passivt medlemskab er taksten 500 kr. årligt.
+            Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af seniortaksten. Det betyder, at
+            medlemmer over 60 år betaler et årligt kontingent på 1200 kr. Hvis du ikke er interesseret i at svømme aktivt, men stadig ønsker at være en del af vores svømmeklub, tilbyder vi et passivt medlemskab. For
+            passivt medlemskab er taksten 500 kr. årligt.
             <br /><br />
-            Vi er stolte af at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab,
-            er du velkommen til at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration.
-            Vi ser frem til at byde dig velkommen og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
+            Vi er stolte af at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab, er du velkommen til
+            at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration. Vi ser frem til at byde dig velkommen
+            og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
             <br /><br />
-            <a  id="signup-link" href="#signup-section">Klik her for at skrive dig op til medlemskab</a>
+            <a id="signup-link" href="#signup-section">Klik her for at skrive dig op til medlemskab</a>
           </p>
         </article>
       </section>
-      
+
       <section id="home-section" class="view-content">
         <article id="frontpage">
           <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
@@ -209,24 +216,23 @@
           <div id="about-left">
             <h2 id="about-h2">DELFINEN</h2>
             <p id="about-p">
-              I hjertet af den danske hovedstad blev Delfinen Svømmeklub grundlagt i 1962 af den visionære svømmeentusiast, William Andersen. Efter at have tilbragt størstedelen af sit liv i vandet og
-              konkurreret på internationalt niveau besluttede William at bruge sin passion for svømning til at skabe en unik træningsmulighed for kommende svømmere i lokalsamfundet. Ved at oprette
-              Delfinen Svømmeklub ønskede William at skabe en atmosfære, hvor svømmere i alle aldre og evneniveauer kunne udforske deres potentiale og dyrke en sund og konkurrencedygtig ånd. Klubbens
-              motto "Dyrk dit potentiale, engagér dig i succes" blev snart kendt i hele regionen, og det blev et kendetegn for Delfinen Svømmeklub.
+              I hjertet af den danske hovedstad blev Delfinen Svømmeklub grundlagt i 1962 af den visionære svømmeentusiast, William Andersen. Efter at have tilbragt størstedelen af sit liv i vandet og konkurreret på
+              internationalt niveau besluttede William at bruge sin passion for svømning til at skabe en unik træningsmulighed for kommende svømmere i lokalsamfundet. Ved at oprette Delfinen Svømmeklub ønskede William at
+              skabe en atmosfære, hvor svømmere i alle aldre og evneniveauer kunne udforske deres potentiale og dyrke en sund og konkurrencedygtig ånd. Klubbens motto "Dyrk dit potentiale, engagér dig i succes" blev
+              snart kendt i hele regionen, og det blev et kendetegn for Delfinen Svømmeklub.
               <br />
               <br />
-              I begyndelsen var klubben beskedent udstyret med en enkelt indendørs pool og et par dedikerede trænere, herunder William selv. Men Delfinen Svømmeklub voksede hurtigt i popularitet, da
-              den tiltrak talentfulde svømmere fra nær og fjern. William og hans hold af dedikerede trænere havde et fokus på at udvikle svømmere på både teknisk og personligt plan, og dette
-              resulterede i utallige individuelle og holdbaserede triumfer. I årenes løb har Delfinen Svømmeklub opnået imponerende resultater på regionale, nationale og endda internationale
-              konkurrencer. Mange af klubbens talentfulde svømmere har opnået berømmelse og anerkendelse inden for svømning, og nogle har endda repræsenteret deres land ved de olympiske lege.
+              I begyndelsen var klubben beskedent udstyret med en enkelt indendørs pool og et par dedikerede trænere, herunder William selv. Men Delfinen Svømmeklub voksede hurtigt i popularitet, da den tiltrak
+              talentfulde svømmere fra nær og fjern. William og hans hold af dedikerede trænere havde et fokus på at udvikle svømmere på både teknisk og personligt plan, og dette resulterede i utallige individuelle og
+              holdbaserede triumfer. I årenes løb har Delfinen Svømmeklub opnået imponerende resultater på regionale, nationale og endda internationale konkurrencer. Mange af klubbens talentfulde svømmere har opnået
+              berømmelse og anerkendelse inden for svømning, og nogle har endda repræsenteret deres land ved de olympiske lege.
               <br />
               <br />
-              Ud over at skabe succesrige atleter har Delfinen Svømmeklub også været en aktiv deltager i samfundet. Klubben arrangerer årligt velgørenhedsevents og svømmemaratoner for at støtte lokale
-              organisationer og vandrelaterede projekter. Dette har bidraget til at øge bevidstheden om vigtigheden af vand-sikkerhed og har skabt et tæt bånd mellem klubben og lokalsamfundet. I dag,
-              mere end 60 år efter sin grundlæggelse, fortsætter Delfinen Svømmeklub med at være en bastion for talentudvikling, fællesskab og konkurrenceånd. Klubbens faciliteter er blevet udvidet
-              til at omfatte flere pools, topmoderne træningsudstyr og endda en egen sportsklinik. Trænerteamet er blevet udvidet, og William Andersens ånd lever videre gennem deres fortsatte
-              dedikation til klubbens medlemmer. Delfinen Svømmeklub forbliver et symbol på drømme, vækst og samarbejde. Svømmere i alle aldre og baggrunde kommer til klubben for at lære, konkurrere
-              og skabe livslange venskaber.
+              Ud over at skabe succesrige atleter har Delfinen Svømmeklub også været en aktiv deltager i samfundet. Klubben arrangerer årligt velgørenhedsevents og svømmemaratoner for at støtte lokale organisationer og
+              vandrelaterede projekter. Dette har bidraget til at øge bevidstheden om vigtigheden af vand-sikkerhed og har skabt et tæt bånd mellem klubben og lokalsamfundet. I dag, mere end 60 år efter sin
+              grundlæggelse, fortsætter Delfinen Svømmeklub med at være en bastion for talentudvikling, fællesskab og konkurrenceånd. Klubbens faciliteter er blevet udvidet til at omfatte flere pools, topmoderne
+              træningsudstyr og endda en egen sportsklinik. Trænerteamet er blevet udvidet, og William Andersens ånd lever videre gennem deres fortsatte dedikation til klubbens medlemmer. Delfinen Svømmeklub forbliver et
+              symbol på drømme, vækst og samarbejde. Svømmere i alle aldre og baggrunde kommer til klubben for at lære, konkurrere og skabe livslange venskaber.
             </p>
           </div>
           <div id="about-right">
@@ -255,8 +261,8 @@
               E-mail: info@delfinensvommeklub.dk
               <br />
               <br />
-              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis
-              også give mere detaljeret information om klubbens aktiviteter og arrangementer.
+              Du kan kontakte Delfinen på telefon eller e-mail for at få yderligere oplysninger om medlemskab, træningstider, svømmekurser og andre relevante spørgsmål. Hjemmesiden vil sandsynligvis også give mere
+              detaljeret information om klubbens aktiviteter og arrangementer.
             </p>
           </div>
           <div id="contact-right">
@@ -279,7 +285,7 @@
           <input name="mail" type="email" placeholder="Type email" />
           <input name="password" type="password" placeholder="Password" />
           <button id="btn-sign-up" type="submit">Log ind</button>
-          <button id="btn-sign-out" type="button">Log ud</button>
+          <!-- <button id="btn-sign-out" type="button">Log ud</button> -->
         </form>
       </section>
 
@@ -293,7 +299,12 @@
           <div id="restance-grid"></div>
         </article>
       </section>
-    
+
+      <section id="accounting-section" class="view-content">
+        <article id="accounting-page">
+          <h2>Opgørelse</h2>
+        </article>
+      </section>
     </main>
     <footer>Wagwan lil mamacitas</footer>
     <script src="js/main.js" type="module"></script>

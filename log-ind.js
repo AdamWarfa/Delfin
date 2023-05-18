@@ -4,7 +4,7 @@ window.addEventListener("load", initAuth);
 
 function initAuth() {
   runApp();
-  document.querySelector("#btn-sign-out").addEventListener("click", userIsSignedOut);
+  document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 
   const user = localStorage.getItem("authUser");
 
@@ -18,13 +18,16 @@ function userIsSignedIn() {
   location.hash = "#home-link";
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
-  alert("Du er logget ind! ;)");
+  document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
+  document.querySelector("#log-ind-link").classList.add("log-in-hidden");
 }
+
 function userIsSignedOut() {
-  location.hash = "#login-section";
+  location.hash = "#home-section";
   // document.querySelector("nav").classList.add("hide");
   document.querySelector("#treasurer-link").classList.add("log-in-hidden");
-  alert("Du er logget ud!");
+  document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
+  document.querySelector("#log-ind-link").classList.remove("log-in-hidden");
 }
 
 function runApp() {
