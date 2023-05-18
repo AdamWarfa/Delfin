@@ -141,7 +141,6 @@ async function createResultClicked(event) {
     //// Remove HTML from table and update shown results
     updateShownResults();
     form.reset();
-    alert("Result added");
   }
 }
 
@@ -187,7 +186,6 @@ async function updateResultClicked(event) {
     // Opdater MoviesGrid til at displaye all film og den nye film
     updateShownResults();
     closeDialog();
-    alert("Result updated!");
   }
 }
 
