@@ -4,7 +4,9 @@ window.addEventListener("load", initAuth);
 
 function initAuth() {
   runApp();
-  document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
+  document.querySelector("#btn-sign-out").addEventListener("click", openLogOutDialog);
+  document.querySelector("#btn-log-out-cancel").addEventListener("click", closeLogOutDialog);
+  document.querySelector("#btn-log-out-final").addEventListener("click", signOutUser);
 
   const user = localStorage.getItem("authUser");
 
@@ -15,7 +17,7 @@ function initAuth() {
   }
 }
 function userIsSignedIn() {
-  location.hash = "#home-link";
+  location.hash = "#treasurer-section";
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
@@ -49,7 +51,15 @@ function login(event) {
   }
 }
 
+function openLogOutDialog() {
+  document.querySelector("#log-out-dialog").showModal();
+}
+function closeLogOutDialog() {
+  document.querySelector("#log-out-dialog").close();
+}
+
 function signOutUser() {
+  closeLogOutDialog();
   localStorage.removeItem("authUser");
   userIsSignedOut();
 
