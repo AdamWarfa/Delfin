@@ -237,8 +237,14 @@ a {
 #overskriften {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
+  margin-top: 90px;
 }
+
+#login-form{
+  padding: 2em 20em;
+}
+
 
 .form-control input {
   border: 0;
@@ -248,7 +254,7 @@ a {
   font-size: 20px;
   font-family: "Instrument Sans", sans-serif;
   width: 100%;
-  background-color:#f1f6f9; ;
+  background-color: #f1f6f9;
 }
 
 #btn-sign-up {
@@ -300,7 +306,8 @@ footer {
 #overskrift {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
+  margin-top: 90px;
   /* background-color:purple; */
 }
 #signup-container {
@@ -309,6 +316,12 @@ footer {
   grid-template-columns: 1fr 1fr;
 }
 
+#tredje {
+  border-style: solid;
+  margin-left: 20px;
+  padding: 40px;
+  padding-top: 10px;
+}
 
 .member-control input {
   border: 0;
