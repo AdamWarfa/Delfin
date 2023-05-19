@@ -56,6 +56,7 @@ function showResults(listOfResults) {
       </tr>
     `
   );
+
   /* 
   Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
   Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.

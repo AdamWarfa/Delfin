@@ -21,13 +21,15 @@ async function signUpClicked(event) {
   const levelType = form.levelType.value;
   const restance = false;
   const swimTypes = [];
-  checkboxes.forEach((checkbox) => {
+
+  checkboxes.forEach(checkbox => {
     swimTypes.push(checkbox.value);
   });
 
   const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes);
   if (response.ok) {
     console.log("New member succesfully added to Firebase 🔥");
+    alert("New member successfully added to Firebase 🔥");
   }
 }
 
@@ -50,7 +52,6 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
     swimTypes: swimTypes,
   };
 
-  contingency(newMember);
   const json = JSON.stringify(newMember);
 
   const response = await fetch(`${endpoint}/users.json`, {
@@ -69,27 +70,6 @@ function getAge(birthday) {
     age--;
   }
   return age;
-}
-console.log(getAge("1995/11/07"));
-
-function contingency(member) {
-  const passiveFee = 500;
-  const youthFee = 1000;
-  const seniorFee = 1600;
-  const seniorDiscount = 1200;
-
-  let fee;
-  if (member.memberType === "passive") {
-    fee = passiveFee;
-  } else if (member.memberType === "active" && member.ageGroup === "senior") {
-    fee = seniorFee;
-    if (member.age >= 60) {
-      fee = seniorDiscount;
-    }
-  } else if (member.memberType === "active" && member.ageGroup === "junior") {
-    fee = youthFee;
-  }
-  return fee;
 }
 
 export { signUpClicked, createMember };
