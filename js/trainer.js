@@ -1,34 +1,17 @@
 "use strict";
 
-import { getUsers, getResults } from "./rest-service.js";
+import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
 
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
+// function sortResults(event) {
+//   const selectedValue = event.target.value;
+//   results = results.sort((a, b) => a[selectedValue].localeCompare(b[selectedValue]));
+//   showResults(sortedResults);
+// }
 
-function editResultClicked(resultObject) {
-  const updateForm = document.querySelector("#editResultForm");
+////---------- SHOW/GET results ----------////
 
-  updateForm.swimmer.value = resultObject.swimmer;
-  updateForm.discipline.value = resultObject.discipline;
-  updateForm.time.value = resultObject.time;
-  updateForm.type.value = resultObject.type;
-  updateForm.meetName.value = resultObject.meetName;
-  updateForm.setAttribute("data-id", resultObject.id);
-
-  document.querySelector("#dialog-edit-result").showModal();
-
-  document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
-  document.querySelector("#cancelUpdateResult-btn").addEventListener("click", closeDialog);
-}
-
-function closeDialog() {
-  // Lukker dialog, fjerner formørkelse
-  document.querySelector("#dialog-edit-result").close();
-}
-
-////---------- Update and show results ----------////
-
-async function updateResultsPage() {
-  console.log("Updating results");
+async function updateTrainerPage() {
+  console.log("Testing: Updating trainer page");
   document.querySelector("#resultsTableBody").innerHTML = "";
   document.querySelector("#resultsTableHeader").innerHTML = "";
   document.querySelector("#resultUsersCreate").innerHTML = "";
@@ -38,10 +21,10 @@ async function updateResultsPage() {
   const users = await getUsers();
   showResults(results);
   insertSwimmersDropdown(users);
+  closeDialog();
 }
 
 function insertSwimmersDropdown(listOfUsers) {
-  console.log("TEST");
   for (const user of listOfUsers) {
     try {
       insertSwimmerDropdown(user);
@@ -59,9 +42,7 @@ function insertSwimmersDropdown(listOfUsers) {
       .insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}">${resultObject.firstName} ${resultObject.lastName}</option> `);
   }
 }
-
 function showResults(listOfResults) {
-  console.log("Showing results");
   document.querySelector("#resultsTableHeader").insertAdjacentHTML(
     "beforeend",
     /* html */
@@ -89,7 +70,6 @@ function showResults(listOfResults) {
 }
 
 function showResult(resultObject) {
-  console.log("Showing result");
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
@@ -107,11 +87,11 @@ function showResult(resultObject) {
 
   document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
     event.preventDefault();
-    confirmDelete(resultObject);
+    openDeleteDialog(resultObject);
   });
   document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
     event.preventDefault();
-    editResultClicked(resultObject);
+    openEditDialog(resultObject);
   });
 
   document.addEventListener("keydown", event => {
@@ -124,8 +104,6 @@ function showResult(resultObject) {
 ////---------- CREATE results ----------////
 
 async function createResultClicked(event) {
-  console.log("TEST");
-
   const form = event.target;
   const discipline = form.discipline.value;
   const meetName = form.meetName.value;
@@ -134,40 +112,38 @@ async function createResultClicked(event) {
   const type = form.type.value;
   const id = form.getAttribute("data-id");
 
-  console.log(id);
-
   const response = await createResult(discipline, meetName, swimmer, time, type, id);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
-    console.log("New result added to the DB");
-    //// Remove HTML from table and update shown results
+    updateTrainerPage();
     form.reset();
-    updateResultsPage();
+    closeDialog();
   }
 }
 
-////---------- CREATE REST ----------////
+////---------- EDIT RESULT ----------////
 
-async function createResult(discipline, meetName, swimmer, time, type, id) {
-  const newResult = {
-    discipline: discipline,
-    meetName: meetName,
-    swimmer: swimmer,
-    time: time,
-    type: type,
-    id: id,
-  };
-  const json = JSON.stringify(newResult);
+function openEditDialog(resultObject) {
+  const updateForm = document.querySelector("#editResultForm");
 
-  const response = await fetch(`${endpoint}/results.json`, {
-    method: "POST",
-    body: json,
-  });
+  updateForm.swimmer.value = resultObject.swimmer;
+  updateForm.discipline.value = resultObject.discipline;
+  updateForm.time.value = resultObject.time;
+  updateForm.type.value = resultObject.type;
+  updateForm.meetName.value = resultObject.meetName;
+  updateForm.setAttribute("data-id", resultObject.id);
 
-  return response;
+  document.querySelector("#dialog-edit-result").showModal();
+
+  document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
+  document.querySelector("#cancelUpdateResult-btn").addEventListener("click", closeDialog);
 }
 
-////---------- EDIT RESULT ----------////
+function closeDialog() {
+  // Lukker dialog, fjerner formørkelse
+  document.querySelector("#dialog-edit-result").close();
+  document.querySelector("#dialog-delete-result").close();
+}
 
 async function updateResultClicked(event) {
   event.preventDefault();
@@ -184,60 +160,30 @@ async function updateResultClicked(event) {
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
-    console.log("Update  clicked!", id);
     // Opdater MoviesGrid til at displaye all film og den nye film
-    updateResultsPage();
+    updateTrainerPage();
     form.reset();
     closeDialog();
   }
 }
 
-////---------- UPDATE REST ----------////
-
-async function updateResult(discipline, meetName, swimmer, time, type, id) {
-  // Opdaterer objekt med opdateret filminformation
-  const resultToUpdate = {
-    discipline,
-    meetName,
-    swimmer,
-    time,
-    type,
-  };
-  const json = JSON.stringify(resultToUpdate);
-
-  const response = await fetch(`${endpoint}/results/${id}.json`, {
-    method: "PUT",
-    body: json,
-  });
-
-  return response;
-}
-
 ////---------- DELETE results ----------////
 
-async function confirmDelete(dataObject) {
-  deleteResultClicked(dataObject);
+async function openDeleteDialog(dataObject) {
+  document.querySelector("#form-delete-result").setAttribute("data-id", dataObject.id);
+  document.querySelector("#dialog-delete-result").showModal();
+  document.querySelector("#cancelDeleteResult-btn").addEventListener("click", closeDialog);
 }
 
-async function deleteResultClicked(resultObject) {
-  console.log("Delete result " + resultObject.id);
-  const response = await deleteResult(resultObject);
+async function deleteResultClicked() {
+  let id = document.querySelector("#form-delete-result").getAttribute("data-id");
+  console.log(`Testing: ${id} deleted`);
+  const response = await deleteResult(id);
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
-    //// Remove HTML from table and update shown results
-    updateResultsPage();
+    updateTrainerPage();
   }
 }
 
-////---------- DELETE REST ----------////
-
-async function deleteResult(resultObject) {
-  const response = await fetch(`${endpoint}/results/${resultObject.id}.json`, {
-    method: "DELETE",
-  });
-
-  return response;
-}
-
-export { updateResultsPage, createResultClicked };
+export { updateTrainerPage, createResultClicked, deleteResultClicked };

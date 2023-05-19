@@ -1,6 +1,6 @@
 "use strict";
 
-import { updateResultsPage, createResultClicked } from "./results.js";
+import { updateTrainerPage, createResultClicked, deleteResultClicked } from "./trainer.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
 
@@ -12,7 +12,8 @@ function initApp() {
   globalEventListeners();
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
-  document.querySelector("#results-link").addEventListener("click", updateResultsPage);
+  document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
+  document.querySelector("#results-link").addEventListener("click", updateTrainerPage);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
 

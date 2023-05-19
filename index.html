@@ -36,10 +36,10 @@
 
           <!-- =============== RESULTS SIDE SEKTION =============== -->
 
-          <dialog id="conform-delete-result">
-              <form>
+          <dialog id="dialog-delete-result">
+            <form id="form-delete-result">
                 <table>
-                  <td><button id="confirmDeleteResult-btn" class="greenBtn" type="submit">Delete</button></td>
+                  <td><button id="confirmDeleteResult-btn" type="submit" class="greenBtn" >Delete</button></td>
                   <td><button id="cancelDeleteResult-btn" type="button" class="redBtn" >Cancel</button></td>
                 </table>
               </form>
@@ -55,21 +55,21 @@
                     </select>
                   </td>
                   <td>
-                    <select name="discipline" id="discipline">
+                    <select name="discipline">
                       <option value="Crawl">Crawl</option>
                       <option value="Brystsvømning">Brystsvømning</option>
                       <option value="Rygcrawl">Rygcrawl</option>
                       <option value="Butterfly">Butterfly</option>
                     </select>
                   </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td><input type="text" name="time" placeholder="00:00:00" /></td>
                   <td>
-                    <select name="type" id="type">
+                    <select name="type">
                       <option value="Meet">Meet</option>
                       <option value="Training">Training</option>
                     </select>
                   </td>
-                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td><input type="text" name="meetName" placeholder="Meet Name" /></td>
                   <td><button id="updateResult-btn" class="greenBtn" type="submit">Update</button></td>
                   <td><button id="cancelUpdateResult-btn" type="button" class="redBtn" >Cancel</button></td>
                 </tr>
@@ -80,6 +80,12 @@
 
     <section id="results-section" class="view-content">
       <div id="results-container">
+        <form>
+          <select id="select-sort-result">
+            <option>Time</option>
+            <option>Discipline</option>
+          </select>
+        </form>
         <form id="createResultForm">
           <table id="resultsTable">
             <thead id="resultsTableHeader"></thead>
@@ -106,7 +112,7 @@
                     <option value="Training" selected="selected">Training</option>
                   </select>
                 </td>
-                <td><input type="text" id="meetName" placeholder="Meet Name" required /></td>
+                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
                 <td><button id="createResult-btn" class="greenBtn" type="submit">Create</button></td>
               </tr>
             </tbody>
