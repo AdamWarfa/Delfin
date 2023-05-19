@@ -291,6 +291,7 @@ form {
 }
 #signin-message {
   color: red;
+  text-align: center;
 }
 
 footer {
