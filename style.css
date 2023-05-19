@@ -199,6 +199,57 @@ footer {
   font-size: 17px;
   z-index: 1;
 }
+/* OPRET MEDLEMSSKAB STYLING  */
+#overskrift {
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  font-size: 25px;
+  background-color:purple
+}
+#signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#første {
+  background: orangered;
+}
+
+#anden {
+  background: limegreen;
+}
+
+#tredje {
+  background: gold;
+}
+
+#signup-accept {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  border: none;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+#signup-accept:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
 
 /* =============== KASSERENS SIDE STYLING =============== */
 

@@ -50,7 +50,7 @@
             Vi er stolte af at tilbyde et bredt udvalg af svømmeaktiviteter og træningsmuligheder til vores medlemmer. Uanset om du er ungdomssvømmer, seniorsvømmer eller ønsker et passivt medlemskab,
             er du velkommen til at blive en del af vores svømmeklub. Hvis du har spørgsmål vedrørende medlemskab eller andre relaterede emner, er du velkommen til at kontakte vores klubadministration.
             Vi ser frem til at byde dig velkommen og håber, at du vil få stor glæde af at være en del af vores svømmeklub!
-            <br><br>
+            <br /><br />
             <a href="#signup-section">Skriv dig op til medlemskab her</a>
           </p>
         </article>
@@ -66,62 +66,77 @@
       <!-- =============== MEDLEMSKAB SIGNUP SIDE SEKTION =============== -->
 
       <section id="signup-section" class="view-content">
+        <h3 id="overskrift">Skriv dig op til medlemskab</h3>
         <div id="signup-container">
+          
+          <div id="signup-left">
           <form action="" method="POST" id="signup">
-            <fieldset>
-              <h3>Skriv dig op til medlemskab</h3>
-              <label>Fornavn</label>
-              <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
-              <label>Efternavn</label>
-              <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
-              <br /><br />
-              <label>Fødselsdato:</label>
-              <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
-              <br /><br />
-              <label>Vejnavn</label>
-              <input type="text" name="street" placeholder="Indtast vejnavn" required />
-              <label>Husnummer</label>
-              <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
-              <label>Postnummer</label>
-              <input type="text" name="postCode" placeholder="Indtast postnummer" required />
-              <label>By</label>
-              <br /><br />
-              <input type="text" name="city" placeholder="Indtast by" required />
-              <label>Email</label>
-              <br /><br />
-              <input type="email" name="email" placeholder="Indtast email" required />
-              <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
-            </fieldset>
-            <fieldset>
-              <h4>Vælg type af medlemskab</h4>
-              <label>Aktivt</label>
-              <input type="radio" id="active-member-type" name="memberType" value="active" />
-              <label>Passivt</label>
-              <input type="radio" id="passive-member-type" name="memberType" value="passive" />
-              <h4>Vælg ønskede aktivitetsform</h4>
-              <label>Senior</label>
-              <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
-              <label>Junior</label>
-              <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
-              <br />
-              <br />
-              <label>Motionist </label>
-              <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-              <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
-              <br />
-              <br />
-              <h4>Svømmedisciplin</h4>
-              <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
-              <label>Butterfly</label>
-              <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
-              <label>Crawl</label>
-              <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
-              <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
-              ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
-              <br />
-              <br />
-              <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
-            </fieldset>
+            
+            
+              <fieldset id="første">
+                <label>Fornavn</label>
+                <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
+                <br /><br />
+                <label>Efternavn</label>
+                <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
+                <br /><br />
+                <label>Fødselsdato:</label>
+                <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
+                <br /><br />
+              </fieldset>
+
+              <fieldset id="anden">
+                <label>Vejnavn</label>
+                <input type="text" name="street" placeholder="Indtast vejnavn" required />
+                <br /><br />
+                <label>Husnummer</label>
+                <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
+                <br /><br />
+                <label>Postnummer</label>
+                <input type="text" name="postCode" placeholder="Indtast postnummer" required />
+                <br /><br />
+                <label>By</label>
+                <input type="text" name="city" placeholder="Indtast by" required />
+                <br /><br />
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Indtast email" required />
+                <br /><br />
+                <label>Telefon</label>
+                <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+              </fieldset>
+            </div>
+            <div id="signup-right">
+              <fieldset id="tredje">
+                <h4>Vælg type af medlemskab</h4>
+                <label>Aktivt</label>
+                <input type="radio" id="active-member-type" name="memberType" value="active" />
+                <label>Passivt</label>
+                <input type="radio" id="passive-member-type" name="memberType" value="passive" />
+                <h4>Vælg ønskede aktivitetsform</h4>
+                <label>Senior</label>
+                <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+                <label>Junior</label>
+                <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+                <br />
+                <br />
+                <label>Motionist </label>
+                <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
+                <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+                <br />
+                <br />
+                <h4>Svømmedisciplin</h4>
+                <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig:</p>
+                <label>Butterfly</label>
+                <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
+                <label>Crawl</label>
+                <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
+                <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
+                ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
+                <br />
+                <br />
+                <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
+              </fieldset>
+            </div>
           </form>
         </div>
       </section>
