@@ -352,18 +352,21 @@ td {
 }
 
 #treasurer-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
 }
 
 .list-user {
   border: 1px solid #ddd;
   border-radius: 7px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.305);
+  margin: 5px;
   padding: 20px;
-  max-width: 400px;
+  width: 250px;
+  background: #3948670d;
+  line-height: 15px;
 }
 
 .list-user h2 {
