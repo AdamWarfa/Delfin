@@ -372,6 +372,7 @@ td {
   text-align: center;
   margin-top: 7vw;
 }
+
 #restance-grid {
   margin-top: 90px;
   display: grid;
@@ -382,6 +383,15 @@ td {
 #restance-page h1 {
   font-size: 30px;
   text-align: center;
+}
+
+.contingency-expected,
+.members-paying-contingency {
+  text-align: center;
+}
+
+.contingency-expected {
+  margin-top: 100px;
 }
 
 .list-restance {

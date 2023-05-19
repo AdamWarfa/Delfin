@@ -72,31 +72,4 @@ function getAge(birthday) {
   return age;
 }
 
-function contingency(members) {
-  const membershipFees = {
-    passiveFee: 500,
-    youthFee: 1000,
-    seniorFee: 1600,
-    seniorDiscount: 1200,
-  };
-
-  let totalFee = 0;
-  for (const member of members) {
-    let fee;
-    if (member.memberType === "passive") {
-      fee = membershipFees.passiveFee;
-    } else if (member.memberType === "active" && member.ageGroup === "senior") {
-      fee = membershipFees.seniorFee;
-      if (member.age >= 60) {
-        fee = membershipFees.seniorDiscount;
-      }
-    } else if (member.memberType === "active" && member.ageGroup === "junior") {
-      fee = membershipFees.youthFee;
-    }
-    totalFee += fee;
-    console.log(fee);
-  }
-  return totalFee;
-}
-
-export { signUpClicked, createMember, contingency };
+export { signUpClicked, createMember };
