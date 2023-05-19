@@ -8,15 +8,21 @@ function initAuth() {
   document.querySelector("#btn-log-out-cancel").addEventListener("click", closeLogOutDialog);
   document.querySelector("#btn-log-out-final").addEventListener("click", signOutUser);
 
-  const user = localStorage.getItem("authUser");
+  const treasurer = localStorage.getItem("authTreasurer");
+  const coach = localStorage.getItem("authCoach");
 
-  if (user) {
-    userIsSignedIn();
+  if (treasurer) {
+    coachIsSignedOut();
+    treasurerIsSignedIn();
+  } else if (coach) {
+    treasurerIsSignedOut();
+    coachIsSignedIn();
   } else {
-    userIsSignedOut();
+    treasurerIsSignedOut();
+    coachIsSignedOut();
   }
 }
-function userIsSignedIn() {
+function treasurerIsSignedIn() {
   location.hash = "#treasurer-section";
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
@@ -24,7 +30,7 @@ function userIsSignedIn() {
   document.querySelector("#log-ind-link").classList.add("log-in-hidden");
 }
 
-function userIsSignedOut() {
+function treasurerIsSignedOut() {
   location.hash = "#home-section";
   // document.querySelector("nav").classList.add("hide");
   document.querySelector("#treasurer-link").classList.add("log-in-hidden");
@@ -33,19 +39,20 @@ function userIsSignedOut() {
 }
 
 function runApp() {
-  document.querySelector("#login-form").addEventListener("submit", login);
+  document.querySelector("#login-form").addEventListener("submit", treasurerLogin);
+  document.querySelector("#login-form").addEventListener("submit", coachLogin);
   // document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 }
-function login(event) {
+function treasurerLogin(event) {
   event.preventDefault();
   const mail = event.target.mail.value;
   const password = event.target.password.value;
 
   if (mail === "kasper@kea.dk" && password === "test123") {
-    localStorage.setItem("authUser", mail);
+    localStorage.setItem("authTreasurer", mail);
     document.querySelector("#signin-message").textContent = "";
 
-    userIsSignedIn();
+    treasurerIsSignedIn();
   } else {
     document.querySelector("#signin-message").textContent = "Wrong mail and/or password";
   }
@@ -58,10 +65,43 @@ function closeLogOutDialog() {
   document.querySelector("#log-out-dialog").close();
 }
 
+function coachIsSignedIn() {
+  location.hash = "#results-section";
+  // document.querySelector("nav").classList.remove("hide");
+  document.querySelector("#results-link").classList.remove("log-in-hidden");
+  document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
+  document.querySelector("#log-ind-link").classList.add("log-in-hidden");
+}
+
+function coachIsSignedOut() {
+  location.hash = "#home-section";
+  // document.querySelector("nav").classList.add("hide");
+  document.querySelector("#results-link").classList.add("log-in-hidden");
+  document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
+  document.querySelector("#log-ind-link").classList.remove("log-in-hidden");
+}
+
+function coachLogin(event) {
+  event.preventDefault();
+  const mail = event.target.mail.value;
+  const password = event.target.password.value;
+
+  if (mail === "coach@kea.dk" && password === "coach123") {
+    localStorage.setItem("authCoach", mail);
+    document.querySelector("#signin-message").textContent = "";
+
+    coachIsSignedIn();
+  } else {
+    document.querySelector("#signin-message").textContent = "Wrong mail and/or password";
+  }
+}
+
 function signOutUser() {
   closeLogOutDialog();
-  localStorage.removeItem("authUser");
-  userIsSignedOut();
+  localStorage.removeItem("authTreasurer");
+  localStorage.removeItem("authCoach");
+  coachIsSignedOut();
+  treasurerIsSignedOut();
 
   // allerede udkommenteret
   // location.hash = "#home-section";
