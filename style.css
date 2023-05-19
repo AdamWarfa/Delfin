@@ -343,6 +343,10 @@ td {
   border: 3px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-radius: 1pc;
+  background-color: white;
+  height: 80%;
+  margin-right: 35%;
 }
 
 #list-name {
@@ -354,7 +358,8 @@ td {
 #treasurer-grid {
   margin-top: 90px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 #treasurer-section {
@@ -387,14 +392,40 @@ td {
   width: 30vw;
 }
 
+.list-user h1 {
+  font-size: 30px;
+  text-align: center;
+}
 .user-grid-border {
   border: 0.5px solid black;
   text-align: center;
+  border-radius: 6%;
 }
 
 #user-btn-delete {
-  margin: 0;
+  /* margin: 2%;
   width: 200px;
   left: 50%;
-  align-items: center;
+  align-items: center; */
+  background-color: #b23b3b;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #c45151;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+#user-btn-delete:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #c86565;
+  border: solid 2px #b23b3b;
 }
