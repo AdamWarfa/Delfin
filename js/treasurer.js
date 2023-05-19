@@ -58,7 +58,7 @@ function showUser(userObject) {
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
 
-  users.filter((user) => user.restance).forEach(showUserinRestance);
+  users.filter(user => user.restance).forEach(showUserinRestance);
 
   // for (let i = 0; i < users.length; i++) {
   //   try {
@@ -89,4 +89,31 @@ function showUserinRestance(users) {
   );
 }
 
-export { updateUsersGrid };
+function contingency(members) {
+  const membershipFees = {
+    passiveFee: 500,
+    youthFee: 1000,
+    seniorFee: 1600,
+    seniorDiscount: 1200,
+  };
+
+  let totalFee = 0;
+  for (const member of members) {
+    let fee;
+    if (member.memberType === "passive") {
+      fee = membershipFees.passiveFee;
+    } else if (member.memberType === "active" && member.ageGroup === "senior") {
+      fee = membershipFees.seniorFee;
+      if (member.age >= 60) {
+        fee = membershipFees.seniorDiscount;
+      }
+    } else if (member.memberType === "active" && member.ageGroup === "junior") {
+      fee = membershipFees.youthFee;
+    }
+    totalFee += fee;
+    console.log(fee);
+  }
+  return totalFee;
+}
+
+export { updateUsersGrid, contingency };
