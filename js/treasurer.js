@@ -1,10 +1,11 @@
-import { getUsers } from "./rest-service.js";
+import { getUsers, deleteUserClicked } from "./rest-service.js";
 
 let users;
 
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
+  showUsersinRestance(users);
 }
 
 function showUsers(listOfUsers) {
@@ -47,6 +48,43 @@ function showUser(userObject) {
   </div>
   <button id="user-btn-delete">DELETE</button>
 </article>
+`
+  );
+
+  // Click events til at slette brugere
+  document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
+}
+
+function showUsersinRestance(users) {
+  document.querySelector("#restance-grid").innerHTML = "";
+
+  users.filter((user) => user.restance).forEach(showUserinRestance);
+
+  // for (let i = 0; i < users.length; i++) {
+  //   try {
+  //     let userInRestance;
+  //     if (users[i].restance === true) {
+  //       userInRestance = users[i];
+  //       console.log(userInRestance);
+  //       showUserinRestance(userInRestance);
+  //     }
+  //   } catch (error) {
+  //     console.log("fejl");
+  //   }
+  // }
+}
+
+function showUserinRestance(users) {
+  document.querySelector("#restance-grid").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+    <article class="list-restance">
+      <div id="user-grid" class="user-grid-border">
+        <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
+        <p id="list-balance" >${users.firstName} er i restance</p>
+      </div>
+    </article>
 `
   );
 }

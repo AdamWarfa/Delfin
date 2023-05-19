@@ -1,10 +1,15 @@
 body {
   top: 0;
   margin: 0;
-  background-color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
+  background-color: #f1f6f9;
   /* overflow-x: hidden; */
+}
+
+.log-in-hidden {
+  display: none;
+  visibility: hidden;
 }
 
 .view-content {
@@ -32,6 +37,10 @@ main {
   position: relative;
   z-index: -1;
   width: 100%;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #welcome-img {
@@ -85,7 +94,7 @@ nav {
   margin-right: 50px;
 }
 
-#menu {
+#menu-membership {
   width: 150px;
   padding-left: 0px;
   background-color: #394867;
@@ -97,16 +106,47 @@ nav {
   z-index: 3;
 }
 
-#menu ul {
+#menu-membership ul {
   text-decoration: none;
   list-style-type: none;
   font-size: 15px;
   font-weight: 700;
 }
 
-#menu a {
+#menu-membership,
+a {
   text-decoration: none;
   color: #f0f3f9;
+}
+
+#menu-accounting {
+  width: 200px;
+  padding-left: 0px;
+  background-color: #394867;
+  position: fixed;
+  right: 153px;
+  top: -61px;
+  display: flex;
+  border-radius: 5px;
+  z-index: 3;
+}
+
+#menu-accounting ul {
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#menu-accounting,
+a {
+  text-decoration: none;
+  color: #f0f3f9;
+}
+
+#signup-link {
+  color: rgb(197, 75, 75);
+  font-weight: 800;
 }
 
 .menu-closed {
@@ -168,8 +208,7 @@ nav {
 #about-section,
 #contact-section,
 #om-medlemskab-section,
-#results-section,
-#treasurer-section {
+#results-section {
   margin: 0 5vw;
   line-height: 200%;
 }
@@ -188,6 +227,63 @@ nav {
 #contact-right img {
   margin-top: 10%;
   width: 60%;
+}
+
+.view-content.active {
+  display: block;
+}
+/* -------------------------log ind side ---------------------- */
+
+#overskriften {
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  font-size: 25px;
+}
+
+.form-control input {
+  border: 0;
+  border-bottom: 2px solid #394867;
+  padding: 15px 0;
+  display: block;
+  font-size: 20px;
+  font-family: "Instrument Sans", sans-serif;
+  width: 100%;
+}
+
+#btn-sign-up {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+#btn-sign-up:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
+
+form {
+  margin: 2em auto 0;
+  padding: 1em 1em 2em;
+  text-align: center;
+}
+
+#signup-container {
+  margin-top: 90px;
+}
+#signin-message {
+  color: red;
 }
 
 footer {
@@ -251,36 +347,91 @@ footer {
   border: solid 2px #394867;
 }
 
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+/* =============== RESULTS SIDE STYLING =============== */
+
+#dialog-edit-result {
+  padding: 0%;
+}
+
+#results-container {
+  margin-top: 90px;
+}
+
+#editResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: orange;
+  width: 100%;
+}
+
+#deleteResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+#createResult-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(65, 220, 65);
+}
+
+#resultsTable {
+  width: 80%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
 /* =============== KASSERENS SIDE STYLING =============== */
 
 #user-grid {
   border: 3px solid black;
-  padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 #list-name {
   font-size: 25px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-#treasurer-page {
+#treasurer-grid {
   margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#treasurer-section {
+  margin: 0 10vw;
+  line-height: 150%;
+}
+#restance-grid {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+}
+
+.list-restance {
+  width: 30vw;
+}
+
+.list-user {
+  width: 30vw;
 }
 
 .user-grid-border {
-  border: 1px solid black;
-  padding: 25px;
+  border: 0.5px solid black;
   text-align: center;
 }
 
 #user-btn-delete {
   margin: 0;
-  position: absolute;
   width: 200px;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  align-items: center;
 }
