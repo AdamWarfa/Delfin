@@ -16,6 +16,7 @@ function initAuth() {
     userIsSignedOut();
   }
 }
+
 function userIsSignedIn() {
   location.hash = "#treasurer-section";
   // document.querySelector("nav").classList.remove("hide");
@@ -36,6 +37,7 @@ function runApp() {
   document.querySelector("#login-form").addEventListener("submit", login);
   // document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 }
+
 function login(event) {
   event.preventDefault();
   const mail = event.target.mail.value;
@@ -54,6 +56,7 @@ function login(event) {
 function openLogOutDialog() {
   document.querySelector("#log-out-dialog").showModal();
 }
+
 function closeLogOutDialog() {
   document.querySelector("#log-out-dialog").close();
 }

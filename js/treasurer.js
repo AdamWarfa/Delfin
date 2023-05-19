@@ -6,6 +6,7 @@ async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
   showUsersinRestance(users);
+  showIncomingContingency(users);
 }
 
 function showUsers(listOfUsers) {
@@ -58,8 +59,7 @@ function showUser(userObject) {
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
 
-  users.filter(user => user.restance).forEach(showUserinRestance);
-
+  users.filter(user => user.restance).forEach(showUserinRestance); // samme som
   // for (let i = 0; i < users.length; i++) {
   //   try {
   //     let userInRestance;
@@ -78,7 +78,7 @@ function showUserinRestance(users) {
   document.querySelector("#restance-grid").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
-
+    
     <article class="list-restance">
       <div id="user-grid" class="user-grid-border">
         <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
@@ -111,9 +111,24 @@ function contingency(members) {
       fee = membershipFees.youthFee;
     }
     totalFee += fee;
-    console.log(fee);
   }
   return totalFee;
+}
+
+function showIncomingContingency(users) {
+  const totalContingencyExpected = contingency(users);
+  document.querySelector("#accounting-overview").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+    <article class="contingency-incoming">
+      <div>
+        <h2 class="contingency-expected">Indkommende kontingent for denne måned: <br>${totalContingencyExpected}kr.</h2>
+        <p class="members-paying-contingency">Antal medlemmer der betaler kontingent: ${users.length}</p>
+      </div>
+    </article>
+    `
+  );
 }
 
 export { updateUsersGrid, contingency };
