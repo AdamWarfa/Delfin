@@ -142,64 +142,61 @@
 
       <section id="signup-section" class="view-content">
         <h3 id="overskrift">Skriv dig op til medlemskab</h3>
+      <div class="member-control">
         <div id="signup-container">
           
           <div id="signup-left">
           <form action="" method="POST" id="signup">
             
-            
-              <fieldset id="første">
-                <label>Fornavn</label>
+              <div id="første">
+                <!-- <label>Fornavn</label> -->
                 <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
                 <br /><br />
-                <label>Efternavn</label>
+                <!-- <label>Efternavn</label> -->
                 <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
                 <br /><br />
-                <label>Fødselsdato:</label>
-                <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
+                <!-- <label>Fødselsdato:</label> -->
+                <input for="birthday" type="date" id="birthday-signup" placeholder="Fødselsdato" name="birthday" required />
                 <br /><br />
-              </fieldset>
+              </div>
 
-              <fieldset id="anden">
-                <label>Vejnavn</label>
+              <div id="anden">
+                <!-- <label>Vejnavn</label> -->
                 <input type="text" name="street" placeholder="Indtast vejnavn" required />
                 <br /><br />
-                <label>Husnummer</label>
+                <!-- <label>Husnummer</label> -->
                 <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
                 <br /><br />
-                <label>Postnummer</label>
+                <!-- <label>Postnummer</label> -->
                 <input type="text" name="postCode" placeholder="Indtast postnummer" required />
                 <br /><br />
-                <label>By</label>
+                <!-- <label>By</label> -->
                 <input type="text" name="city" placeholder="Indtast by" required />
                 <br /><br />
-                <label>Email</label>
+                <!-- <label>Email</label> -->
                 <input type="email" name="email" placeholder="Indtast email" required />
                 <br /><br />
-                <label>Telefon</label>
+                <!-- <label>Telefon</label> -->
                 <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
-              </fieldset>
+              </div>
             </div>
-            <div id="signup-right">
-              <fieldset id="tredje">
-                <h4>Vælg type af medlemskab</h4>
+              <div id="tredje">
+                <h4>Vælg type af medlemskab : </h4>
                 <label>Aktivt</label>
                 <input type="radio" id="active-member-type" name="memberType" value="active" />
                 <label>Passivt</label>
                 <input type="radio" id="passive-member-type" name="memberType" value="passive" />
-                <h4>Vælg ønskede aktivitetsform</h4>
+                <h4>Vælg ønskede aktivitetsform : </h4>
                 <label>Senior</label>
                 <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
                 <label>Junior</label>
                 <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
-                <br />
-                <br />
                 <label>Motionist </label>
                 <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
                 <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
                 <br />
                 <br />
-                <h4>Svømmedisciplin</h4>
+                <h4>Svømmedisciplin : </h4>
                 <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig:</p>
                 <label>Butterfly</label>
                 <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
@@ -210,10 +207,10 @@
                 <br />
                 <br />
                 <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
-              </fieldset>
-            </div>
+              </div>
           </form>
         </div>
+      </div>
       </section>
 
       <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->

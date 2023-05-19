@@ -248,6 +248,7 @@ a {
   font-size: 20px;
   font-family: "Instrument Sans", sans-serif;
   width: 100%;
+  background-color:#f1f6f9; ;
 }
 
 #btn-sign-up {
@@ -274,7 +275,7 @@ a {
 }
 
 form {
-  margin: 2em auto 0;
+  margin: -1em auto 0;
   padding: 1em 1em 2em;
   text-align: center;
 }
@@ -300,23 +301,24 @@ footer {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
   font-size: 25px;
-  background-color:purple
+  /* background-color:purple; */
 }
 #signup-container {
+  margin-top: 38px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-#første {
-  background: orangered;
-}
 
-#anden {
-  background: limegreen;
-}
-
-#tredje {
-  background: gold;
+.member-control input {
+  border: 0;
+  border-bottom: 2px solid #394867;
+  padding: 15px 0;
+  display: block;
+  font-size: 15px;
+  font-family: "Instrument Sans", sans-serif;
+  width: 100%;
+  background-color: #f1f6f9;
 }
 
 #signup-accept {
@@ -334,7 +336,6 @@ footer {
   transform: translateY(0);
   display: flex;
   flex-direction: row;
-  align-items: center;
   cursor: pointer;
 }
 
