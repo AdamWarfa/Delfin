@@ -1,10 +1,6 @@
-"use strict";
-
 import { updateShownResults, createResultClicked } from "./results.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
-
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 window.addEventListener("load", initApp);
 
@@ -61,8 +57,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
   closeDropdowns();
 }
 

@@ -410,11 +410,32 @@ td {
   margin: 0 10vw;
   line-height: 150%;
 }
+
+#treasurer-page h1 {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 7vw;
+}
+
 #restance-grid {
   margin-top: 90px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 5vw;
+}
+
+#restance-page h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.contingency-expected,
+.members-paying-contingency {
+  text-align: center;
+}
+
+.contingency-expected {
+  margin-top: 100px;
 }
 
 .list-restance {
