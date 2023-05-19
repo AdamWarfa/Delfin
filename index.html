@@ -155,64 +155,76 @@
       <!-- =============== MEDLEMSKAB SIGNUP SIDE SEKTION =============== -->
 
       <section id="signup-section" class="view-content">
+        <h3 id="overskrift">Skriv dig op til medlemskab</h3>
+      <div class="member-control">
         <div id="signup-container">
+          
+          <div id="signup-left">
           <form action="" method="POST" id="signup">
-            <fieldset>
-              <h3>Skriv dig op til medlemskab</h3>
-              <label>Fornavn</label>
-              <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
-              <label>Efternavn</label>
-              <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
-              <br /><br />
-              <label>Fødselsdato:</label>
-              <input for="birthday" type="date" id="birthday-signup" name="birthday" required />
-              <br /><br />
-              <label>Vejnavn</label>
-              <input type="text" name="street" placeholder="Indtast vejnavn" required />
-              <label>Husnummer</label>
-              <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
-              <label>Postnummer</label>
-              <input type="text" name="postCode" placeholder="Indtast postnummer" required />
-              <label>By</label>
-              <br /><br />
-              <input type="text" name="city" placeholder="Indtast by" required />
-              <label>Email</label>
-              <br /><br />
-              <input type="email" name="email" placeholder="Indtast email" required />
-              <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
-            </fieldset>
-            <fieldset>
-              <h4>Vælg type af medlemskab</h4>
-              <label>Aktivt</label>
-              <input type="radio" id="active-member-type" name="memberType" value="active" />
-              <label>Passivt</label>
-              <input type="radio" id="passive-member-type" name="memberType" value="passive" />
-              <h4>Vælg ønskede aktivitetsform</h4>
-              <label>Senior</label>
-              <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
-              <label>Junior</label>
-              <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
-              <br />
-              <br />
-              <label>Motionist </label>
-              <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-              <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
-              <br />
-              <br />
-              <h4>Svømmedisciplin</h4>
-              <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig</p>
-              <label>Butterfly</label>
-              <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
-              <label>Crawl</label>
-              <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
-              <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
-              ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
-              <br />
-              <br />
-              <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
-            </fieldset>
+            
+              <div id="første">
+                <!-- <label>Fornavn</label> -->
+                <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
+                <br /><br />
+                <!-- <label>Efternavn</label> -->
+                <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
+                <br /><br />
+                <!-- <label>Fødselsdato:</label> -->
+                <input for="birthday" type="date" id="birthday-signup" placeholder="Fødselsdato" name="birthday" required />
+                <br /><br />
+              </div>
+
+              <div id="anden">
+                <!-- <label>Vejnavn</label> -->
+                <input type="text" name="street" placeholder="Indtast vejnavn" required />
+                <br /><br />
+                <!-- <label>Husnummer</label> -->
+                <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
+                <br /><br />
+                <!-- <label>Postnummer</label> -->
+                <input type="text" name="postCode" placeholder="Indtast postnummer" required />
+                <br /><br />
+                <!-- <label>By</label> -->
+                <input type="text" name="city" placeholder="Indtast by" required />
+                <br /><br />
+                <!-- <label>Email</label> -->
+                <input type="email" name="email" placeholder="Indtast email" required />
+                <br /><br />
+                <!-- <label>Telefon</label> -->
+                <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+              </div>
+            </div>
+              <div id="tredje">
+                <h4>Vælg type af medlemskab : </h4>
+                <label>Aktivt</label>
+                <input type="radio" id="active-member-type" name="memberType" value="active" />
+                <label>Passivt</label>
+                <input type="radio" id="passive-member-type" name="memberType" value="passive" />
+                <h4>Vælg ønskede aktivitetsform : </h4>
+                <label>Senior</label>
+                <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+                <label>Junior</label>
+                <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+                <label>Motionist </label>
+                <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
+                <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+                <br />
+                <br />
+                <h4>Svømmedisciplin : </h4>
+                <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig:</p>
+                <label>Butterfly</label>
+                <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
+                <label>Crawl</label>
+                <input class="check-create" type="checkbox" id="crawl-discplin" name="swimTypes" value="crawl" />
+                <label>Rygcrawl </label><input class="check-create" type="checkbox" id="rygcrawl -discplin" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label
+                ><input class="check-create" type="checkbox" id="brystsvømning-discplin" name="swimTypes" value="brystsvømning" />
+                <br />
+                <br />
+                <button id="signup-accept" value="Skriv mig op">OPRET BRUGER</button>
+              </div>
           </form>
         </div>
+      </div>
       </section>
 
       <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
@@ -293,14 +305,17 @@
       </section>
 
       <section id="login-section" class="view-content">
-        <h2>Log ind</h2>
+       <div class="form-control">
+       <h2 id="overskriften">Velkommen tilbage</h2>
         <p id="signin-message"></p>
         <form id="login-form">
-          <input name="mail" type="email" placeholder="Type email" />
-          <input name="password" type="password" placeholder="Password" />
+          <input name="mail" type="email" placeholder="E-mail" />
+          <input name="password" type="password" placeholder="Kode" />
           <button id="btn-sign-up" type="submit">Log ind</button>
           <!-- <button id="btn-sign-out" type="button">Log ud</button> -->
+        </div>
         </form>
+  
       </section>
 
       <dialog id="log-out-dialog">
