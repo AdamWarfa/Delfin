@@ -1,11 +1,3 @@
-:root {
-  /* --black: rgb(1, 3, 4);
-    --light-grey: #f1f1f4;
-    --text-color-light: #f1f1f1;
-    --text-color-dark: #333; */
-  --text-color-danger: rgb(152, 58, 58);
-  /* --white: #f1f1f1; */
-}
 body {
   top: 0;
   margin: 0;
@@ -242,6 +234,12 @@ a {
 }
 /* -------------------------log ind side ---------------------- */
 
+#overskriften {
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  font-size: 25px;
+}
+
 .form-control input {
   border: 0;
   border-bottom: 2px solid #394867;
@@ -250,67 +248,33 @@ a {
   font-size: 20px;
   font-family: "Instrument Sans", sans-serif;
   width: 100%;
-  transition: 0.1s ease-in;
-}
-
-#overskriften{
-  font-family: "Instrument Sans", sans-serif;
-  text-align: center;
-  font-size: 25px;
-}
-
-
-.social-panel-container.visible {
-  transform: translateX(-10px);
-}
-
-.social-panel ul {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.social-panel ul li {
-  margin: 0 10px;
-}
-
-.social-panel ul li a {
-  border: 1px solid #dce1f2;
-  border-radius: 50%;
-  color: #001f61;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 50px;
-  text-decoration: none;
 }
 
 #btn-sign-up {
   background-color: #394867;
   color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  font-weight: 0;
   font-size: 14px;
-  border: none;
   padding: 11px 29px;
   border: 2px solid #394867;
   box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
   border-radius: 50px;
   transition: 1s;
   transform: translateY(0);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   cursor: pointer;
+  margin-top: 25px;
 }
-
+#btn-sign-up:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
 
 form {
   margin: 2em auto 0;
-  background-color: var(--light-green);
   padding: 1em 1em 2em;
   text-align: center;
 }
@@ -319,14 +283,7 @@ form {
   margin-top: 90px;
 }
 #signin-message {
-  color: var(--text-color-danger);
-}
-
-#logind-section {
-  text-align: center;
-  font-weight: 700;
-  margin-top: 90px;
-  font-family: "Instrument Sans", sans-serif;
+  color: red;
 }
 
 footer {
