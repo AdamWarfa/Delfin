@@ -293,7 +293,33 @@ form {
   color: red;
   text-align: center;
 }
-
+#log-out-dialog{
+  border-style: solid;
+  border-color: black;
+  border-radius:10px;
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  background-color:  #f1f6f9;
+  font-size: 20px;
+  /* margin-left: 20px;
+  padding: 40px;
+  padding-top: 10px; */
+  /* background-color: black; */
+}
+#btn-log-out-cancel, #btn-log-out-final{
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
 footer {
   position: relative;
   background-color: #9ba4b5;
