@@ -61,6 +61,7 @@ function treasurerLogin(event) {
 function openLogOutDialog() {
   document.querySelector("#log-out-dialog").showModal();
 }
+
 function closeLogOutDialog() {
   document.querySelector("#log-out-dialog").close();
 }

@@ -1,5 +1,4 @@
-import { contingency } from "./signup.js";
-import { updateUsersGrid } from "./treasurer.js";
+import { updateUsersGrid, contingency } from "./treasurer.js";
 
 // Firebase variabel
 const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -9,8 +8,9 @@ async function getUsers() {
   const response = await fetch(`${endpoint}/users.json`);
   const data = await response.json();
   const users = prepareUserData(data);
-  let payment = contingency(users);
-  console.log(payment);
+  const totalContingencyExpected = contingency(users);
+
+  console.log(`total incoming contingency for the month is: ${totalContingencyExpected}kr across ${users.length} memberships`);
   return users;
 
   // TO DO: tjek navngivning af variabler og funktion
@@ -42,9 +42,7 @@ function prepareUserData(dataObject) {
   return userArray;
 }
 
-
 async function deleteUserClicked(userObject) {
-
   const response = await deleteUser(userObject);
 
   if (response.ok) {

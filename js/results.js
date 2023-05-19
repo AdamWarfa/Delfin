@@ -1,6 +1,4 @@
-"use strict";
-
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
+import { endpoint } from "./rest-service.js";
 
 function editResultClicked(resultObject) {
   const updateForm = document.querySelector("#editResultForm");
@@ -13,7 +11,6 @@ function editResultClicked(resultObject) {
   updateForm.setAttribute("data-id", resultObject.id);
 
   document.querySelector("#dialog-edit-result").showModal();
-
   document.querySelector("#editResultForm").addEventListener("submit", updateResultClicked);
 }
 
@@ -47,6 +44,7 @@ function showResults(listOfResults) {
       </tr>
     `
   );
+
   /* 
   Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
   Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
@@ -115,7 +113,6 @@ function prepareData(dataObject) {
       console.log(`Nogen har ødelagt vores result så de giver ${dataObject[key]}`);
     }
   }
-  // console.log(movieArray);
   return resultsArray;
 }
 
