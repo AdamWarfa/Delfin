@@ -2,12 +2,6 @@
 
 import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
 
-// function sortResults(event) {
-//   const selectedValue = event.target.value;
-//   results = results.sort((a, b) => a[selectedValue].localeCompare(b[selectedValue]));
-//   showResults(sortedResults);
-// }
-
 ////---------- SHOW/GET results ----------////
 
 async function updateTrainerPage() {
@@ -17,6 +11,7 @@ async function updateTrainerPage() {
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
+  location.hash = "#trainer-section";
   const results = await getResults();
   const users = await getUsers();
   showResults(results);

@@ -13,6 +13,10 @@ function initApp() {
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
   document.querySelector("#results-link").addEventListener("click", updateTrainerPage);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
+  document.querySelector("sortByTime-btn").addEventListener("click", event => {
+    event.preventDefault();
+    sortResultClicked(resultObject);
+  });
 
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
   document.querySelector("#om-medlemskab").addEventListener("click", membershipClicked);
