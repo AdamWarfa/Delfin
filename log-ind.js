@@ -67,9 +67,9 @@ function closeLogOutDialog() {
 }
 
 function coachIsSignedIn() {
-  location.hash = "#results-section";
+  location.hash = "#trainer-section";
   // document.querySelector("nav").classList.remove("hide");
-  document.querySelector("#results-link").classList.remove("log-in-hidden");
+  document.querySelector("#trainer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
   document.querySelector("#log-ind-link").classList.add("log-in-hidden");
 }
@@ -77,7 +77,7 @@ function coachIsSignedIn() {
 function coachIsSignedOut() {
   location.hash = "#home-section";
   // document.querySelector("nav").classList.add("hide");
-  document.querySelector("#results-link").classList.add("log-in-hidden");
+  document.querySelector("#trainer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
   document.querySelector("#log-ind-link").classList.remove("log-in-hidden");
 }

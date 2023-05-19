@@ -11,12 +11,12 @@ function initApp() {
   initViews();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
-  document.querySelector("#results-link").addEventListener("click", updateTrainerPage);
+  document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
-  document.querySelector("sortByTime-btn").addEventListener("click", event => {
-    event.preventDefault();
-    sortResultClicked(resultObject);
-  });
+  // document.querySelector("sortByTime-btn").addEventListener("click", event => {
+  //   event.preventDefault();
+  //   sortResultClicked(resultObject);
+  // });
 
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
   document.querySelector("#om-medlemskab").addEventListener("click", membershipClicked);
@@ -64,8 +64,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
   closeDropdowns();
 }
 
