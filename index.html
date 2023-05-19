@@ -18,14 +18,14 @@
       <!-- =============== HEADER SEKTION =============== -->
 
       <nav>
-        <a id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a id="membership-link" class="view-link">Medlemskab</a>
-        <a id="about-link" href="#about-section" class="view-link">Om os</a>
-        <a id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
-        <a id="results-link" href="#results-section" class="view-link log-in-hidden">Resultater</a>
-        <a id="treasurer-link" class="view-link" class="log-in-hidden">Kaspers Side</a>
-        <a id="log-ind-link" href="#login-section" class="view-link">Log ind</a>
-        <a id="btn-sign-out" class="view-link" class="log-in-hidden">Log ud</a>
+        <a class="navlink" id="home-link" href="#home-section" class="view-link">Hjem</a>
+        <a class="navlink" id="membership-link" class="view-link">Medlemskab</a>
+        <a class="navlink" id="results-link" href="#trainer-section" class="view-link">TrainerAdmin</a>
+        <a class="navlink" id="about-link" href="#about-section" class="view-link">Om os</a>
+        <a class="navlink" id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
+        <a class="navlink" id="log-ind-link" href="#login-section" class="view-link">Log ind</a>
+        <a class="navlink" id="treasurer-link" class="view-link" class="log-in-hidden">Kaspers Side</a>
+        <a class="navlink" id="btn-sign-out" class="view-link" class="log-in-hidden">Log ud</a>
       </nav>
     </header>
     <main>
@@ -45,48 +45,58 @@
         </ul>
       </div>
 
-      <!-- =============== RESULTS SIDE SEKTION =============== -->
+      <dialog id="dialog-delete-result">
+        <form id="form-delete-result">
+          <table>
+            <td><button id="confirmDeleteResult-btn" type="submit" class="greenBtn">Delete</button></td>
+            <td><button id="cancelDeleteResult-btn" type="button" class="redBtn">Cancel</button></td>
+          </table>
+        </form>
+      </dialog>
 
       <dialog id="dialog-edit-result">
         <form id="editResultForm">
           <table id="editResultsTable">
             <tbody>
               <tr>
-                <td><input type="text" name="swimmer" id="swimmer" placeholder="Dropdowntbh" /></td>
                 <td>
-                  <select name="discipline" id="discipline">
+                  <select name="swimmer" id="resultUsersEdit"></select>
+                </td>
+                <td>
+                  <select name="discipline">
                     <option value="Crawl">Crawl</option>
                     <option value="Brystsvømning">Brystsvømning</option>
                     <option value="Rygcrawl">Rygcrawl</option>
                     <option value="Butterfly">Butterfly</option>
                   </select>
                 </td>
-                <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                <td><input type="text" name="time" placeholder="00:00:00" /></td>
                 <td>
-                  <select name="type" id="type">
+                  <select name="type">
                     <option value="Meet">Meet</option>
                     <option value="Training">Training</option>
                   </select>
                 </td>
-                <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                <td><button id="updateResult-btn" type="submit">Update</button></td>
-                <td><button id="cancelUpdateResult-btn" type="submit">Cancel</button></td>
+                <td><input type="text" name="meetName" placeholder="Meet Name" /></td>
+                <td><button id="updateResult-btn" class="greenBtn" type="submit">Update</button></td>
+                <td><button id="cancelUpdateResult-btn" type="button" class="redBtn">Cancel</button></td>
               </tr>
             </tbody>
           </table>
         </form>
       </dialog>
 
-      <section id="results-section" class="view-content">
+      <section id="trainer-section" class="view-content">
         <div id="results-container">
           <form id="createResultForm">
             <table id="resultsTable">
+              </thead>
               <thead id="resultsTableHeader"></thead>
               <tbody id="resultsTableBody"></tbody>
 
               <tbody>
                 <tr>
-                  <td><input type="text" id="swimmer" placeholder="Dropdowntbh" /></td>
+                  <td><select name="swimmer" id="resultUsersCreate"><select></td>
                   <td>
                     <select name="discipline" id="discipline">
                       <option value="Crawl">Crawl</option>
@@ -95,7 +105,7 @@
                       <option value="Butterfly">Butterfly</option>
                     </select>
                   </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" /></td>
+                  <td><input type="text" id="time" placeholder="00:00:00" required/></td>
                   <td>
                     <select name="type" id="type">
                       <option value="Meet">Meet</option>
