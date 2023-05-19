@@ -298,17 +298,6 @@ a {
   max-width: 380px;
 }
 
-#input_1 {
-  margin: 1em auto;
-  width: 100%;
-  max-width: 350px;
-  padding: 1em;
-  border: 2px solid red;
-  display: block;
-  background: var orange;
-  display: inline-block;
-  font-family: "Instrument Sans", sans-serif;
-}
 form {
   margin: 2em auto 0;
   background-color: var(--light-green);
