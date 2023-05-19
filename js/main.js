@@ -12,7 +12,7 @@ function initApp() {
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
 
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
-  document.querySelector("#om-medlemskab").addEventListener("click", membershipClicked);
+  document.querySelector("#about-membership").addEventListener("click", membershipClicked);
   document.querySelector("#signup-nav-link").addEventListener("click", membershipClicked);
 
   document.querySelector("#treasurer-link").addEventListener("click", accountingClicked);
