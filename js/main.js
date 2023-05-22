@@ -154,17 +154,18 @@ function sortTop5(a, b) {
 // Funktion til DOM-manipulation
 
 async function showTop5(resultsObject) {
-  const user = await getMember(resultsObject.uid);
-  console.log(user);
+  const user = await getMember(resultsObject.swimmer);
 
   document.querySelector("#front-grid").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
 <article class="top5-card">
-
-<p id="list-name">${resultsObject.discipline}</p>
-<p id="list-name">${resultsObject.time}</p>
+<h2>${user.firstName} ${user.lastName}</h2>
+<p>${user.ageGroup}</p>
+<p>${resultsObject.meetName}</p>
+<p>${resultsObject.discipline}</p>
+<p>${resultsObject.time}</p>
 
 </article>
 `
