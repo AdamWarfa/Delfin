@@ -118,10 +118,17 @@ async function updateResultsGrid() {
   showAllTop5(listOfResults);
 }
 
+async function getMember(uid) {
+  const response = await fetch(`${endpoint}/users/${uid.json}`);
+  const user = await response.json();
+  return user;
+}
+
+
 function showAllTop5(listOfResults) {
+  
   const sortedResults = listOfResults.sort(sortTop5);
   console.log(sortedResults);
-
   document.querySelector("#front-grid").innerHTML = "";
 
   sortedResults
@@ -143,34 +150,24 @@ function showAllTop5(listOfResults) {
     .filter((result) => result.discipline.includes("Rygcrawl"))
     .slice(0, 5)
     .forEach(showTop5);
-
-  /* 
-  Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
-  Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
-  // */
-  // for (const result of listOfResults) {
-  //   try {
-  //     showTop5(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 }
 
 function sortTop5(a, b) {
   return a.time.localeCompare(b.time);
 }
-
 // Funktion til DOM-manipulation
-function showTop5(resultsObject) {
+async function showTop5(resultsObject) {
+    const user = await getMember(resultsObject.uid);
+
   document.querySelector("#front-grid").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
 <article class="top5-card">
-<h2 id="list-name">${resultsObject.swimmer}</h2>
+<h2 id="list-name">${user.firstname}</h2>
 <p id="list-name">${resultsObject.discipline}</p>
 <p id="list-name">${resultsObject.time}</p>
+
 </article>
 `
   );

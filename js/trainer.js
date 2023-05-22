@@ -11,7 +11,6 @@ async function updateTrainerPage() {
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
-
   location.hash = "#trainer-section";
   const results = await getResults();
   const users = await getUsers();
@@ -68,6 +67,7 @@ function showResults(listOfResults) {
 }
 
 function showResult(resultObject) {
+
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
@@ -110,8 +110,9 @@ async function createResultClicked(event) {
   const swimmer = form.swimmer.value;
   const time = form.time.value;
   const type = form.type.value;
-  const agegroup = form.type.value;
+  const agegroup = form.agegroup.value;
   const id = form.getAttribute("data-id");
+  const uid = form.
 
   const response = await createResult(discipline, meetName, swimmer, time, type, agegroup, id);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
