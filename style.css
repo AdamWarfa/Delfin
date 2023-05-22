@@ -325,7 +325,7 @@ a {
   border: solid 2px #394867;
 }
 
-form {
+#signup {
   margin: -1em auto 0;
   padding: 1em 1em 2em;
   text-align: center;
@@ -440,13 +440,13 @@ td {
   border: 1px solid;
 }
 
-/* =============== RESULTS SIDE STYLING =============== */
+/* =============== TRAINER PAGE STYLING =============== */
 
 #dialog-edit-result {
-  padding: 0%;
+  padding-top: 30px;
 }
 
-#results-container {
+#trainer-container {
   margin-top: 90px;
 }
 
@@ -459,11 +459,13 @@ td {
 .redBtn {
   color: rgb(255, 255, 255);
   background-color: red;
+  width: 100%;
 }
 
 .greenBtn {
   color: rgb(255, 255, 255);
   background-color: rgb(65, 220, 65);
+  width: 100%;
 }
 
 #resultsTable {
@@ -472,74 +474,76 @@ td {
   margin-bottom: 5%;
 }
 
+#resultsTableHeader {
+  background-color: #9ba4b5;
+}
+
 /* =============== KASSERENS SIDE STYLING =============== */
-
-#user-grid {
-  border: 3px solid black;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#list-name {
-  font-size: 25px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#treasurer-grid {
-  margin-top: 90px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.view-content {
+  margin-bottom: 20px;
 }
 
 #treasurer-section {
-  margin: 0 10vw;
-  line-height: 150%;
+  text-align: center;
 }
 
 #treasurer-page h1 {
   font-size: 30px;
-  text-align: center;
-  margin-top: 7vw;
+  margin-top: 0;
 }
 
-#restance-grid {
-  margin-top: 90px;
+#treasurer-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 5vw;
-}
-
-#restance-page h1 {
-  font-size: 30px;
-  text-align: center;
-}
-
-.contingency-expected,
-.members-paying-contingency {
-  text-align: center;
-}
-
-.contingency-expected {
-  margin-top: 100px;
-}
-
-.list-restance {
-  width: 30vw;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
 }
 
 .list-user {
-  width: 30vw;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.305);
+  margin: 5px;
+  padding: 20px;
+  width: 250px;
+  background: #3948670d;
+  line-height: 15px;
+}
+
+.list-user h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.list-user p {
+  margin: 5px 0;
 }
 
 .user-grid-border {
-  border: 0.5px solid black;
-  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+#user-btn-delete {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
 }
 
-#user-btn-delete {
-  margin: 0;
-  width: 200px;
-  left: 50%;
-  align-items: center;
+#user-btn-delete:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #d9e2e7;
+  color: #394867;
+  border: solid 2px #394867;
 }

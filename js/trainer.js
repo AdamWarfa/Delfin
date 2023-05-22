@@ -4,15 +4,15 @@ import { getUsers, getResults, deleteResult, createResult, updateResult } from "
 
 ////---------- SHOW/GET results ----------////
 
+let results;
+
 async function updateTrainerPage() {
   console.log("Testing: Updating trainer page");
   document.querySelector("#resultsTableBody").innerHTML = "";
-  document.querySelector("#resultsTableHeader").innerHTML = "";
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
-  location.hash = "#trainer-section";
-  const results = await getResults();
+  let results = await getResults();
   const users = await getUsers();
   showResults(results);
   insertSwimmersDropdown(users);
@@ -38,24 +38,8 @@ function insertSwimmersDropdown(listOfUsers) {
   }
 }
 function showResults(listOfResults) {
-  document.querySelector("#resultsTableHeader").insertAdjacentHTML(
-    "beforeend",
-    /* html */
-    `
-      <tr>
-        <td>Svømmer</td>
-        <td>Disciplin</td>
-        <td>Tid</td>
-        <td>Type</td>
-        <td>Stævne</td>
-      </tr>
-    `
-  );
+  document.querySelector("#resultsTableBody").innerHTML = "";
 
-  /* 
-  Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
-  Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
-  */
   for (const result of listOfResults) {
     try {
       showResult(result);
@@ -95,6 +79,15 @@ function showResult(resultObject) {
       closeDialog();
     }
   });
+}
+
+async function inputResultSearchChanged(event) {
+  showResults(await searchResults(event.target.value));
+}
+
+async function searchResults(searchValue) {
+  let results = await getResults();
+  return (results = results.filter(result => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
 }
 
 ////---------- CREATE results ----------////
@@ -182,4 +175,4 @@ async function deleteResultClicked() {
   }
 }
 
-export { updateTrainerPage, createResultClicked, deleteResultClicked };
+export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged };
