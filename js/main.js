@@ -3,12 +3,14 @@
 import { updateTrainerPage, createResultClicked, deleteResultClicked } from "./trainer.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
+import { getResults } from "./rest-service.js";
 
 window.addEventListener("load", initApp);
 
 function initApp() {
   globalEventListeners();
   initViews();
+  updateResultsGrid();
   //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
   document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
@@ -105,4 +107,40 @@ function closeDropdowns() {
   } else {
     return null;
   }
+}
+
+async function updateResultsGrid() {
+  const listOfResults = await getResults();
+  showAllTop5(listOfResults);
+}
+
+function showAllTop5(listOfResults) {
+  document.querySelector("#front-grid").innerHTML = "";
+
+  /* 
+  Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
+  Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
+  */
+  for (const result of listOfResults) {
+    try {
+      showTop5(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+// Funktion til DOM-manipulation
+function showTop5(resultsObject) {
+  document.querySelector("#front-grid").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+<article class="top5-card">
+<h2 id="list-name">${resultsObject.swimmer}</h2>
+<p id="list-name">${resultsObject.discipline}</p>
+<p id="list-name">${resultsObject.time}</p>
+</article>
+`
+  );
 }
