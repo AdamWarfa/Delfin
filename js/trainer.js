@@ -1,6 +1,7 @@
 "use strict";
 
 import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
+import { getMember } from "./main.js";
 
 ////---------- SHOW/GET results ----------////
 
@@ -29,16 +30,25 @@ function insertSwimmersDropdown(listOfUsers) {
   }
 
   function insertSwimmerDropdown(resultObject) {
-    document
-      .querySelector("#resultUsersEdit")
-      .insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}">${resultObject.firstName} ${resultObject.lastName}</option> `);
-    document
-      .querySelector("#resultUsersCreate")
-      .insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}">${resultObject.firstName} ${resultObject.lastName}</option> `);
+    document.querySelector("#resultUsersEdit").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.id}">${resultObject.firstName} ${resultObject.lastName}</option> `);
+    document.querySelector("#resultUsersCreate").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.id}">${resultObject.firstName} ${resultObject.lastName}</option> `);
   }
 }
 function showResults(listOfResults) {
-  document.querySelector("#resultsTableBody").innerHTML = "";
+  document.querySelector("#resultsTableHeader").insertAdjacentHTML(
+    "beforeend",
+    /* html */
+    `
+      <tr>
+        <td>Svømmer</td>
+        <td>Disciplin</td>
+        <td>Tid</td>
+        <td>Type</td>
+        <td>Stævne</td>
+        <td>Aldersgruppe</td>
+      </tr>
+    `
+  );
 
   for (const result of listOfResults) {
     try {
@@ -49,32 +59,35 @@ function showResults(listOfResults) {
   }
 }
 
-function showResult(resultObject) {
+async function showResult(resultObject) {
+  const user = await getMember(resultObject.swimmer);
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
       <tr>
-        <td>${resultObject.swimmer}</td>
+        <td>${user.firstName} ${user.lastName}</td>
         <td>${resultObject.discipline}</td>
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
+        <td>${resultObject.aldersgruppe}</td>
+
         <td><button id="editResult-btn" class="orangeBtn">Edit</button></td>
         <td><button id="deleteResult-btn" class="redBtn">Delete</button></td>
       </tr>
     `
   );
 
-  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openDeleteDialog(resultObject);
   });
-  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openEditDialog(resultObject);
   });
 
-  document.addEventListener("keydown", event => {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeDialog();
     }
@@ -87,7 +100,7 @@ async function inputResultSearchChanged(event) {
 
 async function searchResults(searchValue) {
   let results = await getResults();
-  return (results = results.filter(result => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
+  return (results = results.filter((result) => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
 }
 
 ////---------- CREATE results ----------////
@@ -102,11 +115,16 @@ async function createResultClicked(event) {
   const id = form.getAttribute("data-id");
 
   const response = await createResult(discipline, meetName, swimmer, time, type, id);
+
+  console.log(swimmer);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     updateTrainerPage();
+    alert("INGEN FEJL");
     form.reset();
     closeDialog();
+  } else {
+    alert("MANGE FEJL");
   }
 }
 
@@ -115,7 +133,7 @@ async function createResultClicked(event) {
 function openEditDialog(resultObject) {
   const updateForm = document.querySelector("#editResultForm");
 
-  updateForm.swimmer.value = resultObject.swimmer;
+  updateForm.swimmer.value = resultObject.uid;
   updateForm.discipline.value = resultObject.discipline;
   updateForm.time.value = resultObject.time;
   updateForm.type.value = resultObject.type;
@@ -140,12 +158,12 @@ async function updateResultClicked(event) {
   const form = event.target;
   const discipline = form.discipline.value;
   const meetName = form.meetName.value;
-  const swimmer = form.swimmer.value;
+  const uid = form.swimmer.value;
   const time = form.time.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
 
-  const response = await updateResult(discipline, meetName, swimmer, time, type, id);
+  const response = await updateResult(discipline, meetName, uid, time, type, id);
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {

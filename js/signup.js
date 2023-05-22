@@ -62,6 +62,7 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
   return response;
 }
 
+
 function getAge(birthday) {
   let birthDate = new Date(birthday);
   let age = new Date().getFullYear() - birthDate.getFullYear();
