@@ -11,6 +11,7 @@ async function updateTrainerPage() {
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
+
   location.hash = "#trainer-section";
   const results = await getResults();
   const users = await getUsers();
@@ -48,6 +49,7 @@ function showResults(listOfResults) {
         <td>Tid</td>
         <td>Type</td>
         <td>Stævne</td>
+        <td>Aldersgruppe</td>
       </tr>
     `
   );
@@ -75,6 +77,8 @@ function showResult(resultObject) {
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
+        <td>${resultObject.aldersgruppe}</td>
+
         <td><button id="editResult-btn" class="orangeBtn">Edit</button></td>
         <td><button id="deleteResult-btn" class="redBtn">Delete</button></td>
       </tr>
@@ -106,9 +110,10 @@ async function createResultClicked(event) {
   const swimmer = form.swimmer.value;
   const time = form.time.value;
   const type = form.type.value;
+  const agegroup = form.type.value;
   const id = form.getAttribute("data-id");
 
-  const response = await createResult(discipline, meetName, swimmer, time, type, id);
+  const response = await createResult(discipline, meetName, swimmer, time, type, agegroup, id);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     updateTrainerPage();
