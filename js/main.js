@@ -1,6 +1,6 @@
 "use strict";
 
-import { updateTrainerPage, createResultClicked, deleteResultClicked } from "./trainer.js";
+import { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged } from "./trainer.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
 
@@ -9,7 +9,6 @@ window.addEventListener("load", initApp);
 function initApp() {
   globalEventListeners();
   initViews();
-  //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
   document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
@@ -17,6 +16,8 @@ function initApp() {
   //   event.preventDefault();
   //   sortResultClicked(resultObject);
   // });
+  document.querySelector("#input-search-result").addEventListener("keyup", inputResultSearchChanged);
+  document.querySelector("#input-search-result").addEventListener("search", inputResultSearchChanged);
 
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
   document.querySelector("#om-medlemskab").addEventListener("click", membershipClicked);
@@ -27,6 +28,7 @@ function initApp() {
   document.querySelector("#accounting-link").addEventListener("click", accountingClicked);
 
   updateUsersGrid();
+  updateTrainerPage();
 }
 
 function globalEventListeners() {
@@ -64,8 +66,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
   closeDropdowns();
 }
 

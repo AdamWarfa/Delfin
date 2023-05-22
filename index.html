@@ -87,35 +87,52 @@
       </dialog>
 
       <section id="trainer-section" class="view-content">
-        <div id="results-container">
+        <div id="trainer-container">
           <form id="createResultForm">
             <table id="resultsTable">
-              </thead>
-              <thead id="resultsTableHeader"></thead>
-              <tbody id="resultsTableBody"></tbody>
-
               <tbody>
                 <tr>
-                  <td><select name="swimmer" id="resultUsersCreate"><select></td>
                   <td>
-                    <select name="discipline" id="discipline">
+                    <input type="search" id="input-search-result" name="search-result" placeholder="Søg efter svømmer" style="width: 100%" />
+                  </td>
+                  <td><button style="width: 8em; margin: auto; display: block">Sort by</button></td>
+                  <td><button style="width: 8em; margin: auto; display: block">Sort by</button></td>
+                  <td><button style="width: 8em; margin: auto; display: block">Sort by</button></td>
+                  <td><button style="width: 8em; margin: auto; display: block">Sort by</button></td>
+                </tr>
+              </tbody>
+              <tbody id="resultsTableHeader">
+                <tr>
+                  <td>Svømmer</td>
+                  <td>Disciplin</td>
+                  <td>Tid</td>
+                  <td>Type</td>
+                  <td>Stævne</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td><select name="swimmer" id="resultUsersCreate" style="width: 100%" ><select></td>
+                  <td>
+                    <select name="discipline" id="discipline" style="width: 100%" >
                       <option value="Crawl">Crawl</option>
                       <option value="Brystsvømning">Brystsvømning</option>
                       <option value="Rygcrawl">Rygcrawl</option>
                       <option value="Butterfly">Butterfly</option>
                     </select>
                   </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" required/></td>
+                  <td><input type="text" id="time" placeholder="00:00:00" required style="width: 97%" /></td>
                   <td>
-                    <select name="type" id="type">
+                    <select name="type" id="type" style="width: 100%" >
                       <option value="Meet">Meet</option>
                       <option value="Training">Training</option>
                     </select>
                   </td>
-                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                  <td><button id="createResult-btn" type="submit">Create</button></td>
+                  <td><input type="text" id="meetName" placeholder="Meet Name" style="width: 97%" /></td>
+                  <td><button id="createResult-btn" class="greenBtn" type="submit">Create</button></td>
                 </tr>
               </tbody>
+              <tbody id="resultsTableBody"></tbody>
             </table>
           </form>
         </div>

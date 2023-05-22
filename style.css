@@ -279,7 +279,7 @@ a {
   border: solid 2px #394867;
 }
 
-form {
+#signup {
   margin: -1em auto 0;
   padding: 1em 1em 2em;
   text-align: center;
@@ -394,13 +394,13 @@ td {
   border: 1px solid;
 }
 
-/* =============== RESULTS SIDE STYLING =============== */
+/* =============== TRAINER PAGE STYLING =============== */
 
 #dialog-edit-result {
-  padding: 0%;
+  padding-top: 30px;
 }
 
-#results-container {
+#trainer-container {
   margin-top: 90px;
 }
 
@@ -413,17 +413,23 @@ td {
 .redBtn {
   color: rgb(255, 255, 255);
   background-color: red;
+  width: 100%;
 }
 
 .greenBtn {
   color: rgb(255, 255, 255);
   background-color: rgb(65, 220, 65);
+  width: 100%;
 }
 
 #resultsTable {
   width: 80%;
   margin-left: 5%;
   margin-bottom: 5%;
+}
+
+#resultsTableHeader {
+  background-color: #9ba4b5;
 }
 
 /* =============== KASSERENS SIDE STYLING =============== */
