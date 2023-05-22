@@ -26,7 +26,7 @@ header {
   width: 100vw;
   position: fixed;
   top: 0;
-  z-index: 6;
+  z-index: 7;
 }
 
 #title {
@@ -99,7 +99,7 @@ dialog::backdrop {
 #welcome-h3 {
   position: absolute;
   z-index: 2;
-  top: 10vh;
+  top: 15vw;
   left: 12vw;
   color: #f1f6f9;
   font-size: 59px;
@@ -108,7 +108,7 @@ dialog::backdrop {
 #welcome-h2 {
   position: absolute;
   z-index: 2;
-  top: 12vh;
+  top: 17vw;
   left: 12vw;
   color: #f1f6f9;
   font-size: 100px;
@@ -118,7 +118,7 @@ dialog::backdrop {
 #welcome-p {
   position: absolute;
   z-index: 2;
-  top: 37vh;
+  top: 31vw;
   left: 12vw;
   color: #f1f6f9;
   font-size: 20px;
@@ -128,7 +128,7 @@ dialog::backdrop {
 #welcome-btn {
   z-index: 2;
   position: absolute;
-  top: 50vh;
+  top: 38vw;
   left: 12vw;
   background-color: #394867;
   color: #f1f6f9;
@@ -138,8 +138,6 @@ dialog::backdrop {
   border: 2px solid #394867;
   box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
   border-radius: 50px;
-  transition: 1s;
-  transform: translateY(0);
   cursor: pointer;
   margin-top: 25px;
 }
@@ -153,7 +151,7 @@ dialog::backdrop {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 7;
+  z-index: 6;
 }
 
 #menu-membership ul {
@@ -178,7 +176,7 @@ a {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 7;
+  z-index: 6;
 }
 
 #menu-accounting ul {
@@ -224,7 +222,7 @@ a {
     visibility: visible;
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(0, -125px);
     visibility: hidden;
   }
 }
