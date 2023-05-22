@@ -4,7 +4,7 @@ body {
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
   background-color: #f1f6f9;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .log-in-hidden {
@@ -21,53 +21,12 @@ body {
 }
 
 header {
+  background-color: #394867;
   height: 70px;
   width: 100vw;
   position: fixed;
   top: 0;
-  background-color: #394867;
-  z-index: 4;
-}
-
-main {
-  margin-top: 70px;
-  width: 100%;
-}
-#frontpage {
-  position: relative;
-  z-index: -1;
-  width: 100%;
-}
-
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-#welcome-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  transform: scaleX(-1);
-  /* object-fit: cover; */
-}
-
-#welcome-h3 {
-  position: absolute;
-  z-index: 2;
-  top: 27vh;
-  left: 10vw;
-  color: #f1f6f9;
-  font-size: 71px;
-  font-weight: 700;
-}
-#welcome-h2 {
-  position: absolute;
-  z-index: 2;
-  top: 29vh;
-  left: 10vw;
-  color: #f1f6f9;
-  font-size: 120px;
-  font-weight: 700;
+  z-index: 6;
 }
 
 #title {
@@ -94,6 +53,97 @@ nav {
   margin-right: 50px;
 }
 
+main {
+  width: 100%;
+}
+#frontpage {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#home-section {
+  width: 100%;
+}
+
+#welcome-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  filter: brightness(30%);
+}
+
+.parallelogram {
+  position: absolute;
+  width: 60%;
+  height: 99.5%;
+  top: 0;
+  left: 65%;
+  background: rgb(57, 72, 103);
+  background: linear-gradient(180deg, rgba(57, 72, 103, 1) 0%, rgba(55, 114, 185, 1) 100%);
+  transform: skew(30deg);
+}
+
+#swimmer-png {
+  position: absolute;
+  transform: scaleX(-1) rotate(11deg);
+  width: 50.82%;
+  top: 29.83%;
+  right: -5%;
+}
+
+#welcome-h3 {
+  position: absolute;
+  z-index: 2;
+  top: 10vh;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 59px;
+  font-weight: 700;
+}
+#welcome-h2 {
+  position: absolute;
+  z-index: 2;
+  top: 12vh;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+#welcome-p {
+  position: absolute;
+  z-index: 2;
+  top: 37vh;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#welcome-btn {
+  z-index: 2;
+  position: absolute;
+  top: 50vh;
+  left: 12vw;
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+
 #menu-membership {
   width: 150px;
   padding-left: 0px;
@@ -103,7 +153,7 @@ nav {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 7;
 }
 
 #menu-membership ul {
@@ -128,7 +178,7 @@ a {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 7;
 }
 
 #menu-accounting ul {
@@ -229,9 +279,6 @@ a {
   width: 60%;
 }
 
-.view-content.active {
-  display: block;
-}
 /* -------------------------log ind side ---------------------- */
 
 #overskriften {

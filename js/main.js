@@ -46,7 +46,7 @@ function viewChange() {
     // if there's a hash value, use as link
     hashLink = location.hash;
   }
-
+  changeHeader(hashLink);
   hideAllViews(); // hide all views
 
   document.querySelector(hashLink).classList.add("active"); // add .active to the view you want to show
@@ -67,6 +67,16 @@ function hideAllViews() {
   document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
   document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
   closeDropdowns();
+}
+
+function changeHeader(hashLink) {
+  if (hashLink === "#home-section") {
+    document.querySelector("header").style.backgroundColor = "transparent";
+    document.querySelector("header").style.position = "absolute";
+  } else {
+    document.querySelector("header").style.backgroundColor = "#394867";
+    document.querySelector("header").style.position = "fixed";
+  }
 }
 
 function membershipClicked() {
