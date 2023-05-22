@@ -81,16 +81,16 @@ function showResult(resultObject) {
     `
   );
 
-  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openDeleteDialog(resultObject);
   });
-  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openEditDialog(resultObject);
   });
 
-  document.addEventListener("keydown", event => {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeDialog();
     }

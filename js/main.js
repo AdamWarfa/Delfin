@@ -8,6 +8,10 @@ import { getResults } from "./rest-service.js";
 window.addEventListener("load", initApp);
 
 function initApp() {
+  const fem = "05:42";
+  console.log(fem);
+  console.log(Number(fem));
+
   globalEventListeners();
   initViews();
   updateResultsGrid();
@@ -115,19 +119,46 @@ async function updateResultsGrid() {
 }
 
 function showAllTop5(listOfResults) {
+  const sortedResults = listOfResults.sort(sortTop5);
+  console.log(sortedResults);
+
   document.querySelector("#front-grid").innerHTML = "";
+
+  sortedResults
+    .filter((result) => result.discipline.includes("Crawl"))
+    .slice(0, 5)
+    .forEach(showTop5);
+
+  sortedResults
+    .filter((result) => result.discipline.includes("Brystsvømning"))
+    .slice(0, 5)
+    .forEach(showTop5);
+
+  sortedResults
+    .filter((result) => result.discipline.includes("Butterfly"))
+    .slice(0, 5)
+    .forEach(showTop5);
+
+  sortedResults
+    .filter((result) => result.discipline.includes("Rygcrawl"))
+    .slice(0, 5)
+    .forEach(showTop5);
 
   /* 
   Når man laver et nyt "create post", giver den fejlbesked i konsollen, da objektets datastruktur ikke stemmer overens med databasen.
   Derfor implementerede vi en try catch som gerne skulle fange fejlbeskederne.
-  */
-  for (const result of listOfResults) {
-    try {
-      showTop5(result);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // */
+  // for (const result of listOfResults) {
+  //   try {
+  //     showTop5(result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+}
+
+function sortTop5(a, b) {
+  return a.time.localeCompare(b.time);
 }
 
 // Funktion til DOM-manipulation
