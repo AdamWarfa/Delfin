@@ -35,20 +35,7 @@ function insertSwimmersDropdown(listOfUsers) {
   }
 }
 function showResults(listOfResults) {
-  document.querySelector("#resultsTableHeader").insertAdjacentHTML(
-    "beforeend",
-    /* html */
-    `
-      <tr>
-        <td>Svømmer</td>
-        <td>Disciplin</td>
-        <td>Tid</td>
-        <td>Type</td>
-        <td>Stævne</td>
-        <td>Aldersgruppe</td>
-      </tr>
-    `
-  );
+  document.querySelector("#resultsTableBody").innerHTML = "";
 
   for (const result of listOfResults) {
     try {
@@ -70,7 +57,6 @@ async function showResult(resultObject) {
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
-        <td>${resultObject.aldersgruppe}</td>
 
         <td><button id="editResult-btn" class="orangeBtn">Edit</button></td>
         <td><button id="deleteResult-btn" class="redBtn">Delete</button></td>
