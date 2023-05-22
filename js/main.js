@@ -171,3 +171,5 @@ async function showTop5(resultsObject) {
 `
   );
 }
+
+export { getMember };

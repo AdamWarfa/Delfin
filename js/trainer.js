@@ -1,6 +1,7 @@
 "use strict";
 
 import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
+import { getMember } from "./main.js";
 
 ////---------- SHOW/GET results ----------////
 
@@ -62,12 +63,13 @@ function showResults(listOfResults) {
   }
 }
 
-function showResult(resultObject) {
+async function showResult(resultObject) {
+  const user = await getMember(resultObject.swimmer);
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
       <tr>
-        <td>${resultObject.swimmer}</td>
+        <td>${user.firstName} ${user.lastName}</td>
         <td>${resultObject.discipline}</td>
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
