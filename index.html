@@ -70,7 +70,7 @@
                     <option value="Butterfly">Butterfly</option>
                   </select>
                 </td>
-                <td><input type="text" name="time" placeholder="00:00:00" /></td>
+                <td><input type="tel" maxlength="6" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="time" placeholder="00:00:00" /></td>
                 <td>
                   <select name="type">
                     <option value="Meet">Meet</option>
@@ -105,7 +105,7 @@
                       <option value="Butterfly">Butterfly</option>
                     </select>
                   </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" required/></td>
+                  <td><input type="tel" minlength="8" maxlength="8" pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" id="time" placeholder="00:00:00" required/></td>
                   <td>
                     <select name="type" id="type">
                       <option value="Meet">Meet</option>
