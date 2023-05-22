@@ -44,7 +44,7 @@ function showUser(userObject) {
   <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
   <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
   <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
-  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: ${userObject.levelType}</p>
+  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
   <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
   </div>
   <button id="user-btn-delete">DELETE</button>
@@ -59,7 +59,7 @@ function showUser(userObject) {
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
 
-  users.filter(user => user.restance).forEach(showUserinRestance); // samme som
+  users.filter((user) => user.restance).forEach(showUserinRestance); // samme som
   // for (let i = 0; i < users.length; i++) {
   //   try {
   //     let userInRestance;
