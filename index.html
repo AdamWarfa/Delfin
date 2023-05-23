@@ -70,7 +70,7 @@
                     <option value="Butterfly">Butterfly</option>
                   </select>
                 </td>
-                <td><input type="text" name="time" placeholder="00:00:00" /></td>
+                <td><input type="tel" maxlength="8" pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" name="time" placeholder="00:00:00" /></td>
                 <td>
                   <select name="type">
                     <option value="Meet">Meet</option>
@@ -92,6 +92,9 @@
             <table id="resultsTable">
               <tbody>
                 <tr>
+                  <td>
+                    <select name="swimmer" id="resultUsersCreate"><select>
+                  </td>
                   <td>
                     <input type="search" id="input-search-result" name="search-result" placeholder="Søg efter svømmer" style="width: 100%" />
                   </td>
@@ -121,15 +124,19 @@
                       <option value="Butterfly">Butterfly</option>
                     </select>
                   </td>
-                  <td><input type="text" id="time" placeholder="00:00:00" required style="width: 97%" /></td>
+                  <td><input type="tel" minlength="8" maxlength="8" pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" id="time" placeholder="00:00:00" required/></td>
                   <td>
                     <select name="type" id="type" style="width: 100%" >
                       <option value="Meet">Meet</option>
                       <option value="Training">Training</option>
                     </select>
                   </td>
-                  <td><input type="text" id="meetName" placeholder="Meet Name" style="width: 97%" /></td>
-                  <td><button id="createResult-btn" class="greenBtn" type="submit">Create</button></td>
+                  
+                  <td>
+                    <input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td>
+                    <button id="createResult-btn" type="submit">Create</button>
+                  </td>
                 </tr>
               </tbody>
               <tbody id="resultsTableBody"></tbody>
@@ -166,6 +173,22 @@
           <img id="welcome-img" src="https://swimgym.nl/uploads/_groot/29707/SwimGym-Wallpaper-2.jpg" alt="" />
           <h3 id="welcome-h3">VELKOMMEN TIL</h3>
           <h2 id="welcome-h2">DELFINEN</h2>
+          <p id="welcome-p">En svømmeklub for svømmere i alle aldre, <br> uanset aktivitetsfrekvens, svømmedisciplin <br> og evneniveau</p>
+          <a id="welcome-btn" href="#signup-section">Bliv Medlem i dag</a>
+          <div class="parallelogram"></div>
+          <img src="https://pngimg.com/d/swimming_PNG55414.png" alt="" id="swimmer-png" />
+      </article>
+        </article>
+        <article id="front-top5">
+          <div id="front-left">
+            <div id="front-grid">
+            <div id="front-crawl-grid"></div>
+            <div id="front-butterfly-grid"></div>
+            <div id="front-rygcrawl-grid"></div>
+            <div id="front-brystsvømning-grid"></div>
+            </div>
+          </div>
+          <div id="front-right"></div>
         </article>
       </section>
 
@@ -309,9 +332,9 @@
             </p>
           </div>
           <div id="contact-right">
-            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQs-h0_mnpx90sXr-c6tVI6MUiuYtpjQ7rgIrX8SXEdMRyjysbxQnxmYdD2f9hB6gppwCTsR2KhhcNqjTE" alt="" />
+            <img src="assets/348358138_1482936619205997_8107107921140428691_n.jpg" alt="" />
             <p>
-              Formand: Aksel L. Holst
+              Formand: Younis Al-Holst
               <br />
               Telefonnummer: +45 28 22 45 42
               <br />
