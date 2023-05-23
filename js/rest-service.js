@@ -105,5 +105,35 @@ async function getResults() {
   // TO DO: tjek navngivning af variabler og funktion
 }
 
+async function updateUser(firstname, lastname, birthday, age, street, houseNumber, postCode, city, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes, id) {
+
+  const membersToUpdate = {
+    firstname,
+    lastname,
+    birthday,
+    age,
+    street,
+    houseNumber,
+    postCode,
+    city,
+    phoneNumber,
+    memberType,
+    ageGroup,
+    levelType,
+    restance,
+    swimTypes,
+    id,
+  };
+  const json = JSON.stringify(membersToUpdate)
+   const response = await fetch(`${endpoint}/results/${id}.json`, {
+    method: "PUT",
+    body: json,
+   });
+   console.log(membersToUpdate);
+
+   return response;
+}
+
+
 //// ---------------- EXPORT ---------------- ////
-export { endpoint, getUsers, getResults, deleteUserClicked, deleteResult, createResult, updateResult };
+export { endpoint, getUsers, getResults, deleteUserClicked, deleteResult, createResult, updateResult, updateUser };
