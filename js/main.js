@@ -150,8 +150,10 @@ function showAllTop5(listOfResults) {
   console.log(filteredResultsBrystsvømning);
 
   const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly")).slice(0, 5);
+  console.log(filteredResultsButterfly);
 
   const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl")).slice(0, 5);
+  console.log(filteredResultsRygcrawl);
 
   showTop5(filteredResultsCrawl, "crawl");
   showTop5(filteredResultsBrystsvømning, "brystsvømning");
@@ -166,25 +168,30 @@ function sortTop5(a, b) {
 
 async function showTop5(results, discipline) {
   for (const result of results) {
-    const user = await getMember(result.swimmer);
-
-    console.log("#front-grid-" + discipline);
-    const grid = document.querySelector("#front-grid-" + discipline);
-    console.log(grid);
-    grid.insertAdjacentHTML(
-      "beforeend",
-      /*html*/ `
+    try {
+      console.log(result);
+      const user = await getMember(result.swimmer);
+      console.log(user);
+      console.log("#front-grid-" + discipline);
+      const grid = document.querySelector("#front-grid-" + discipline);
+      console.log(grid);
+      grid.insertAdjacentHTML(
+        "beforeend",
+        /*html*/ `
 
 <article class="top5-card">
-<h2>${user.firstName} ${user.lastName}</h2>
-<p>${user.ageGroup}</p>
-<p>${resultsObject.meetName}</p>
-<p>${resultsObject.discipline}</p>
-<p>${resultsObject.time}</p>
+  <h2>${user.firstName} ${user.lastName}</h2>
+  <p>${user.ageGroup}</p>
+  <p>${resultsObject.meetName}</p>
+  <p>${resultsObject.discipline}</p>
+  <p>${resultsObject.time}</p>
 
 </article>
 `
-    );
+      );
+    } catch (error) {
+      console.log(`fejl i result ${result.id}`);
+    }
   }
 }
 export { getMember };
