@@ -7,6 +7,7 @@ import { getMember } from "./main.js";
 
 let results;
 let sortedResults;
+let sortValue;
 
 async function updateTrainerPage() {
   console.log("Testing: Updating trainer page");
@@ -23,7 +24,7 @@ async function updateTrainerPage() {
 
 function sortBy(type) {
   let sortPath = "#sortBy" + type;
-  let sortValue = type.toLowerCase();
+  sortValue = type.toLowerCase();
   console.log(sortValue);
 
   document.querySelector("#sortByTime").classList.remove("sortActive");
@@ -33,8 +34,12 @@ function sortBy(type) {
   document.querySelector("#sortBySwimmer").classList.remove("sortActive");
   document.querySelector(sortPath).classList.add("sortActive");
 
-  if ((sortValue = meetname)) {
+  if (sortValue === "meetname") {
     sortValue = "meetName";
+    console.log(sortValue);
+    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
+    showResults(sortedResults);
+  } else {
     sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
     showResults(sortedResults);
   }
