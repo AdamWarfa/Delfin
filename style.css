@@ -66,6 +66,8 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
 
+/* =============== OM MEDLEMSKAB STYLING =============== */
+
 #home-section {
   width: 100%;
 }
@@ -105,6 +107,7 @@ dialog::backdrop {
   font-size: 59px;
   font-weight: 700;
 }
+
 #welcome-h2 {
   position: absolute;
   z-index: 2;
@@ -278,7 +281,7 @@ a {
   width: 60%;
 }
 
-/* -------------------------log ind side ---------------------- */
+/* =============== LOG IND SIDE STYLING =============== */
 
 #overskriften {
   font-family: "Instrument Sans", sans-serif;
@@ -375,7 +378,9 @@ footer {
   font-size: 17px;
   z-index: 1;
 }
-/*------------------------ OPRET MEDLEMSSKAB STYLING--------------------- */
+
+/* =============== OPRET MEDLEMSSKAB STYLING =============== */
+
 #overskrift {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;

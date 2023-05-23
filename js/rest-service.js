@@ -46,7 +46,7 @@ async function deleteUser(userObject) {
   return response;
 }
 
-//// ---------------- Results REST ---------------- ////
+/* =============== RESULTS REST-SERVICE =============== */
 
 async function deleteResult(id) {
   const response = await fetch(`${endpoint}/results/${id}.json`, {
@@ -106,27 +106,24 @@ async function getResults() {
 }
 
 async function updateUser(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id) {
-
-  
-
-const membersToUpdate = {
-  firstName: firstName,
-  lastName: lastName,
-  birthday: birthday,
-  age: age,
-  street: street,
-  houseNumber: houseNumber,
-  postCode: postCode,
-  city: city,
-  email: email,
-  phoneNumber: phoneNumber,
-  memberType: memberType,
-  ageGroup: ageGroup,
-  levelType: levelType,
-  restance: restance,
-  swimTypes: swimTypes,
-  id: id
-};
+  const membersToUpdate = {
+    firstName: firstName,
+    lastName: lastName,
+    birthday: birthday,
+    age: age,
+    street: street,
+    houseNumber: houseNumber,
+    postCode: postCode,
+    city: city,
+    email: email,
+    phoneNumber: phoneNumber,
+    memberType: memberType,
+    ageGroup: ageGroup,
+    levelType: levelType,
+    restance: restance,
+    swimTypes: swimTypes,
+    id: id,
+  };
 
   const json = JSON.stringify(membersToUpdate);
   const response = await fetch(`${endpoint}/users/${id}.json`, {
@@ -138,6 +135,12 @@ const membersToUpdate = {
   return response;
 }
 
+async function getMember(uid) {
+  const response = await fetch(`${endpoint}/users/${uid}.json`);
+  const user = await response.json();
+  return user;
+}
 
-//// ---------------- EXPORT ---------------- ////
-export { endpoint, getUsers, getResults, deleteUserClicked, deleteResult, createResult, updateResult, updateUser };
+/* =============== EXPORT =============== */
+
+export { endpoint, getUsers, getResults, deleteUserClicked, deleteResult, createResult, updateResult, updateUser, getMember };
