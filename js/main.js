@@ -1,6 +1,6 @@
 "use strict";
 
-import { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged } from "./trainer.js";
+import { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy } from "./trainer.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
 import { getResults } from "./rest-service.js";
@@ -12,16 +12,18 @@ function initApp() {
   globalEventListeners();
   initViews();
   updateResultsGrid();
-  //   document.querySelector("#signup-accept").addEventListener("click", signUpClicked);
+
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
   document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
   document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
-  // document.querySelector("sortByTime-btn").addEventListener("click", event => {
-  //   event.preventDefault();
-  //   sortResultClicked(resultObject);
-  // });
-  document.querySelector("#input-search-result").addEventListener("keyup", inputResultSearchChanged);
-  document.querySelector("#input-search-result").addEventListener("search", inputResultSearchChanged);
+  // document.querySelector("#input-search-result").addEventListener("keyup", inputResultSearchChanged);
+  // document.querySelector("#input-search-result").addEventListener("search", inputResultSearchChanged);
+
+  document.querySelector("#sortBySwimmer").addEventListener("click", () => sortBy("Swimmer"));
+  document.querySelector("#sortByDiscipline").addEventListener("click", () => sortBy("Discipline"));
+  document.querySelector("#sortByTime").addEventListener("click", () => sortBy("Time"));
+  document.querySelector("#sortByType").addEventListener("click", () => sortBy("Type"));
+  document.querySelector("#sortByMeetName").addEventListener("click", () => sortBy("MeetName"));
 
   document.querySelector("#membership-link").addEventListener("click", membershipClicked);
   document.querySelector("#om-medlemskab").addEventListener("click", membershipClicked);
@@ -131,7 +133,6 @@ async function updateResultsGrid() {
 async function getMember(uid) {
   const response = await fetch(`${endpoint}/users/${uid}.json`);
   const user = await response.json();
-  console.log(user);
   return user;
 }
 

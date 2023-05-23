@@ -72,4 +72,4 @@ function getAge(birthday) {
   return age;
 }
 
-export { signUpClicked, createMember };
+export { signUpClicked, createMember, getAge };

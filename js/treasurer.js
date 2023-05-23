@@ -1,7 +1,13 @@
-import { getUsers, deleteUserClicked } from "./rest-service.js";
+import { getUsers, deleteUserClicked, updateUser } from "./rest-service.js";
+import { getAge } from "./signup.js";
 
 let users;
 
+window.addEventListener("load", start);
+
+function start() {
+  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
+}
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
@@ -47,13 +53,15 @@ function showUser(userObject) {
   <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
   <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
   </div>
-  <button id="user-btn-delete">DELETE</button>
+  <button id="user-btn-delete">Slet medlem</button>
+  <button id="user-btn-update">Opdater medlem</button>
 </article>
 `
   );
 
   // Click events til at slette brugere
   document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
+  document.querySelector("#treasurer-grid article:last-child #user-btn-update").addEventListener("click", () => updateClicked(userObject));
 }
 
 function showUsersinRestance(users) {
@@ -129,6 +137,63 @@ function showIncomingContingency(users) {
     </article>
     `
   );
+}
+
+function closeDialog() {
+  document.querySelector("#update-membber-dialog").close();
+}
+
+async function updateMemberClciked(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const firstname = form.firstname.value;
+  const lastname = form.lastname.value;
+  const birthday = form.birthday.value;
+  const age = getAge(birthday);
+  const street = form.street.value;
+  const houseNumber = form.houseNumber.value;
+  const postCode = form.postCode.value;
+  const city = form.city.value;
+  const email = form.email.value;
+  const phoneNumber = form.phoneNumber.value;
+  const memberType = form.memberType.value;
+  const ageGroup = form.ageGroup.value;
+  const levelType = form.levelType.value;
+  const restance = form.restance.value === "true";
+  const swimTypes = [];
+  const id = form.getAttribute("data-id");
+
+  const response = await updateUser(firstname, lastname, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id);
+
+  if (response.ok) {
+    console.log("Update clicked", id);
+    updateUsersGrid();
+    closeDialog();
+    alert("Memeber updated!");
+  }
+}
+
+function updateClicked(userObject) {
+  const updateForm = document.querySelector("#form-update-member");
+
+  updateForm.firstname.value = userObject.firstName;
+  updateForm.lastname.value = userObject.lastname;
+  updateForm.birthday.value = userObject.birthday;
+  updateForm.street.value = userObject.street;
+  updateForm.houseNumber.value = userObject.houseNumber;
+  updateForm.postCode.value = userObject.postCode;
+  updateForm.city.value = userObject.city;
+  updateForm.email.value = userObject.email;
+  updateForm.phoneNumber.value = userObject.phoneNumber;
+  updateForm.memberType.value = userObject.memberType;
+  updateForm.ageGroup.value = userObject.ageGroup;
+  updateForm.levelType.value = userObject.levelType;
+  updateForm.restance.value = userObject.restance;
+  updateForm.swimTypes.value = userObject.swimTypes;
+  updateForm.setAttribute("data-id", userObject.id);
+
+  document.querySelector("#update-membber-dialog").showModal();
 }
 
 export { updateUsersGrid, contingency };

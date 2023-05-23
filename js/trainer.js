@@ -6,6 +6,8 @@ import { getMember } from "./main.js";
 ////---------- SHOW/GET results ----------////
 
 let results;
+let sortedResults;
+let sortValue;
 
 async function updateTrainerPage() {
   console.log("Testing: Updating trainer page");
@@ -13,11 +15,34 @@ async function updateTrainerPage() {
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
-  let results = await getResults();
+  results = await getResults();
   const users = await getUsers();
   showResults(results);
   insertSwimmersDropdown(users);
   closeDialog();
+}
+
+function sortBy(type) {
+  let sortPath = "#sortBy" + type;
+  sortValue = type.toLowerCase();
+  console.log(sortValue);
+
+  document.querySelector("#sortByTime").classList.remove("sortActive");
+  document.querySelector("#sortByMeetName").classList.remove("sortActive");
+  document.querySelector("#sortByType").classList.remove("sortActive");
+  document.querySelector("#sortByDiscipline").classList.remove("sortActive");
+  document.querySelector("#sortBySwimmer").classList.remove("sortActive");
+  document.querySelector(sortPath).classList.add("sortActive");
+
+  if (sortValue === "meetname") {
+    sortValue = "meetName";
+    console.log(sortValue);
+    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
+    showResults(sortedResults);
+  } else {
+    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
+    showResults(sortedResults);
+  }
 }
 
 function insertSwimmersDropdown(listOfUsers) {
@@ -57,6 +82,7 @@ async function showResult(resultObject) {
         <td>${resultObject.time}</td>
         <td>${resultObject.type}</td>
         <td>${resultObject.meetName}</td>
+        <td>${user.ageGroup}</td>
 
         <td><button id="editResult-btn" class="orangeBtn">Edit</button></td>
         <td><button id="deleteResult-btn" class="redBtn">Delete</button></td>
@@ -64,16 +90,16 @@ async function showResult(resultObject) {
     `
   );
 
-  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", (event) => {
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
     event.preventDefault();
     openDeleteDialog(resultObject);
   });
-  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", (event) => {
+  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
     event.preventDefault();
     openEditDialog(resultObject);
   });
 
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       closeDialog();
     }
@@ -86,7 +112,7 @@ async function inputResultSearchChanged(event) {
 
 async function searchResults(searchValue) {
   let results = await getResults();
-  return (results = results.filter((result) => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
+  return (results = results.filter(result => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
 }
 
 ////---------- CREATE results ----------////
@@ -102,7 +128,6 @@ async function createResultClicked(event) {
 
   const response = await createResult(discipline, meetName, swimmer, time, type, id);
 
-  console.log(swimmer);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     updateTrainerPage();
@@ -116,10 +141,10 @@ async function createResultClicked(event) {
 
 ////---------- EDIT RESULT ----------////
 
-function openEditDialog(resultObject) {
+async function openEditDialog(resultObject) {
   const updateForm = document.querySelector("#editResultForm");
 
-  updateForm.swimmer.value = resultObject.uid;
+  updateForm.swimmer.value = resultObject.swimmer;
   updateForm.discipline.value = resultObject.discipline;
   updateForm.time.value = resultObject.time;
   updateForm.type.value = resultObject.type;
@@ -179,4 +204,4 @@ async function deleteResultClicked() {
   }
 }
 
-export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged };
+export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy };
