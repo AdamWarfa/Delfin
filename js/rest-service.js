@@ -105,33 +105,37 @@ async function getResults() {
   // TO DO: tjek navngivning af variabler og funktion
 }
 
-async function updateUser(firstname, lastname, birthday, age, street, houseNumber, postCode, city, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes, id) {
+async function updateUser(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id) {
 
-  const membersToUpdate = {
-    firstname,
-    lastname,
-    birthday,
-    age,
-    street,
-    houseNumber,
-    postCode,
-    city,
-    phoneNumber,
-    memberType,
-    ageGroup,
-    levelType,
-    restance,
-    swimTypes,
-    id,
-  };
-  const json = JSON.stringify(membersToUpdate)
-   const response = await fetch(`${endpoint}/results/${id}.json`, {
+  
+
+const membersToUpdate = {
+  firstName: firstName,
+  lastName: lastName,
+  birthday: birthday,
+  age: age,
+  street: street,
+  houseNumber: houseNumber,
+  postCode: postCode,
+  city: city,
+  email: email,
+  phoneNumber: phoneNumber,
+  memberType: memberType,
+  ageGroup: ageGroup,
+  levelType: levelType,
+  restance: restance,
+  swimTypes: swimTypes,
+  id: id
+};
+
+  const json = JSON.stringify(membersToUpdate);
+  const response = await fetch(`${endpoint}/users/${id}.json`, {
     method: "PUT",
     body: json,
-   });
-   console.log(membersToUpdate);
+  });
+  console.log(membersToUpdate);
 
-   return response;
+  return response;
 }
 
 

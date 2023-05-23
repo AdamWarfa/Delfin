@@ -1,4 +1,5 @@
 import { getUsers, deleteUserClicked, updateUser } from "./rest-service.js";
+import { getAge } from "./signup.js";
 
 let users;
 
@@ -142,7 +143,6 @@ function closeDialog() {
   document.querySelector("#update-membber-dialog").close();
 }
 
-
 async function updateMemberClciked(event) {
   event.preventDefault();
 
@@ -150,7 +150,7 @@ async function updateMemberClciked(event) {
   const firstname = form.firstname.value;
   const lastname = form.lastname.value;
   const birthday = form.birthday.value;
-  const age = getAge(birthday).value;
+  const age = getAge(birthday);
   const street = form.street.value;
   const houseNumber = form.houseNumber.value;
   const postCode = form.postCode.value;
@@ -160,7 +160,7 @@ async function updateMemberClciked(event) {
   const memberType = form.memberType.value;
   const ageGroup = form.ageGroup.value;
   const levelType = form.levelType.value;
-  const restance = false;
+  const restance = form.restance.value === "true";
   const swimTypes = [];
   const id = form.getAttribute("data-id");
 
@@ -184,17 +184,16 @@ function updateClicked(userObject) {
   updateForm.houseNumber.value = userObject.houseNumber;
   updateForm.postCode.value = userObject.postCode;
   updateForm.city.value = userObject.city;
-  updateForm.email.value =userObject.email;
+  updateForm.email.value = userObject.email;
   updateForm.phoneNumber.value = userObject.phoneNumber;
   updateForm.memberType.value = userObject.memberType;
   updateForm.ageGroup.value = userObject.ageGroup;
   updateForm.levelType.value = userObject.levelType;
-  updateForm.restance.false = userObject.restance;
+  updateForm.restance.value = userObject.restance;
   updateForm.swimTypes.value = userObject.swimTypes;
   updateForm.setAttribute("data-id", userObject.id);
 
   document.querySelector("#update-membber-dialog").showModal();
- 
 }
 
 export { updateUsersGrid, contingency };

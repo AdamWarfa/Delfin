@@ -174,7 +174,7 @@ async function showTop5(resultsObject) {
     /*html*/ `
 
 <article class="top5-card">
-<h2>${user.firstName} ${user.lastName}</h2>
+<h2>${user.firstname} ${user.lastname}</h2>
 <p>${user.ageGroup}</p>
 <p>${resultsObject.meetName}</p>
 <p>${resultsObject.discipline}</p>
