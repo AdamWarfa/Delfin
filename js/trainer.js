@@ -112,7 +112,6 @@ async function createResultClicked(event) {
   const type = form.type.value;
   const agegroup = form.agegroup.value;
   const id = form.getAttribute("data-id");
-  const uid = form.
 
   const response = await createResult(discipline, meetName, swimmer, time, type, agegroup, id);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
