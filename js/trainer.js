@@ -6,6 +6,7 @@ import { getMember } from "./main.js";
 ////---------- SHOW/GET results ----------////
 
 let results;
+let sortedResults;
 
 async function updateTrainerPage() {
   console.log("Testing: Updating trainer page");
@@ -13,11 +14,30 @@ async function updateTrainerPage() {
   document.querySelector("#resultUsersCreate").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
-  let results = await getResults();
+  results = await getResults();
   const users = await getUsers();
   showResults(results);
   insertSwimmersDropdown(users);
   closeDialog();
+}
+
+function sortBy(type) {
+  let sortPath = "#sortBy" + type;
+  let sortValue = type.toLowerCase();
+  console.log(sortValue);
+
+  document.querySelector("#sortByTime").classList.remove("sortActive");
+  document.querySelector("#sortByMeetName").classList.remove("sortActive");
+  document.querySelector("#sortByType").classList.remove("sortActive");
+  document.querySelector("#sortByDiscipline").classList.remove("sortActive");
+  document.querySelector("#sortBySwimmer").classList.remove("sortActive");
+  document.querySelector(sortPath).classList.add("sortActive");
+
+  if ((sortValue = meetname)) {
+    sortValue = "meetName";
+    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
+    showResults(sortedResults);
+  }
 }
 
 function insertSwimmersDropdown(listOfUsers) {
@@ -103,7 +123,6 @@ async function createResultClicked(event) {
 
   const response = await createResult(discipline, meetName, swimmer, time, type, id);
 
-  console.log(swimmer);
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     updateTrainerPage();
@@ -119,11 +138,8 @@ async function createResultClicked(event) {
 
 async function openEditDialog(resultObject) {
   const updateForm = document.querySelector("#editResultForm");
-  const user = await getMember(resultObject.swimmer);
 
-  console.log(`${user.firstName} ${user.lastName}`);
-
-  updateForm.swimmer.value = `${user.firstName} ${user.lastName}`;
+  updateForm.swimmer.value = resultObject.swimmer;
   updateForm.discipline.value = resultObject.discipline;
   updateForm.time.value = resultObject.time;
   updateForm.type.value = resultObject.type;
@@ -183,4 +199,4 @@ async function deleteResultClicked() {
   }
 }
 
-export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged };
+export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy };
