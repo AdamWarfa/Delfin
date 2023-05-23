@@ -72,8 +72,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
   closeDropdowns();
 }
 
@@ -139,27 +139,27 @@ async function getMember(uid) {
 function showAllTop5(listOfResults) {
   const sortedResults = listOfResults.sort(sortTop5);
   console.log(sortedResults);
-  document.querySelector("#front-grid").innerHTML = "";
+  document.querySelector("#front-grid-crawl").innerHTML = "";
+  document.querySelector("#front-grid-brystsvømning").innerHTML = "";
+  document.querySelector("#front-grid-butterfly").innerHTML = "";
+  document.querySelector("#front-grid-rygcrawl").innerHTML = "";
 
-  sortedResults
-    .filter(result => result.discipline.includes("Crawl"))
-    .slice(0, 5)
-    .forEach(showTop5);
+  const filteredResultsCrawl = sortedResults.filter((result) => result.discipline.includes("Crawl")).slice(0, 5);
+  console.log(filteredResultsCrawl);
 
-  sortedResults
-    .filter(result => result.discipline.includes("Brystsvømning"))
-    .slice(0, 5)
-    .forEach(showTop5);
+  const filteredResultsBrystsvømning = sortedResults.filter((result) => result.discipline.includes("Brystsvømning")).slice(0, 5);
+  console.log(filteredResultsBrystsvømning);
 
-  sortedResults
-    .filter(result => result.discipline.includes("Butterfly"))
-    .slice(0, 5)
-    .forEach(showTop5);
+  const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly")).slice(0, 5);
+  console.log(filteredResultsButterfly);
 
-  sortedResults
-    .filter(result => result.discipline.includes("Rygcrawl"))
-    .slice(0, 5)
-    .forEach(showTop5);
+  const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl")).slice(0, 5);
+  console.log(filteredResultsRygcrawl);
+
+  showTop5(filteredResultsCrawl, "crawl");
+  showTop5(filteredResultsBrystsvømning, "brystsvømning");
+  showTop5(filteredResultsButterfly, "butterfly");
+  showTop5(filteredResultsRygcrawl, "rygcrawl");
 }
 
 function sortTop5(a, b) {
@@ -167,23 +167,35 @@ function sortTop5(a, b) {
 }
 // Funktion til DOM-manipulation
 
-async function showTop5(resultsObject) {
-  const user = await getMember(resultsObject.swimmer);
+async function showTop5(results, discipline) {
+  for (const result of results) {
+    try {
+      console.log(result);
 
-  document.querySelector("#front-grid").insertAdjacentHTML(
-    "beforeend",
-    /*html*/ `
+      const user = await getMember(result.swimmer);
+      console.log(user);
+
+      console.log("#front-grid-" + discipline);
+      const grid = document.querySelector("#front-grid-" + discipline);
+      console.log(grid);
+
+      grid.insertAdjacentHTML(
+        "beforeend",
+        /*html*/ `
 
 <article class="top5-card">
-<h2>${user.firstname} ${user.lastname}</h2>
-<p>${user.ageGroup}</p>
-<p>${resultsObject.meetName}</p>
-<p>${resultsObject.discipline}</p>
-<p>${resultsObject.time}</p>
+  <h2>${user.firstName} ${user.lastName}</h2>
+  <p>${user.ageGroup}</p>
+  <p>${result.meetName}</p>
+  <p>${result.discipline}</p>
+  <p>${result.time}</p>
 
 </article>
 `
-  );
+      );
+    } catch (error) {
+      console.log(`fejl i result ${result.id}`);
+    }
+  }
 }
-
 export { getMember };
