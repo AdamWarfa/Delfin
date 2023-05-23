@@ -478,6 +478,10 @@ td {
   background-color: #9ba4b5;
 }
 
+.sortActive {
+  font-weight: bold;
+}
+
 /* =============== KASSERENS SIDE STYLING =============== */
 .view-content {
   margin-bottom: 20px;
