@@ -93,9 +93,6 @@
               <tbody>
                 <tr>
                   <td>
-                    <select name="swimmer" id="resultUsersCreate"><select>
-                  </td>
-                  <td>
                     <input type="search" id="input-search-result" name="search-result" placeholder="Søg efter svømmer" style="width: 100%" />
                   </td>
                   <td><button style="width: 8em; margin: auto; display: block">Sort by</button></td>
@@ -133,7 +130,9 @@
                   </td>
                   
                   <td>
-                    <input type="text" id="meetName" placeholder="Meet Name" /></td>
+                    <input type="text" id="meetName" placeholder="Meet Name" />
+                  </td>
+                  <td></td>
                   <td>
                     <button id="createResult-btn" type="submit">Create</button>
                   </td>
@@ -181,12 +180,11 @@
         </article>
         <article id="front-top5">
           <div id="front-left">
-            <div id="front-grid">
-            <div id="front-crawl-grid"></div>
-            <div id="front-butterfly-grid"></div>
-            <div id="front-rygcrawl-grid"></div>
-            <div id="front-brystsvømning-grid"></div>
-            </div>
+            <div id="front-grid"></div>
+            <div id="front-grid-crawl"></div>
+            <div id="front-grid-butterfly"></div>
+            <div id="front-grid-rygcrawl"></div>
+            <div id="front-grid-brystsvømning"></div>
           </div>
           <div id="front-right"></div>
         </article>
