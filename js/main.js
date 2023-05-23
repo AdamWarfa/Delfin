@@ -170,11 +170,14 @@ async function showTop5(results, discipline) {
   for (const result of results) {
     try {
       console.log(result);
+
       const user = await getMember(result.swimmer);
       console.log(user);
+
       console.log("#front-grid-" + discipline);
       const grid = document.querySelector("#front-grid-" + discipline);
       console.log(grid);
+
       grid.insertAdjacentHTML(
         "beforeend",
         /*html*/ `
@@ -182,9 +185,9 @@ async function showTop5(results, discipline) {
 <article class="top5-card">
   <h2>${user.firstName} ${user.lastName}</h2>
   <p>${user.ageGroup}</p>
-  <p>${resultsObject.meetName}</p>
-  <p>${resultsObject.discipline}</p>
-  <p>${resultsObject.time}</p>
+  <p>${result.meetName}</p>
+  <p>${result.discipline}</p>
+  <p>${result.time}</p>
 
 </article>
 `
