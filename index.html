@@ -70,7 +70,7 @@
                     <option value="Butterfly">Butterfly</option>
                   </select>
                 </td>
-                <td><input type="tel" maxlength="6" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="time" placeholder="00:00:00" /></td>
+                <td><input type="tel" maxlength="8" pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" name="time" placeholder="00:00:00" /></td>
                 <td>
                   <select name="type">
                     <option value="Meet">Meet</option>
@@ -78,11 +78,6 @@
                   </select>
                 </td>
                 <td><input type="text" name="meetName" placeholder="Meet Name" /></td>
-                <td> <select name="aldersgruppe">
-                  <option value ="Junior">Junior</option> 
-                  <option value ="Senior">Senior</option> 
-                  </select>
-                </td>
                 <td><button id="updateResult-btn" class="greenBtn" type="submit">Update</button></td>
                 <td><button id="cancelUpdateResult-btn" type="button" class="redBtn">Cancel</button></td>
               </tr>
@@ -101,7 +96,9 @@
 
               <tbody>
                 <tr>
-                  <td><select name="swimmer" id="resultUsersCreate"><select></td>
+                  <td>
+                    <select name="swimmer" id="resultUsersCreate"><select>
+                  </td>
                   <td>
                     <select name="discipline" id="discipline">
                       <option value="Crawl">Crawl</option>
@@ -118,13 +115,11 @@
                     </select>
                   </td>
                   
-                  <td><input type="text" id="meetName" placeholder="Meet Name" /></td>
-                    <td> <select name="aldersgruppe">
-                  <option value ="Junior">Junior</option> 
-                  <option value ="Senior">Senior</option> 
-                  </select>
-                </td>
-                  <td><button id="createResult-btn" type="submit">Create</button></td>
+                  <td>
+                    <input type="text" id="meetName" placeholder="Meet Name" /></td>
+                  <td>
+                    <button id="createResult-btn" type="submit">Create</button>
+                  </td>
                 </tr>
               </tbody>
             </table>

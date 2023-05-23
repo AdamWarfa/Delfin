@@ -6,12 +6,9 @@ import { updateUsersGrid } from "./treasurer.js";
 import { getResults } from "./rest-service.js";
 
 window.addEventListener("load", initApp);
+const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function initApp() {
-  const fem = "05:42";
-  console.log(fem);
-  console.log(Number(fem));
-
   globalEventListeners();
   initViews();
   updateResultsGrid();
@@ -119,14 +116,13 @@ async function updateResultsGrid() {
 }
 
 async function getMember(uid) {
-  const response = await fetch(`${endpoint}/users/${uid.json}`);
+  const response = await fetch(`${endpoint}/users/${uid}.json`);
   const user = await response.json();
+  console.log(user);
   return user;
 }
 
-
 function showAllTop5(listOfResults) {
-  
   const sortedResults = listOfResults.sort(sortTop5);
   console.log(sortedResults);
   document.querySelector("#front-grid").innerHTML = "";
@@ -156,19 +152,24 @@ function sortTop5(a, b) {
   return a.time.localeCompare(b.time);
 }
 // Funktion til DOM-manipulation
+
 async function showTop5(resultsObject) {
-    const user = await getMember(resultsObject.uid);
+  const user = await getMember(resultsObject.swimmer);
 
   document.querySelector("#front-grid").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
 <article class="top5-card">
-<h2 id="list-name">${user.firstname}</h2>
-<p id="list-name">${resultsObject.discipline}</p>
-<p id="list-name">${resultsObject.time}</p>
+<h2>${user.firstName} ${user.lastName}</h2>
+<p>${user.ageGroup}</p>
+<p>${resultsObject.meetName}</p>
+<p>${resultsObject.discipline}</p>
+<p>${resultsObject.time}</p>
 
 </article>
 `
   );
 }
+
+export { getMember };
