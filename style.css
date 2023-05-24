@@ -105,6 +105,7 @@ dialog::backdrop {
   font-size: 59px;
   font-weight: 700;
 }
+
 #welcome-h2 {
   position: absolute;
   z-index: 2;
@@ -140,6 +141,16 @@ dialog::backdrop {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 25px;
+}
+
+.navlink:hover,
+#title:hover,
+#member-overview-link:hover,
+#accounting-link:hover,
+#about-membership:hover,
+#signup-nav-link:hover {
+  box-shadow: 10px 20px 25px #242e46;
+  text-decoration: underline;
 }
 
 #menu-membership {
@@ -255,7 +266,7 @@ a {
 
 #about-section,
 #contact-section,
-#om-medlemskab-section,
+#about-membership-section,
 #results-section {
   margin: 0 5vw;
   line-height: 200%;
@@ -272,13 +283,22 @@ a {
 #contact-right {
   margin-left: 2%;
 }
+
 #about-right img,
 #contact-right img {
   margin-top: 10%;
   width: 60%;
 }
 
+.view-content.active {
+  display: block;
+}
+
 /* -------------------------log ind side ---------------------- */
+
+#btn-sign-up {
+  font-weight: 300;
+  font-size: 1em;
 
 #overskriften {
   font-family: "Instrument Sans", sans-serif;
@@ -513,6 +533,14 @@ td {
   background: #3948670d;
   line-height: 15px;
 }
+
+.contingency-incoming {
+  border-bottom: 4px inset black;
+}
+
+.contingency-expected,
+.members-paying-contingency {
+  text-align: center;
 
 .list-user h2 {
   font-size: 24px;
