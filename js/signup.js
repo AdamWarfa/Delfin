@@ -86,7 +86,10 @@ function getAge(birthday) {
   }
   return age;
 }
-let motionistRadioButton = document.getElementById("motionist-member-type");
+
+
+let motionistRadioButton = document.querySelector("#motionist-member-type");
+let konkurrencesvømmerRadioButton = document.querySelector("#konkurrencesvømmer-member-type-update");
 let svømmedisciplinCheckboxes = document.getElementsByClassName("check-create");
 
 motionistRadioButton.addEventListener("change", function () {
@@ -94,6 +97,15 @@ motionistRadioButton.addEventListener("change", function () {
   for (let i = 0; i < svømmedisciplinCheckboxes.length; i++) {
     svømmedisciplinCheckboxes[i].checked = false;
     svømmedisciplinCheckboxes[i].disabled = disabled;
+  }
+});
+
+konkurrencesvømmerRadioButton.addEventListener("change", function () {
+  // Hvis konkurrencesvømmer-radioknappen er markeret, skal svømmedisciplin-checkboxene aktiveres
+  if (konkurrencesvømmerRadioButton.checked) {
+    for (let i = 0; i < svømmedisciplinCheckboxes.length; i++) {
+      svømmedisciplinCheckboxes[i].disabled = false;
+    }
   }
 });
 
