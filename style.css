@@ -1,18 +1,10 @@
-:root {
-  /* --black: rgb(1, 3, 4);
-    --light-grey: #f1f1f4;
-    --text-color-light: #f1f1f1;
-    --text-color-dark: #333; */
-  --text-color-danger: rgb(152, 58, 58);
-  /* --white: #f1f1f1; */
-}
 body {
   top: 0;
   margin: 0;
   font-family: "Instrument Sans", sans-serif;
   max-width: 100%;
   background-color: #f1f6f9;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .log-in-hidden {
@@ -29,54 +21,12 @@ body {
 }
 
 header {
+  background-color: #394867;
   height: 70px;
   width: 100vw;
   position: fixed;
   top: 0;
-  background-color: #394867;
-  z-index: 4;
-}
-
-main {
-  margin-top: 70px;
-  width: 100%;
-}
-#frontpage {
-  position: relative;
-  z-index: -1;
-  width: 100%;
-}
-
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-#welcome-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  transform: scaleX(-1);
-  /* object-fit: cover; */
-}
-
-#welcome-h3 {
-  position: absolute;
-  z-index: 2;
-  top: 27vh;
-  left: 10vw;
-  color: #f1f6f9;
-  font-size: 71px;
-  font-weight: 700;
-}
-
-#welcome-h2 {
-  position: absolute;
-  z-index: 2;
-  top: 29vh;
-  left: 10vw;
-  color: #f1f6f9;
-  font-size: 120px;
-  font-weight: 700;
+  z-index: 7;
 }
 
 #title {
@@ -91,16 +41,106 @@ dialog::backdrop {
 nav {
   position: absolute;
   right: 50px;
-  top: 22px;
+  top: 29px;
 }
 
-.navlink {
+.view-link {
   text-decoration: none;
   color: #f0f3f9;
   cursor: pointer;
   font-size: 17px;
   font-weight: 700;
   margin-right: 50px;
+}
+
+main {
+  width: 100%;
+}
+#frontpage {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#home-section {
+  width: 100%;
+}
+
+#welcome-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  filter: brightness(30%);
+}
+
+.parallelogram {
+  position: absolute;
+  width: 60%;
+  height: 99.5%;
+  top: 0;
+  left: 65%;
+  background: rgb(57, 72, 103);
+  background: linear-gradient(180deg, rgba(57, 72, 103, 1) 0%, rgba(55, 114, 185, 1) 100%);
+  transform: skew(30deg);
+}
+
+#swimmer-png {
+  position: absolute;
+  transform: scaleX(-1) rotate(11deg);
+  width: 50.82%;
+  top: 29.83%;
+  right: -5%;
+}
+
+#welcome-h3 {
+  position: absolute;
+  z-index: 2;
+  top: 15vw;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 59px;
+  font-weight: 700;
+}
+
+#welcome-h2 {
+  position: absolute;
+  z-index: 2;
+  top: 17vw;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+#welcome-p {
+  position: absolute;
+  z-index: 2;
+  top: 31vw;
+  left: 12vw;
+  color: #f1f6f9;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#welcome-btn {
+  z-index: 2;
+  position: absolute;
+  top: 38vw;
+  left: 12vw;
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 25px;
 }
 
 .navlink:hover,
@@ -122,7 +162,7 @@ nav {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 6;
 }
 
 #menu-membership ul {
@@ -147,7 +187,7 @@ a {
   top: -61px;
   display: flex;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 6;
 }
 
 #menu-accounting ul {
@@ -193,7 +233,7 @@ a {
     visibility: visible;
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(0, -125px);
     visibility: hidden;
   }
 }
@@ -230,6 +270,7 @@ a {
 #results-section {
   margin: 0 5vw;
   line-height: 200%;
+  margin-top: 70px;
 }
 
 #about-page,
@@ -253,37 +294,59 @@ a {
   display: block;
 }
 
-/* log ind side  */
+/* -------------------------log ind side ---------------------- */
+
 #btn-sign-up {
   font-weight: 300;
   font-size: 1em;
+
+#overskriften {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
-  cursor: pointer;
-  border: 2px solid blueviolet;
-  color: blue;
-  background-color: palevioletred;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.5em 1em;
-  width: 100%;
-  max-width: 380px;
+  font-size: 30px;
+  margin-top: 90px;
 }
 
-#input_1 {
-  margin: 1em auto;
-  width: 100%;
-  max-width: 350px;
-  padding: 1em;
-  border: 2px solid red;
-  display: block;
-  background: var orange;
-  display: inline-block;
-  font-family: "Instrument Sans", sans-serif;
+#login-form {
+  padding: 2em 20em;
 }
-form {
-  margin: 2em auto 0;
-  background-color: var(--light-green);
+
+.form-control input {
+  border: 0;
+  border-bottom: 2px solid #394867;
+  padding: 15px 0;
+  display: block;
+  font-size: 20px;
+  font-family: "Instrument Sans", sans-serif;
+  width: 100%;
+  background-color: #f1f6f9;
+}
+
+#btn-sign-up {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+#btn-sign-up:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
+
+#signup {
+  margin: -1em auto 0;
   padding: 1em 1em 2em;
   text-align: center;
 }
@@ -292,16 +355,37 @@ form {
   margin-top: 90px;
 }
 #signin-message {
-  color: var(--text-color-danger);
-}
-
-#logind-section {
+  color: red;
   text-align: center;
-  font-weight: 700;
-  margin-top: 90px;
-  font-family: "Instrument Sans", sans-serif;
 }
-
+#log-out-dialog {
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  background-color: #f1f6f9;
+  font-size: 20px;
+  /* margin-left: 20px;
+  padding: 40px;
+  padding-top: 10px; */
+  /* background-color: black; */
+}
+#btn-log-out-cancel,
+#btn-log-out-final {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
 footer {
   position: relative;
   background-color: #9ba4b5;
@@ -311,6 +395,64 @@ footer {
   font-size: 17px;
   z-index: 1;
 }
+/*------------------------ OPRET MEDLEMSSKAB STYLING--------------------- */
+#overskrift {
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 90px;
+  /* background-color:purple; */
+}
+#signup-container {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#signup-right {
+  border-style: solid;
+  margin-left: 20px;
+  padding: 40px;
+  padding-top: 10px;
+}
+
+.member-control input {
+  border: 0;
+  border-bottom: 2px solid #394867;
+  padding: 15px 0;
+  display: block;
+  font-size: 15px;
+  font-family: "Instrument Sans", sans-serif;
+  width: 100%;
+  background-color: #f1f6f9;
+}
+
+#signup-accept {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  border: none;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+#signup-accept:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
 
 table,
 th,
@@ -318,30 +460,32 @@ td {
   border: 1px solid;
 }
 
-/* =============== RESULTS SIDE STYLING =============== */
+/* =============== TRAINER PAGE STYLING =============== */
 
 #dialog-edit-result {
-  padding: 0%;
+  padding-top: 30px;
 }
 
-#results-container {
+#trainer-container {
   margin-top: 90px;
 }
 
-#editResult-btn {
+.orangeBtn {
   color: rgb(255, 255, 255);
   background-color: orange;
   width: 100%;
 }
 
-#deleteResult-btn {
+.redBtn {
   color: rgb(255, 255, 255);
   background-color: red;
+  width: 100%;
 }
 
-#createResult-btn {
+.greenBtn {
   color: rgb(255, 255, 255);
   background-color: rgb(65, 220, 65);
+  width: 100%;
 }
 
 #resultsTable {
@@ -350,47 +494,44 @@ td {
   margin-bottom: 5%;
 }
 
+#resultsTableHeader {
+  background-color: #9ba4b5;
+}
+
+.sortActive {
+  font-weight: bold;
+}
+
 /* =============== KASSERENS SIDE STYLING =============== */
-
-#user-grid {
-  border: 3px solid black;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#list-name {
-  font-size: 25px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#treasurer-grid {
-  margin-top: 90px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.view-content {
+  margin-bottom: 20px;
 }
 
 #treasurer-section {
-  margin: 0 10vw;
-  line-height: 150%;
+  text-align: center;
 }
 
 #treasurer-page h1 {
   font-size: 30px;
-  text-align: center;
-  margin-top: 7vw;
+  margin-top: 0;
 }
 
-#restance-grid {
-  margin-top: 90px;
+#treasurer-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 5vw;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
 }
 
-#restance-page h1 {
-  font-size: 30px;
-  text-align: center;
+.list-user {
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.305);
+  margin: 5px;
+  padding: 20px;
+  width: 250px;
+  background: #3948670d;
+  line-height: 15px;
 }
 
 .contingency-incoming {
@@ -400,28 +541,53 @@ td {
 .contingency-expected,
 .members-paying-contingency {
   text-align: center;
+
+.list-user h2 {
+  font-size: 24px;
+  margin-top: 0;
 }
 
-.contingency-expected {
-  margin-top: 100px;
-}
-
-.list-restance {
-  width: 30vw;
-}
-
-.list-user {
-  width: 30vw;
+.list-user p {
+  margin: 5px 0;
 }
 
 .user-grid-border {
-  border: 0.5px solid black;
-  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+#user-btn-delete {
+  background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
 }
 
-#user-btn-delete {
-  margin: 0;
-  width: 200px;
-  left: 50%;
-  align-items: center;
+#user-btn-delete:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #d9e2e7;
+  color: #394867;
+  border: solid 2px #394867;
+}
+
+#front-top5 {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 50%;
+}
+
+#front-left {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }

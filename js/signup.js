@@ -22,7 +22,7 @@ async function signUpClicked(event) {
   const restance = false;
   const swimTypes = [];
 
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox) => {
     swimTypes.push(checkbox.value);
   });
 
@@ -72,4 +72,4 @@ function getAge(birthday) {
   return age;
 }
 
-export { signUpClicked, createMember };
+export { signUpClicked, createMember, getAge };
