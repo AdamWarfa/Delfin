@@ -86,5 +86,15 @@ function getAge(birthday) {
   }
   return age;
 }
+let motionistRadioButton = document.getElementById("motionist-member-type");
+let svømmedisciplinCheckboxes = document.getElementsByClassName("check-create");
+
+motionistRadioButton.addEventListener("change", function () {
+  let disabled = motionistRadioButton.checked; // Hvis motionist-radioknappen er markeret, skal boksene deaktiveres
+  for (let i = 0; i < svømmedisciplinCheckboxes.length; i++) {
+    svømmedisciplinCheckboxes[i].checked = false;
+    svømmedisciplinCheckboxes[i].disabled = disabled;
+  }
+});
 
 export { signUpClicked, createMember, getAge };
