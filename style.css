@@ -56,6 +56,7 @@ nav {
 main {
   width: 100%;
 }
+
 #frontpage {
   position: relative;
   width: 100%;
@@ -65,6 +66,8 @@ main {
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
+
+/* =============== OM MEDLEMSKAB STYLING =============== */
 
 #home-section {
   width: 100%;
@@ -143,12 +146,7 @@ dialog::backdrop {
   margin-top: 25px;
 }
 
-.navlink:hover,
-#title:hover,
-#member-overview-link:hover,
-#accounting-link:hover,
-#about-membership:hover,
-#signup-nav-link:hover {
+.hover-shadow:hover {
   box-shadow: 10px 20px 25px #242e46;
   text-decoration: underline;
 }
@@ -290,16 +288,13 @@ a {
   width: 60%;
 }
 
-.view-content.active {
-  display: block;
-}
-
-/* -------------------------log ind side ---------------------- */
+/* =============== LOG IND SIDE STYLING =============== */
 
 #btn-sign-up {
   font-weight: 300;
   font-size: 1em;
 }
+
 #overskriften {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
@@ -336,6 +331,7 @@ a {
   cursor: pointer;
   margin-top: 25px;
 }
+
 #btn-sign-up:hover {
   transition: 1s;
   padding: 10px 50px;
@@ -354,10 +350,12 @@ a {
 #signup-container {
   margin-top: 90px;
 }
+
 #signin-message {
   color: red;
   text-align: center;
 }
+
 #log-out-dialog {
   border-style: solid;
   border-color: black;
@@ -371,6 +369,7 @@ a {
   padding-top: 10px; */
   /* background-color: black; */
 }
+
 #btn-log-out-cancel,
 #btn-log-out-final {
   background-color: #394867;
@@ -386,6 +385,7 @@ a {
   cursor: pointer;
   margin-top: 25px;
 }
+
 footer {
   position: relative;
   background-color: #9ba4b5;
@@ -395,7 +395,9 @@ footer {
   font-size: 17px;
   z-index: 1;
 }
-/*------------------------ OPRET MEDLEMSSKAB STYLING--------------------- */
+
+/* =============== OPRET MEDLEMSSKAB STYLING =============== */
+
 #overskrift {
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
@@ -503,6 +505,7 @@ td {
 }
 
 /* =============== KASSERENS SIDE STYLING =============== */
+
 .view-content {
   margin-bottom: 20px;
 }
@@ -542,6 +545,7 @@ td {
 .members-paying-contingency {
   text-align: center;
 }
+
 .list-user h2 {
   font-size: 24px;
   margin-top: 0;

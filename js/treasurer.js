@@ -8,6 +8,7 @@ window.addEventListener("load", start);
 function start() {
   document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
 }
+
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
@@ -67,7 +68,7 @@ function showUser(userObject) {
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
 
-  users.filter((user) => user.restance).forEach(showUserinRestance); // samme som
+  users.filter(user => user.restance).forEach(showUserinRestance); // samme som
   // for (let i = 0; i < users.length; i++) {
   //   try {
   //     let userInRestance;
@@ -105,9 +106,10 @@ function contingency(members) {
     seniorDiscount: 1200,
   };
 
+  let fee;
   let totalFee = 0;
+
   for (const member of members) {
-    let fee;
     if (member.memberType === "passive") {
       fee = membershipFees.passiveFee;
     } else if (member.memberType === "active" && member.ageGroup === "senior") {
@@ -124,15 +126,34 @@ function contingency(members) {
 }
 
 function showIncomingContingency(users) {
-  const totalContingencyExpected = contingency(users);
+  const contingencyExpectedTotal = contingency(users);
+
+  const userListMotionist = users.filter(user => user.levelType.includes("motionist"));
+  const userListKonkurrencesvømmer = users.filter(user => user.levelType.includes("konkurrencesvømmer"));
+
+  const contingencyExpectedMotionist = contingency(userListMotionist);
+  const contingencyExpectedKonkurrencesvømmer = contingency(userListKonkurrencesvømmer);
+
+  document.querySelector("#accounting-overview").innerHTML = "";
+
   document.querySelector("#accounting-overview").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
     <article class="contingency-incoming">
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for denne måned: <br>${totalContingencyExpected}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for denne måned: <br>${contingencyExpectedTotal}kr.</h2>
         <p class="members-paying-contingency">Antal medlemmer der betaler kontingent: ${users.length}</p>
+      </div>      
+      
+      <div>
+        <h2 class="contingency-expected">Indkommende kontingent for motionister: <br>${contingencyExpectedMotionist}kr.</h2>
+        <p class="members-paying-contingency">Antal motionister der betaler kontingent: ${userListMotionist.length}</p>
+      </div>   
+
+      <div id="">
+        <h2 class="contingency-expected">Indkommende kontingent for konkurrencesvømmere: <br>${contingencyExpectedKonkurrencesvømmer}kr.</h2>
+        <p class="members-paying-contingency">Antal konkurrencesvømmere der betaler kontingent: ${userListKonkurrencesvømmer.length}</p>
       </div>
     </article>
     `
@@ -170,7 +191,6 @@ async function updateMemberClciked(event) {
     console.log("Update clicked", id);
     updateUsersGrid();
     closeDialog();
-    alert("Memeber updated!");
   }
 }
 
