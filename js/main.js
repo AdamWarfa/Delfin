@@ -110,6 +110,7 @@ function accountingClicked() {
     accountingMenu.classList.remove("menu-open");
     accountingMenu.classList.add("menu-closed");
   }
+  updateUsersGrid();
 }
 
 function closeDropdowns() {
