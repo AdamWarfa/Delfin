@@ -145,6 +145,16 @@ dialog::backdrop {
   margin-top: 25px;
 }
 
+.navlink:hover,
+#title:hover,
+#member-overview-link:hover,
+#accounting-link:hover,
+#about-membership:hover,
+#signup-nav-link:hover {
+  box-shadow: 10px 20px 25px #242e46;
+  text-decoration: underline;
+}
+
 #menu-membership {
   width: 150px;
   padding-left: 0px;
@@ -258,7 +268,7 @@ a {
 
 #about-section,
 #contact-section,
-#om-medlemskab-section,
+#about-membership-section,
 #results-section {
   margin: 0 5vw;
   line-height: 200%;
@@ -275,13 +285,19 @@ a {
 #contact-right {
   margin-left: 2%;
 }
+
 #about-right img,
 #contact-right img {
   margin-top: 10%;
   width: 60%;
 }
 
-/* =============== LOG IND SIDE STYLING =============== */
+/* -------------------------log ind side ---------------------- */
+
+#btn-sign-up {
+  font-weight: 300;
+  font-size: 1em;
+}
 
 #overskriften {
   font-family: "Instrument Sans", sans-serif;
@@ -319,6 +335,7 @@ a {
   cursor: pointer;
   margin-top: 25px;
 }
+
 #btn-sign-up:hover {
   transition: 1s;
   padding: 10px 50px;
@@ -337,10 +354,12 @@ a {
 #signup-container {
   margin-top: 90px;
 }
+
 #signin-message {
   color: red;
   text-align: center;
 }
+
 #log-out-dialog {
   border-style: solid;
   border-color: black;
@@ -354,6 +373,7 @@ a {
   padding-top: 10px; */
   /* background-color: black; */
 }
+
 #btn-log-out-cancel,
 #btn-log-out-final {
   background-color: #394867;
@@ -369,6 +389,7 @@ a {
   cursor: pointer;
   margin-top: 25px;
 }
+
 footer {
   position: relative;
   background-color: #9ba4b5;
@@ -378,7 +399,6 @@ footer {
   font-size: 17px;
   z-index: 1;
 }
-
 /* =============== OPRET MEDLEMSSKAB STYLING =============== */
 
 #overskrift {
@@ -517,6 +537,15 @@ td {
   width: 250px;
   background: #3948670d;
   line-height: 15px;
+}
+
+.contingency-incoming {
+  border-bottom: 4px inset black;
+}
+
+.contingency-expected,
+.members-paying-contingency {
+  text-align: center;
 }
 
 .list-user h2 {
