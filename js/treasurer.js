@@ -7,6 +7,9 @@ window.addEventListener("load", start);
 
 function start() {
   document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
+  // document.querySelector("#medlemsoversigt-form").addEventListener("click", showUserInDialog);
+  // document.querySelector("#user-btn-close").addEventListener("click", closeMemberDialog);
+
 }
 async function updateUsersGrid() {
   users = await getUsers();
@@ -31,7 +34,6 @@ function showUsers(listOfUsers) {
   }
 }
 
-// Funktion til DOM-manipulation
 function showUser(userObject) {
   document.querySelector("#treasurer-grid").insertAdjacentHTML(
     "beforeend",
@@ -40,19 +42,19 @@ function showUser(userObject) {
 <article class="list-user">
 <h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
 <div id="user-grid" class="user-grid-border">
-  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday}</p>
-  <p id="list-age" class="user-grid-border">Alder: ${userObject.age}</p>
-  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street}</p>
-  <p id="list-housenumber"class="user-grid-border">Husnummer: ${userObject.houseNumber}</p>
-  <p id="list-postcode" class="user-grid-border">Postkode: ${userObject.postCode}</p>
-  <p id="list-city" class="user-grid-border">By: ${userObject.city}</p>
+  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday + " Alder: " + userObject.age}</p>
+  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street + " Husnummer " + userObject.houseNumber}</p>
+  <p id="list-city" class="user-grid-border">Postnummer: ${userObject.postCode + " By: " + userObject.city} </p>
   <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
   <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
   <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
   <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
   <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
   <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
+  <p id="list-restance" class="user-grid-border">Svømmedisciplin: ${userObject.swimTypes}</p>
+
   </div>
+  <button id="btn-show-member" type="button">Vis mere</button>
   <button id="user-btn-delete">Slet medlem</button>
   <button id="user-btn-update">Opdater medlem</button>
 </article>
@@ -62,6 +64,9 @@ function showUser(userObject) {
   // Click events til at slette brugere
   document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
   document.querySelector("#treasurer-grid article:last-child #user-btn-update").addEventListener("click", () => updateClicked(userObject));
+  document.querySelector("#treasurer-grid article:last-child #btn-show-member").addEventListener("click", () => showUserInDialog(userObject));
+  document.querySelector("#treasurer-grid article:last-child #user-btn-close").addEventListener("click", () => closeMemberDialog());
+  // document.querySelector("#user-btn-show").addEventListener("click", closeDialog);
 }
 
 function showUsersinRestance(users) {
@@ -143,8 +148,14 @@ function closeDialog() {
   document.querySelector("#update-membber-dialog").close();
 }
 
+function closeMemberDialog() {
+  document.querySelector("#medlemsoversigt-dialog").close();
+}
+
 async function updateMemberClciked(event) {
   event.preventDefault();
+
+  const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
 
   const form = event.target;
   const firstname = form.firstname.value;
@@ -164,6 +175,9 @@ async function updateMemberClciked(event) {
   const swimTypes = [];
   const id = form.getAttribute("data-id");
 
+  checkboxes.forEach((checkbox) => {
+    swimTypes.push(checkbox.value);
+  });
   const response = await updateUser(firstname, lastname, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id);
 
   if (response.ok) {
@@ -172,6 +186,35 @@ async function updateMemberClciked(event) {
     closeDialog();
     alert("Memeber updated!");
   }
+}
+
+function showUserInDialog(userObject) {
+  console.log("VI ÅBNER");
+  document.querySelector("#medlemsoversigt-dialog").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+<article class="list-user">
+<h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
+<div id="user-grid" class="user-grid-border">
+  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday + " Alder: " + userObject.age}</p>
+  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street + " Husnummer " + userObject.houseNumber}</p>
+  <p id="list-city" class="user-grid-border">Postnummer: ${userObject.postCode + " By: " + userObject.city} </p>
+  <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
+  <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
+  <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
+  <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
+  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
+  <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
+  <p id="list-restance" class="user-grid-border">Svømmedisciplin: ${userObject.swimTypes}</p>
+  <button id="user-btn-close">luk</button>
+
+  </div>
+
+</article>
+`
+  );
+  document.querySelector("#medlemsoversigt-dialog").showModal();
 }
 
 function updateClicked(userObject) {
