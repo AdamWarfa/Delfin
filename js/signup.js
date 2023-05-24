@@ -17,7 +17,7 @@ async function signUpClicked(event) {
   const email = form.email.value;
   const phoneNumber = form.phoneNumber.value;
   const memberType = form.memberType.value;
-  const ageGroup = form.ageGroup.value;
+  const ageGroup = checkAgeGroup(age);
   const levelType = form.levelType.value;
   const restance = false;
   const swimTypes = [];
@@ -60,6 +60,21 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
   });
 
   return response;
+}
+
+function checkAgeGroup(age) {
+  const senior = "senior";
+  const junior = "junior";
+
+  if (age >= 18) {
+    console.log(senior);
+    return senior;
+  } else if (age <= 17) {
+    console.log(junior);
+    return junior;
+  } else {
+    console.log("aldersfejl");
+  }
 }
 
 function getAge(birthday) {
