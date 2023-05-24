@@ -31,7 +31,7 @@
     <main>
       <div id="menu-membership" class="menu-closed">
         <ul id="membership-list">
-          <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+          <li><a href="#about-membership-section" id="about-membership">Om medlemsskab</a></li>
           <br />
           <li><a href="#signup-section" id="signup-nav-link">Opret medlemskab</a></li>
         </ul>
@@ -44,6 +44,8 @@
           <li><a href="#accounting-section" id="accounting-link">Opgørelse</a></li>
         </ul>
       </div>
+
+            <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
 
       <dialog id="dialog-delete-result">
         <form id="form-delete-result">
@@ -143,12 +145,12 @@
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
-      <section id="om-medlemskab-section" class="view-content">
-        <article id="om-medlemskab-page">
+      <section id="about-membership-section" class="view-content">
+        <article id="about-membership-page">
           <h1>Velkommen til vores svømmeklub!</h1>
           <h4>Medlemstyper</h4>
           <p>
-            Vi tilbyder forskellige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster baseret på alderen:
+            Vi tilbyder forskelxlige medlemskabsmuligheder til vores dedikerede svømmere. Her er nogle oplysninger om vores kontingentsatser: For vores aktive medlemmer har vi to forskellige takster baseret på alderen:
             Ungdomssvømmere (under 18 år) betaler et årligt kontingent på 1000 kr.
             <br /><br />
             Seniorsvømmere (18 år og ældre) betaler et årligt kontingent på 1600 kr. Vi værdsætter også vores erfarne medlemmer, der er over 60 år. Derfor tilbyder vi dem en rabat på 25% af seniortaksten. Det betyder, at
@@ -177,12 +179,10 @@
         </article>
         <article id="front-top5">
           <div id="front-left">
-            <div id="front-grid">
-            <div id="front-crawl-grid"></div>
-            <div id="front-butterfly-grid"></div>
-            <div id="front-rygcrawl-grid"></div>
-            <div id="front-brystsvømning-grid"></div>
-            </div>
+            <div id="front-grid-crawl"></div>
+            <div id="front-grid-butterfly"></div>
+            <div id="front-grid-rygcrawl"></div>
+            <div id="front-grid-brystsvømning"></div>
           </div>
           <div id="front-right"></div>
         </article>
@@ -243,7 +243,7 @@
                 <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
                 <label>Motionist </label>
                 <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-                <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+                <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type-update" name="levelType" value="konkurrencesvømmer" />
                 <br />
                 <br />
                 <h4>Svømmedisciplin : </h4>
@@ -261,14 +261,6 @@
           </form>
         </div>
       </div>
-      </section>
-
-      <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
-
-      <section id="results-section" class="view-content">
-        <article id="results-page">
-          <h2>RESULTATER</h2>
-        </article>
       </section>
 
       <!-- =============== OM OS SIDE SEKTION =============== -->
@@ -365,9 +357,78 @@
       <section id="treasurer-section" class="view-content">
         <article id="treasurer-page">
           <h1>Oversigt over medlemmer</h1>
+           <section id="update-member-section">
+        <dialog id="update-membber-dialog">
+            <form id="form-update-member">
+            <h2>Opdater medlem</h2>
+            <div id="første-update">
+            <input type="text" id="first-name-update" name="firstname" placeholder="Fornavn" required />
+            <br /><br />
+             <input type="text" id="last-name-update" name="lastname" placeholder="Efternavn" required />
+              <br /><br />
+              <input for="birthday" type="date" id="birthday-update" placeholder="Fødselsdato" name="birthday" required />
+                <br /><br />
+                  </div>
+
+          <div id="anden-update">
+          <input type="text" name="street" placeholder="Indtast vejnavn" required />
+            <br /><br />
+              <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
+              <br /><br />
+              <input type="text" name="postCode" placeholder="Indtast postnummer" required />
+              <br /><br />
+                <input type="text" name="city" placeholder="Indtast by" required />
+            <br /><br />
+            <input type="email" name="email" placeholder="Indtast email" required />
+            <br /><br />
+              <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+              </div>
+
+     <div id="tredje-update">
+      <h4>Vælg type af medlemskab : </h4>
+      <label>Aktivt</label>
+      <input type="radio" id="active-member-type-update" name="memberType" value="active" />
+      <label>Passivt</label>
+      <labesivt</label>
+      <input type="radio" id="passive-member-type-update" name="memberType" value="passive" />
+      <h2>Er medlemet i restance</h2>
+    <label>Ja</label>
+    <input type="radio" id="restance-true" name="restance" value="true" />
+        <label>Nej</label>
+    <input type="radio" id="restance-false" name="restance" value="false" />
+      <h4>Vælg ønskede aktivitetsform :</h4>
+      <h4>Ønskede aktivitetsform :</h4>
+      <label>Senior</label>
+      <input type="radio" id="senior-member-type-update" name="ageGroup" value="senior" />
+      <inpue="radio" id="senior-member-type-update" name="ageGroup" value="senior" />
+      <label>Junior</label>
+      <labeior</label>
+      <input type="radio" id="junior-member-type-update" name="ageGroup" value="junior" />
+      <inpue="radio" id="junior-member-type-update" name="ageGroup" value="junior" />
+      <label>Motionist </label>
+      <labeionist </label>
+      <input type="radio" id="motionist-member-type-update" name="levelType" value="motionist" />
+      <inpue="radio" id="motionist-member-type-update" name="levelType" value="motionist" />
+      <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+      <br />
+      <br />
+      <h4>Svømmedisciplin:</h4>
+      <label>Butterfly</label>
+      <input class="check-create" type="checkbox" id="butterfly-discplin-update" name="swimTypes" value="butterfly" />
+      <label>Crawl</label>
+      <input class="check-create" type="checkbox" id="crawl-discplin-update" name="swimTypes" value="crawl" />
+      <label>Rygcrawl </label>
+      <input class="check-create" type="checkbox" id="rygcrawl -discplin-update" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label>
+      <input class="check-create" type="checkbox" id="brystsvømning-discplin-update" name="swimTypes" value="brystsvømning" />
+      <button id="update-member-btn" type="submit">Opdater oplysninger</button>
+          <br />
+          <br />
+        </form>
+  </dialog>
           <div id="treasurer-grid"></div>
         </article>
         <br /><br />
+        </section>
       </section>
 
       <section id="accounting-section" class="view-content">
@@ -379,7 +440,10 @@
           <div id="restance-grid"></div>
         </article>
       </section>
-    </main>
+      
+   
+  </main>
+    
     <!-- <footer>Wagwan lil mamacitas</footer> -->
     <script src="js/main.js" type="module"></script>
     <script src="log-ind.js"></script>
