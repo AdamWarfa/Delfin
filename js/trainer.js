@@ -33,7 +33,7 @@ function sortBy(type) {
   document.querySelector("#sortBySwimmer").classList.remove("sortActive");
   document.querySelector(sortPath).classList.add("sortActive");
 
-  if ((sortValue = meetname)) {
+  if ((sortValue = "meetname")) {
     sortValue = "meetName";
     sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
     showResults(sortedResults);
