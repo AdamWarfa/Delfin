@@ -531,9 +531,29 @@ tr:nth-child(even) {
   margin-top: 60px;
 }
 
+#restance-page {
+  text-align: center;
+}
+
+#restance-title {
+  font-size: 30px;
+}
+
 #restance-user-styling {
-  text-decoration: none;
+  text-decoration: underline;
   color: black;
+}
+
+#restance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 20px;
+  gap: 10px;
+  text-align: center;
+}
+
+#user-restance-grid {
+  height: 150px;
 }
 
 .list-user {
@@ -547,7 +567,7 @@ tr:nth-child(even) {
   line-height: 15px;
 }
 
-.contingency-incoming {
+.contingency-incoming-area {
   border-bottom: 4px inset black;
   margin-top: 100px;
 }
@@ -555,6 +575,10 @@ tr:nth-child(even) {
 .contingency-expected,
 .members-paying-contingency {
   text-align: center;
+}
+
+.incoming-contingency-color {
+  color: green;
 }
 
 .list-user h2 {
@@ -572,9 +596,7 @@ tr:nth-child(even) {
   padding: 5px;
 }
 
-
 #btn-show-member {
-
   width: 10vw;
 }
 
@@ -584,10 +606,13 @@ tr:nth-child(even) {
 }
 
 #user-btn-update {
-
   width: 8vw;
 }
 
+#user-btn-close,
+#close-member-btn {
+  width: 10vw;
+}
 
 .responsive-button {
   background-color: #394867;
