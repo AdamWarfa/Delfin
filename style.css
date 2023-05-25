@@ -563,3 +563,33 @@ td {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+.top5-card {
+  background-color: #3948670d;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1px 20px;
+  margin: 20px;
+  border: solid 2px black;
+}
+.top5-card:hover {
+  transform: scale(105%);
+  transition-duration: 0.1s;
+  background-color: #3948670d;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1px 20px;
+  margin: 20px;
+  border: solid 2px black;
+  cursor: url(assets/delfin-mus.png) 40 50, auto;
+}
+
+#top5-color {
+  background-color: #394867;
+  color: #f1f6f9;
+  width: 120%;
+  margin-left: 0;
+  padding-left: 0;
+}
