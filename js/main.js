@@ -15,28 +15,29 @@ function initApp() {
   updateTrainerPage();
 }
 
-function globalEventListeners() {}
-document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
-document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
-document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
+function globalEventListeners() {
+  document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
+  document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
+  document.querySelector("#createResultForm").addEventListener("submit", createResultClicked);
 
-document.querySelector("#sortBySwimmer").addEventListener("click", () => sortBy("Swimmer"));
-document.querySelector("#sortByDiscipline").addEventListener("click", () => sortBy("Discipline"));
-document.querySelector("#sortByTime").addEventListener("click", () => sortBy("Time"));
-document.querySelector("#sortByType").addEventListener("click", () => sortBy("Type"));
-document.querySelector("#sortByMeetName").addEventListener("click", () => sortBy("MeetName"));
+  document.querySelector("#sortBySwimmer").addEventListener("click", () => sortBy("Swimmer"));
+  document.querySelector("#sortByDiscipline").addEventListener("click", () => sortBy("Discipline"));
+  document.querySelector("#sortByTime").addEventListener("click", () => sortBy("Time"));
+  document.querySelector("#sortByType").addEventListener("click", () => sortBy("Type"));
+  document.querySelector("#sortByMeetName").addEventListener("click", () => sortBy("MeetName"));
 
-document.querySelector("#signup").addEventListener("submit", signUpClicked);
+  document.querySelector("#signup").addEventListener("submit", signUpClicked);
 
-document.querySelector("#membership-link").addEventListener("click", membershipClicked);
-document.querySelector("#about-membership").addEventListener("click", membershipClicked);
-document.querySelector("#signup-nav-link").addEventListener("click", membershipClicked);
+  document.querySelector("#membership-link").addEventListener("click", membershipClicked);
+  document.querySelector("#about-membership").addEventListener("click", membershipClicked);
+  document.querySelector("#signup-nav-link").addEventListener("click", membershipClicked);
 
-document.querySelector("#treasurer-link").addEventListener("click", accountingClicked);
-document.querySelector("#member-overview-link").addEventListener("click", accountingClicked);
-document.querySelector("#accounting-link").addEventListener("click", accountingClicked);
+  document.querySelector("#treasurer-link").addEventListener("click", accountingClicked);
+  document.querySelector("#member-overview-link").addEventListener("click", accountingClicked);
+  document.querySelector("#accounting-link").addEventListener("click", accountingClicked);
 
-document.querySelector("#restance-grid").addEventListener("click", initViews);
+  document.querySelector("#restance-grid").addEventListener("click", initViews);
+}
 
 function initViews() {
   window.addEventListener("hashchange", viewChange); // whenever the hash changes (you hit a link or change the hash)

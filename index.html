@@ -24,7 +24,7 @@
         <a id="contact-link" href="#contact-section" class="view-link hover-shadow">Kontakt os</a>
         <a id="login-link" href="#login-section" class="view-link hover-shadow">Log ind</a>
         <a id="trainer-link" href="#trainer-section" class="view-link log-in-hidden hover-shadow" >TrainerAdmin</a>
-        <a id="treasurer-link" class="view-link log-in-hidden hover-shadow">Kaspers Side</a>
+        <a id="treasurer-link" class="view-link log-in-hidden hover-shadow">Kasserens Side</a>
         <a id="btn-sign-out" class="view-link log-in-hidden hover-shadow">Log ud</a>
       </nav>
     </header>
@@ -200,10 +200,10 @@
             
               <div id="første">
                 <!-- <label>Fornavn</label> -->
-                <input type="text" id="first-name-signup" name="firstname" placeholder="Fornavn" required />
+                <input type="text" id="first-name-signup" name="firstName" placeholder="Fornavn" required />
                 <br /><br />
                 <!-- <label>Efternavn</label> -->
-                <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
+                <input type="text" id="last-name-signup" name="lastName" placeholder="Efternavn" required />
                 <br /><br />
                 <!-- <label>Fødselsdato:</label> -->
                 <input for="birthday" type="text" id="birthday-signup" placeholder="Fødselsdato" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" required />
@@ -358,14 +358,21 @@
       <section id="treasurer-section" class="view-content">
         <article id="treasurer-page">
           <h1>Oversigt over medlemmer</h1>
+          <section id="medlemsoversigt-section">
+            <form id="medlemsoversigt-form">
+            <dialog id="medlemsoversigt-dialog">
+            </dialog>
+             </form>
+          </section>
+
            <section id="update-member-section">
         <dialog id="update-member-dialog">
             <form id="form-update-member">
             <h2>Opdater medlem</h2>
             <div id="første-update">
-            <input type="text" id="first-name-update" name="firstname" placeholder="Fornavn" required />
+            <input type="text" id="first-name-update" name="firstName" placeholder="Fornavn" required />
             <br /><br />
-             <input type="text" id="last-name-update" name="lastname" placeholder="Efternavn" required />
+             <input type="text" id="last-name-update" name="lastName" placeholder="Efternavn" required />
               <br /><br />
               <input for="birthday" type="date" id="birthday-update" placeholder="Fødselsdato" name="birthday" required />
                 <br /><br />
@@ -409,8 +416,8 @@
       <label>Motionist </label>
       <labeionist </label>
       <input type="radio" id="motionist-member-type-update" name="levelType" value="motionist" />
-      <inpue="radio" id="motionist-member-type-update" name="levelType" value="motionist" />
       <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type" name="levelType" value="konkurrencesvømmer" />
+      
       <br />
       <br />
       <h4>Svømmedisciplin:</h4>
@@ -421,7 +428,9 @@
       <label>Rygcrawl </label>
       <input class="check-create" type="checkbox" id="rygcrawl -discplin-update" name="swimTypes" value="rygcrawl" /> <label>Brystsvømning</label>
       <input class="check-create" type="checkbox" id="brystsvømning-discplin-update" name="swimTypes" value="brystsvømning" />
-      <button id="update-member-btn" type="submit">Opdater oplysninger</button>
+      <br />
+      <button id="update-member-btn" type="submit" class="responsive-button">Opdater oplysninger</button>
+      <button id="close-member-btn" type="submit" class="responsive-button">Luk</button>
           <br />
           <br />
         </form>

@@ -25,6 +25,7 @@ function treasurerIsSignedIn() {
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
   document.querySelector("#login-link").classList.add("log-in-hidden");
+  moveDropdownsTreasurer();
 }
 
 function treasurerIsSignedOut() {
@@ -33,6 +34,7 @@ function treasurerIsSignedOut() {
   document.querySelector("#treasurer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
   document.querySelector("#login-link").classList.remove("log-in-hidden");
+  moveDropdownsUser();
 }
 
 function runApp() {
@@ -71,6 +73,7 @@ function coachIsSignedIn() {
   document.querySelector("#trainer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
   document.querySelector("#login-link").classList.add("log-in-hidden");
+  moveDropdownsCoach();
 }
 
 function coachIsSignedOut() {
@@ -79,6 +82,7 @@ function coachIsSignedOut() {
   document.querySelector("#trainer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
   document.querySelector("#login-link").classList.remove("log-in-hidden");
+  moveDropdownsUser();
 }
 
 function coachLogin(event) {
@@ -110,6 +114,20 @@ function signOutUser() {
   //  console.log("User signed out");
 }
 
+function moveDropdownsTreasurer() {
+  const menuMembership = document.querySelector("#menu-membership");
+  menuMembership.style.right = "590px";
+}
+
+function moveDropdownsCoach() {
+  const menuMembership = document.querySelector("#menu-membership");
+  menuMembership.style.right = "595px";
+}
+
+function moveDropdownsUser() {
+  const menuMembership = document.querySelector("#menu-membership");
+  menuMembership.style.right = "439px";
+}
 /* =============== EXPORT =============== */
 
 export { loginPage };

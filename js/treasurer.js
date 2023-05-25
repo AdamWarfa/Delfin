@@ -32,7 +32,6 @@ function showUsers(listOfUsers) {
   }
 }
 
-// Funktion til DOM-manipulation
 function showUser(userObject) {
   document.querySelector("#treasurer-grid").insertAdjacentHTML(
     "beforeend",
@@ -41,21 +40,19 @@ function showUser(userObject) {
 <article class="list-user">
 <h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
 <div id="user-grid" class="user-grid-border">
-  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday}</p>
-  <p id="list-age" class="user-grid-border">Alder: ${userObject.age}</p>
-  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street}</p>
-  <p id="list-housenumber"class="user-grid-border">Husnummer: ${userObject.houseNumber}</p>
-  <p id="list-postcode" class="user-grid-border">Postkode: ${userObject.postCode}</p>
-  <p id="list-city" class="user-grid-border">By: ${userObject.city}</p>
-  <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
-  <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
+  <p id="list-birthday" class="user-grid-border">${userObject.birthday + " " + "Alder:" + userObject.age}</p>
+  <p id="list-street" class="user-grid-border">${userObject.street + " " + userObject.houseNumber}</p>
+  <p id="list-city" class="user-grid-border">${userObject.postCode + " " + userObject.city} </p>
+  <p id="list-email" class="user-grid-border">${userObject.email}</p>
+  <p id="list-phonenumber" class="user-grid-border">${userObject.phoneNumber}</p>
   <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
-  <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
-  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
-  <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
+
+
+
   </div>
-  <button id="user-btn-delete">Slet medlem</button>
-  <button id="user-btn-update">Opdater medlem</button>
+  <button id="btn-show-member" type="button" class="responsive-button">Vis mere</button>
+  <button id="user-btn-delete" class="responsive-button">Slet medlem</button>
+  <button id="user-btn-update" class="responsive-button">Opdater medlem</button>
 </article>
 `
   );
@@ -63,6 +60,8 @@ function showUser(userObject) {
   // Click events til at slette brugere
   document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => deleteUserClicked(userObject));
   document.querySelector("#treasurer-grid article:last-child #user-btn-update").addEventListener("click", () => updateClicked(userObject));
+  document.querySelector("#treasurer-grid article:last-child #btn-show-member").addEventListener("click", () => showUserInDialog(userObject));
+  // document.querySelector("#user-btn-show").addEventListener("click", closeDialog);
 }
 
 function showUsersinRestance(users) {
@@ -159,17 +158,22 @@ function showIncomingContingency(users) {
     `
   );
 }
-
+/*
 function closeDialog() {
-  document.querySelector("#update-member-dialog").close();
+  console.log("CLOSE")
+  document.querySelector("#update-membber-dialog").close();
+  document.querySelector("#medlemsoversigt-dialog").close();
 }
+*/
 
 async function updateMemberClicked(event) {
   event.preventDefault();
 
+  const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
+
   const form = event.target;
-  const firstname = form.firstname.value;
-  const lastname = form.lastname.value;
+  const firstName = form.firstName.value;
+  const lastName = form.lastName.value;
   const birthday = form.birthday.value;
   const age = getAge(birthday);
   const street = form.street.value;
@@ -185,7 +189,10 @@ async function updateMemberClicked(event) {
   const swimTypes = [];
   const id = form.getAttribute("data-id");
 
-  const response = await updateUser(firstname, lastname, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id);
+  checkboxes.forEach((checkbox) => {
+    swimTypes.push(checkbox.value);
+  });
+  const response = await updateUser(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id);
 
   if (response.ok) {
     console.log("Update clicked", id);
@@ -194,11 +201,45 @@ async function updateMemberClicked(event) {
   }
 }
 
+function showUserInDialog(userObject) {
+  console.log("VI ÅBNER");
+  console.log(userObject);
+  document.querySelector("#medlemsoversigt-dialog").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+
+<article class="list-user">
+<h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
+<div id="user-grid" class="user-grid-border">
+  <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday + " Alder: " + userObject.age}</p>
+  <p id="list-street" class="user-grid-border">Adresse: ${userObject.street + " Husnummer " + userObject.houseNumber}</p>
+  <p id="list-city" class="user-grid-border">Postnummer: ${userObject.postCode + " By: " + userObject.city} </p>
+  <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
+  <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
+  <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
+  <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
+  <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
+  <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
+  <p id="list-restance" class="user-grid-border">Svømmedisciplin: ${userObject.swimTypes}</p>
+
+  </div>
+  <button id="user-btn-close" class="responsive-button">Luk</button>
+
+</article>
+`
+  );
+  document.querySelector("#medlemsoversigt-dialog").showModal();
+  document.querySelector("#user-btn-close").addEventListener("click", () => {
+    document.querySelector("#medlemsoversigt-dialog").innerHTML = "";
+    document.querySelector("#medlemsoversigt-dialog").close();
+  });
+}
+
 function updateClicked(userObject) {
   const updateForm = document.querySelector("#form-update-member");
 
-  updateForm.firstname.value = userObject.firstName;
-  updateForm.lastname.value = userObject.lastname;
+  updateForm.firstName.value = userObject.firstName;
+  updateForm.lastName.value = userObject.lastName;
   updateForm.birthday.value = userObject.birthday;
   updateForm.street.value = userObject.street;
   updateForm.houseNumber.value = userObject.houseNumber;
@@ -214,6 +255,7 @@ function updateClicked(userObject) {
   updateForm.setAttribute("data-id", userObject.id);
 
   document.querySelector("#update-member-dialog").showModal();
+  document.querySelector("#close-member-btn").addEventListener("click", () => document.querySelector("#update-member-dialog").close());
 }
 
 /* =============== EXPORT =============== */
