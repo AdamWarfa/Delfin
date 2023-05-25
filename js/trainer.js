@@ -10,7 +10,7 @@ let sortValue;
 async function updateTrainerPage() {
   console.log("Testing: Updating trainer page");
   document.querySelector("#resultsTableBody").innerHTML = "";
-  document.querySelector("#resultUsersCreate").innerHTML = "";
+  document.querySelector("#resultUsersCreateList").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
 
   results = await getResults();
@@ -23,7 +23,6 @@ async function updateTrainerPage() {
 function sortBy(type) {
   let sortPath = "#sortBy" + type;
   sortValue = type.toLowerCase();
-  console.log(sortValue);
 
   document.querySelector("#sortByTime").classList.remove("sortActive");
   document.querySelector("#sortByMeetName").classList.remove("sortActive");
@@ -37,7 +36,6 @@ function sortBy(type) {
   }
 
   sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
-  console.log(sortedResults);
   showResults(sortedResults);
 }
 
@@ -52,7 +50,7 @@ function insertSwimmersDropdown(listOfUsers) {
 
   function insertSwimmerDropdown(resultObject) {
     document.querySelector("#resultUsersEdit").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.id}">${resultObject.firstName} ${resultObject.lastName}</option> `);
-    document.querySelector("#resultUsersCreate").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.id}">${resultObject.firstName} ${resultObject.lastName}</option> `);
+    document.querySelector("#resultUsersCreateList").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.firstName} ${resultObject.lastName}" data-id="${resultObject.id}"></option> `);
   }
 }
 async function showResults(listOfResults) {
@@ -69,8 +67,6 @@ async function showResults(listOfResults) {
 
 async function showResult(resultObject) {
   const user = await getMember(resultObject.swimmer);
-  console.log(resultObject);
-  console.log(user);
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
@@ -116,20 +112,24 @@ async function searchResults(searchValue) {
 /* =============== CREATE RESULTS =============== */
 
 async function createResultClicked(event) {
+  event.preventDefault();
   const form = event.target;
   const discipline = form.discipline.value;
   const meetName = form.meetName.value;
-  const swimmer = form.swimmer.value;
+  const swimmerInput = form.swimmer.value;
   const time = form.time.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
+
+  const swimmerOptions = Array.from(document.querySelector("#resultUsersCreateList").options);
+  const selectedSwimmer = swimmerOptions.find((swimmer) => swimmer.value === swimmerInput);
+  const swimmer = selectedSwimmer.dataset.id;
 
   const response = await createResult(discipline, meetName, swimmer, time, type, id);
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
   if (response.ok) {
     updateTrainerPage();
-    alert("INGEN FEJL");
     form.reset();
     closeDialog();
   } else {

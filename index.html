@@ -90,12 +90,13 @@
 
       <section id="trainer-section" class="view-content">
         <div id="trainer-container">
-          <form id="createResultForm">
+          <form id="createResultForm" method="get">
             <table id="resultsTable">
               <caption><h2>Resultatside</h2></caption>
               <tbody>
                 <tr>
-                  <td><select name="swimmer" id="resultUsersCreate" style="width: 100%" ><select></td>
+                  <td>
+                    <input list="resultUsersCreateList" name="swimmer" id="resultUsersCreate" style="width: 96.5%" ><datalist id="resultUsersCreateList"></datalist></td>
                   <td>
                     <select name="discipline" id="discipline" style="width: 100%" >
                       <option value="Crawl">Crawl</option>
@@ -451,7 +452,7 @@
           <div id="accounting-overview"></div>
         </article>
         <article id="restance-page">
-          <h1>Oversigt over medlemmer i restance</h1>
+          <h1 id="restance-title">Oversigt over medlemmer i restance</h1>
           <div id="restance-grid"></div>
         </article>
       </section>
