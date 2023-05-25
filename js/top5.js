@@ -7,23 +7,18 @@ async function updateResultsGrid() {
 
 function showAllTop5(listOfResults) {
   const sortedResults = listOfResults.sort(sortTop5);
-  console.log(sortedResults);
   document.querySelector("#front-grid-crawl").innerHTML = "";
   document.querySelector("#front-grid-brystsvømning").innerHTML = "";
   document.querySelector("#front-grid-butterfly").innerHTML = "";
   document.querySelector("#front-grid-rygcrawl").innerHTML = "";
 
-  const filteredResultsCrawl = sortedResults.filter(result => result.discipline.includes("Crawl")).slice(0, 5);
-  console.log(filteredResultsCrawl);
+  const filteredResultsCrawl = sortedResults.filter((result) => result.discipline.includes("Crawl")).slice(0, 5);
 
-  const filteredResultsBrystsvømning = sortedResults.filter(result => result.discipline.includes("Brystsvømning")).slice(0, 5);
-  console.log(filteredResultsBrystsvømning);
+  const filteredResultsBrystsvømning = sortedResults.filter((result) => result.discipline.includes("Brystsvømning")).slice(0, 5);
 
-  const filteredResultsButterfly = sortedResults.filter(result => result.discipline.includes("Butterfly")).slice(0, 5);
-  console.log(filteredResultsButterfly);
+  const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly")).slice(0, 5);
 
-  const filteredResultsRygcrawl = sortedResults.filter(result => result.discipline.includes("Rygcrawl")).slice(0, 5);
-  console.log(filteredResultsRygcrawl);
+  const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl")).slice(0, 5);
 
   showTop5(filteredResultsCrawl, "crawl");
   showTop5(filteredResultsBrystsvømning, "brystsvømning");
@@ -39,14 +34,9 @@ function sortTop5(a, b) {
 async function showTop5(results, discipline) {
   for (const result of results) {
     try {
-      console.log(result);
-
       const user = await getMember(result.swimmer);
-      console.log(user);
 
-      console.log("#front-grid-" + discipline);
       const grid = document.querySelector("#front-grid-" + discipline);
-      console.log(grid);
 
       grid.insertAdjacentHTML(
         "beforeend",
