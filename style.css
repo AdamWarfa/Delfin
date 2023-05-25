@@ -712,6 +712,14 @@ tr:nth-child(even) {
   padding-left: 0;
 }
 
+a[href^="mailto:"] {
+  color: black
+}
+
+a[href^="tel:"] {
+  color: black
+}
+
 /* =============== DIALOG BOKS STYLING =============== */
 
 #delete-dialog {
