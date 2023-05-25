@@ -43,7 +43,9 @@ async function showTop5(results, discipline) {
         /*html*/ `
 
 <article class="top5-card">
-  <h2>${user.firstName} ${user.lastName}</h2>
+  <div id="top5-color">
+    <h2>${user.firstName} ${user.lastName}</h2>
+  </div>
   <p>${user.ageGroup}</p>
   <p>${result.meetName}</p>
   <p>${result.discipline}</p>
