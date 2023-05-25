@@ -6,7 +6,7 @@ let users;
 window.addEventListener("load", start);
 
 function start() {
-  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
+  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClicked);
 }
 
 async function updateUsersGrid() {
@@ -166,7 +166,7 @@ function closeDialog() {
 }
 */
 
-async function updateMemberClciked(event) {
+async function updateMemberClicked(event) {
   event.preventDefault();
 
   const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
