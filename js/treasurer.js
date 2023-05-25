@@ -88,7 +88,7 @@ function showUserinRestance(users) {
     /*html*/ `
     
     <article class="list-restance">
-      <div id="user-grid" class="user-grid-border">
+      <div id="user-restance-grid" class="user-grid-border">
         <a href="#treasurer-section" id="restance-user-styling"><h2 id="list-fullname">${users.firstName} ${users.lastName}</h2></a>
         <p id="list-balance" >${users.firstName} er i restance</p>
       </div>
@@ -139,32 +139,30 @@ function showIncomingContingency(users) {
     "beforeend",
     /*html*/ `
 
-    <article class="contingency-incoming">
+    <article class="contingency-incoming-area">
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for denne måned i alt: <br>${contingencyExpectedTotal}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for dette år i alt: <br><b class="incoming-contingency-color">${contingencyExpectedTotal}kr.</b></h2>
         <p class="members-paying-contingency">Antal medlemmer der betaler kontingent: ${users.length}</p>
       </div>      
       
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for motionister: <br>${contingencyExpectedMotionist}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for motionister: <br><b class="incoming-contingency-color">${contingencyExpectedMotionist}kr.</b></h2>
         <p class="members-paying-contingency">Antal motionister der betaler kontingent: ${userListMotionist.length}</p>
       </div>   
 
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for konkurrencesvømmere: <br>${contingencyExpectedKonkurrencesvømmer}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for konkurrencesvømmere: <br><b class="incoming-contingency-color">${contingencyExpectedKonkurrencesvømmer}kr.</b></h2>
         <p class="members-paying-contingency">Antal konkurrencesvømmere der betaler kontingent: ${userListKonkurrencesvømmer.length}</p>
       </div>
     </article>
     `
   );
 }
-/*
+
 function closeDialog() {
-  console.log("CLOSE")
-  document.querySelector("#update-membber-dialog").close();
+  document.querySelector("#update-member-dialog").close();
   document.querySelector("#medlemsoversigt-dialog").close();
 }
-*/
 
 async function updateMemberClicked(event) {
   event.preventDefault();
@@ -210,7 +208,7 @@ function showUserInDialog(userObject) {
 
 <article class="list-user">
 <h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
-<div id="user-grid" class="user-grid-border">
+<div id="user-information-grid" class="user-grid-border">
   <p id="list-birthday" class="user-grid-border">Fødselsdato: ${userObject.birthday + " Alder: " + userObject.age}</p>
   <p id="list-street" class="user-grid-border">Adresse: ${userObject.street + " Husnummer " + userObject.houseNumber}</p>
   <p id="list-city" class="user-grid-border">Postnummer: ${userObject.postCode + " By: " + userObject.city} </p>
