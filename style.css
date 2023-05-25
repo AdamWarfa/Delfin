@@ -364,10 +364,6 @@ a {
   text-align: center;
   background-color: #f1f6f9;
   font-size: 20px;
-  /* margin-left: 20px;
-  padding: 40px;
-  padding-top: 10px; */
-  /* background-color: black; */
 }
 
 #btn-log-out-cancel,
@@ -720,8 +716,10 @@ tr:nth-child(even) {
   transform: translateY(-0px);
   background-color: #fff;
   color: #9b2323;
+  color: #9b2323;
   border: solid 2px #9b2323;
 }
+
 #btn-cancel-dialog {
   background-color: #394867;
   color: #f1f6f9;
