@@ -58,9 +58,8 @@ function showUser(userObject) {
   );
 
   // Click events til at slette brugere
-  document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", openTreasurerDialog);
+  document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => openTreasurerDialog(userObject));
   document.querySelector("#treasurer-grid article:last-child #user-btn-update").addEventListener("click", () => updateClicked(userObject));
-  document.querySelector("#btn-delete-dialog").addEventListener("click", () => deleteUserClicked(userObject));
   document.querySelector("#treasurer-grid article:last-child #btn-show-member").addEventListener("click", () => showUserInDialog(userObject));
   // document.querySelector("#user-btn-show").addEventListener("click", closeDialog);
 }
@@ -259,8 +258,10 @@ function updateClicked(userObject) {
   document.querySelector("#close-member-btn").addEventListener("click", () => document.querySelector("#update-member-dialog").close());
 }
 
-function openTreasurerDialog() {
+function openTreasurerDialog(userObject) {
   document.querySelector("#delete-dialog").showModal();
+  document.querySelector("#btn-delete-dialog").addEventListener("click", () => deleteUserClicked(userObject));
+  document.querySelector("#btn-delete-dialog").addEventListener("click", closeTreasurerDialog);
   document.querySelector("#btn-cancel-dialog").addEventListener("click", closeTreasurerDialog);
 }
 

@@ -6,8 +6,8 @@ async function signUpClicked(event) {
   const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
 
   const form = event.target;
-  const firstName = form.firstname.value;
-  const lastName = form.lastname.value;
+  const firstName = form.firstName.value;
+  const lastName = form.lastName.value;
   const birthday = form.birthday.value;
   const age = getAge(birthday);
   const street = form.street.value;
