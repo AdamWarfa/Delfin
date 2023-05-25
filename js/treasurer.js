@@ -6,7 +6,7 @@ let users;
 window.addEventListener("load", start);
 
 function start() {
-  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
+  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClicked);
 }
 
 async function updateUsersGrid() {
@@ -68,7 +68,7 @@ function showUser(userObject) {
 function showUsersinRestance(users) {
   document.querySelector("#restance-grid").innerHTML = "";
 
-  users.filter(user => user.restance).forEach(showUserinRestance); // samme som
+  users.filter((user) => user.restance).forEach(showUserinRestance); // samme som
   // for (let i = 0; i < users.length; i++) {
   //   try {
   //     let userInRestance;
@@ -128,8 +128,8 @@ function contingency(members) {
 function showIncomingContingency(users) {
   const contingencyExpectedTotal = contingency(users);
 
-  const userListMotionist = users.filter(user => user.levelType.includes("motionist"));
-  const userListKonkurrencesvømmer = users.filter(user => user.levelType.includes("konkurrencesvømmer"));
+  const userListMotionist = users.filter((user) => user.levelType.includes("motionist"));
+  const userListKonkurrencesvømmer = users.filter((user) => user.levelType.includes("konkurrencesvømmer"));
 
   const contingencyExpectedMotionist = contingency(userListMotionist);
   const contingencyExpectedKonkurrencesvømmer = contingency(userListKonkurrencesvømmer);
@@ -164,7 +164,7 @@ function closeDialog() {
   document.querySelector("#update-member-dialog").close();
 }
 
-async function updateMemberClciked(event) {
+async function updateMemberClicked(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -215,5 +215,7 @@ function updateClicked(userObject) {
 
   document.querySelector("#update-member-dialog").showModal();
 }
+
+/* =============== EXPORT =============== */
 
 export { updateUsersGrid, contingency };
