@@ -649,3 +649,61 @@ tr:nth-child(even) {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+
+#delete-dialog {
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  text-align: center;
+  background-color: #f1f6f9;
+  font-size: 20px;
+}
+
+#btn-delete-dialog{
+  background-color:#9b2323;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #9b2323;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+#btn-delete-dialog:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color:#9b2323;;
+  border: solid 2px #9b2323;
+}
+#btn-cancel-dialog{
+ background-color: #394867;
+  color: #f1f6f9;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  padding: 11px 29px;
+  border: 2px solid #394867;
+  box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
+  border-radius: 50px;
+  transition: 1s;
+  transform: translateY(0);
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+#btn-cancel-dialog:hover {
+  transition: 1s;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #394867;
+  border: solid 2px #394867;
+}
