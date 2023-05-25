@@ -51,7 +51,7 @@ function showUser(userObject) {
 
   </div>
   <button id="btn-show-member" type="button" class="responsive-button">Vis mere</button>
-  <button id="user-btn-delete" class="responsive-button">Slet medlem</button>
+  <button id="user-btn-delete" class="responsive-button-red">Slet medlem</button>
   <button id="user-btn-update" class="responsive-button">Opdater medlem</button>
 </article>
 `

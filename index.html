@@ -20,6 +20,7 @@
 
       <nav>
         <a id="home-link" href="#home-section" class="view-link hover-shadow">Hjem</a>
+        <a id="top5-link" href="#top5-section" class="view-link hover-shadow">Top 5 Svømmere</a>
         <a id="membership-link" class="view-link hover-shadow">Medlemskab</a>
         <a id="about-link" href="#about-section" class="view-link hover-shadow">Om os</a>
         <a id="contact-link" href="#contact-section" class="view-link hover-shadow">Kontakt os</a>
@@ -122,11 +123,6 @@
                   </td>
                 </tr>
                 <tr style="background-color: black;" style="height: 100%;"><td rowspan="2" colspan=8"></td></tr>
-                <!-- <tr>
-                  <td>
-                    <input type="search" id="input-search-result" name="search-result" placeholder="Søg efter svømmer" style="width: 100%" />
-                  </td>
-                </tr> -->
               </tbody>
               <tbody id="resultsTableHeader">
                 <tr>
@@ -178,14 +174,6 @@
           <img src="https://pngimg.com/d/swimming_PNG55414.png" alt="" id="swimmer-png" />
       </article>
         </article>
-        <article id="front-top5">
-          <div id="front-top5-grid">
-            <div id="front-grid-crawl"></div>
-            <div id="front-grid-butterfly"></div>
-            <div id="front-grid-rygcrawl"></div>
-            <div id="front-grid-brystsvømning"></div>
-          </div>
-        </article>
       </section>
 
       <!-- =============== MEDLEMSKAB SIGNUP SIDE SEKTION =============== -->
@@ -199,34 +187,27 @@
           <form action="" method="POST" id="signup">
             
               <div id="første">
-                <!-- <label>Fornavn</label> -->
                 <input type="text" id="first-name-signup" name="firstName" placeholder="Fornavn" required />
                 <br /><br />
-                <!-- <label>Efternavn</label> -->
                 <input type="text" id="last-name-signup" name="lastName" placeholder="Efternavn" required />
                 <br /><br />
-                <!-- <label>Fødselsdato:</label> -->
                 <input for="birthday" type="text" id="birthday-signup" placeholder="Fødselsdato" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" required />
                 <br /><br />
               </div>
 
               <div id="anden">
-                <!-- <label>Vejnavn</label> -->
                 <input type="text" name="street" placeholder="Indtast vejnavn" required />
                 <br /><br />
-                <!-- <label>Husnummer</label> -->
                 <input type="text" name="houseNumber" placeholder="Indtast husnummer" required />
                 <br /><br />
-                <!-- <label>Postnummer</label> -->
+
                 <input type="text" name="postCode" placeholder="Indtast postnummer" required />
                 <br /><br />
-                <!-- <label>By</label> -->
+
                 <input type="text" name="city" placeholder="Indtast by" required />
                 <br /><br />
-                <!-- <label>Email</label> -->
                 <input type="email" name="email" placeholder="Indtast email" required />
                 <br /><br />
-                <!-- <label>Telefon</label> -->
                 <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="Indtast mobilnummer" required />
               </div>
             </div>
@@ -237,10 +218,7 @@
                 <label>Passivt</label>
                 <input type="radio" id="passive-member-type" name="memberType" value="passive" />
                 <h4>Vælg ønskede aktivitetsform : </h4>
-                 <!-- <label>Senior</label> -->
-                <!-- <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
-                <label>Junior</label>
-                <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />  -->
+
                 <label>Motionist </label>
                 <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
                 <label>Konkurrencesvømmer</label>
@@ -341,7 +319,6 @@
           <input name="mail" type="email" placeholder="E-mail" />
           <input name="password" type="password" placeholder="Kode" />
           <button id="btn-sign-up" type="submit">Log ind</button>
-          <!-- <button id="btn-sign-out" type="button">Log ud</button> -->
         </div>
         </form>
   
@@ -456,11 +433,21 @@
           <div id="restance-grid"></div>
         </article>
       </section>
+
+      <section id="top5-section" class="view-content">
+        <article id="front-top5">
+          <h2 id="top5-title" >Top 5 inden for hver svømmedisciplin</h2>
+          <div id="front-top5-grid">
+            <div id="front-grid-crawl"></div>
+            <div id="front-grid-butterfly"></div>
+            <div id="front-grid-rygcrawl"></div>
+            <div id="front-grid-brystsvømning"></div>
+          </div>
+        </article>
+      </section>
       
-   
   </main>
     
-    <!-- <footer>Wagwan lil mamacitas</footer> -->
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
