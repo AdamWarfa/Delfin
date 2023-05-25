@@ -539,6 +539,7 @@ td {
 
 .contingency-incoming {
   border-bottom: 4px inset black;
+  margin-top: 100px;
 }
 
 .contingency-expected,

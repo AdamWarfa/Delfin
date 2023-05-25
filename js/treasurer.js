@@ -142,7 +142,7 @@ function showIncomingContingency(users) {
 
     <article class="contingency-incoming">
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for denne måned: <br>${contingencyExpectedTotal}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for denne måned i alt: <br>${contingencyExpectedTotal}kr.</h2>
         <p class="members-paying-contingency">Antal medlemmer der betaler kontingent: ${users.length}</p>
       </div>      
       
@@ -151,7 +151,7 @@ function showIncomingContingency(users) {
         <p class="members-paying-contingency">Antal motionister der betaler kontingent: ${userListMotionist.length}</p>
       </div>   
 
-      <div id="">
+      <div>
         <h2 class="contingency-expected">Indkommende kontingent for konkurrencesvømmere: <br>${contingencyExpectedKonkurrencesvømmer}kr.</h2>
         <p class="members-paying-contingency">Antal konkurrencesvømmere der betaler kontingent: ${userListKonkurrencesvømmer.length}</p>
       </div>
@@ -161,7 +161,7 @@ function showIncomingContingency(users) {
 }
 
 function closeDialog() {
-  document.querySelector("#update-membber-dialog").close();
+  document.querySelector("#update-member-dialog").close();
 }
 
 async function updateMemberClciked(event) {
@@ -213,7 +213,7 @@ function updateClicked(userObject) {
   updateForm.swimTypes.value = userObject.swimTypes;
   updateForm.setAttribute("data-id", userObject.id);
 
-  document.querySelector("#update-membber-dialog").showModal();
+  document.querySelector("#update-member-dialog").showModal();
 }
 
 export { updateUsersGrid, contingency };
