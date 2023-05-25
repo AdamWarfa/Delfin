@@ -1,9 +1,7 @@
-"use strict";
-
 import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
-import { getMember } from "./main.js";
+import { getMember } from "./rest-service.js";
 
-////---------- SHOW/GET results ----------////
+/* =============== SHOW/GET RESULTS =============== */
 
 let results;
 let sortedResults;
@@ -36,13 +34,11 @@ function sortBy(type) {
 
   if (sortValue === "meetname") {
     sortValue = "meetName";
-    console.log(sortValue);
-    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
-    showResults(sortedResults);
-  } else {
-    sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
-    showResults(sortedResults);
   }
+
+  sortedResults = results.sort((a, b) => a[sortValue].localeCompare(b[sortValue]));
+  console.log(sortedResults);
+  showResults(sortedResults);
 }
 
 function insertSwimmersDropdown(listOfUsers) {
@@ -59,12 +55,12 @@ function insertSwimmersDropdown(listOfUsers) {
     document.querySelector("#resultUsersCreate").insertAdjacentHTML("beforeend", /* HTML */ ` <option value="${resultObject.id}">${resultObject.firstName} ${resultObject.lastName}</option> `);
   }
 }
-function showResults(listOfResults) {
+async function showResults(listOfResults) {
   document.querySelector("#resultsTableBody").innerHTML = "";
 
   for (const result of listOfResults) {
     try {
-      showResult(result);
+      await showResult(result);
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +69,8 @@ function showResults(listOfResults) {
 
 async function showResult(resultObject) {
   const user = await getMember(resultObject.swimmer);
+  console.log(resultObject);
+  console.log(user);
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
@@ -90,16 +88,16 @@ async function showResult(resultObject) {
     `
   );
 
-  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #deleteResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openDeleteDialog(resultObject);
   });
-  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", event => {
+  document.querySelector("#resultsTableBody tr:last-child #editResult-btn").addEventListener("click", (event) => {
     event.preventDefault();
     openEditDialog(resultObject);
   });
 
-  document.addEventListener("keydown", event => {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeDialog();
     }
@@ -112,10 +110,10 @@ async function inputResultSearchChanged(event) {
 
 async function searchResults(searchValue) {
   let results = await getResults();
-  return (results = results.filter(result => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
+  return (results = results.filter((result) => result.swimmer.toLowerCase().includes(searchValue.toLowerCase())));
 }
 
-////---------- CREATE results ----------////
+/* =============== CREATE RESULTS =============== */
 
 async function createResultClicked(event) {
   const form = event.target;
@@ -139,7 +137,7 @@ async function createResultClicked(event) {
   }
 }
 
-////---------- EDIT RESULT ----------////
+/* =============== EDIT RESULT =============== */
 
 async function openEditDialog(resultObject) {
   const updateForm = document.querySelector("#editResultForm");
@@ -185,7 +183,7 @@ async function updateResultClicked(event) {
   }
 }
 
-////---------- DELETE results ----------////
+/* =============== DELETE RESULTS =============== */
 
 async function openDeleteDialog(dataObject) {
   document.querySelector("#form-delete-result").setAttribute("data-id", dataObject.id);
@@ -203,5 +201,7 @@ async function deleteResultClicked() {
     updateTrainerPage();
   }
 }
+
+/* =============== EXPORT =============== */
 
 export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy };

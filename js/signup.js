@@ -17,7 +17,7 @@ async function signUpClicked(event) {
   const email = form.email.value;
   const phoneNumber = form.phoneNumber.value;
   const memberType = form.memberType.value;
-  const ageGroup = form.ageGroup.value;
+  const ageGroup = checkAgeGroup(age);
   const levelType = form.levelType.value;
   const restance = false;
   const swimTypes = [];
@@ -27,9 +27,9 @@ async function signUpClicked(event) {
   });
 
   const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes);
+
   if (response.ok) {
     console.log("New member succesfully added to Firebase 🔥");
-    alert("New member successfully added to Firebase 🔥");
   }
 }
 
@@ -62,6 +62,21 @@ async function createMember(firstName, lastName, birthday, age, street, houseNum
   return response;
 }
 
+function checkAgeGroup(age) {
+  const senior = "senior";
+  const junior = "junior";
+
+  if (age >= 18) {
+    console.log(senior);
+    return senior;
+  } else if (age <= 17) {
+    console.log(junior);
+    return junior;
+  } else {
+    console.log("aldersfejl");
+  }
+}
+
 function getAge(birthday) {
   let birthDate = new Date(birthday);
   let age = new Date().getFullYear() - birthDate.getFullYear();
@@ -71,5 +86,28 @@ function getAge(birthday) {
   }
   return age;
 }
+
+let motionistRadioButton = document.querySelector("#motionist-member-type");
+let konkurrencesvømmerRadioButton = document.querySelector("#konkurrencesvømmer-member-type-update");
+let svømmedisciplinCheckboxes = document.getElementsByClassName("check-create");
+
+motionistRadioButton.addEventListener("change", function () {
+  let disabled = motionistRadioButton.checked; // Hvis motionist-radioknappen er markeret, skal boksene deaktiveres
+  for (let i = 0; i < svømmedisciplinCheckboxes.length; i++) {
+    svømmedisciplinCheckboxes[i].checked = false;
+    svømmedisciplinCheckboxes[i].disabled = disabled;
+  }
+});
+
+konkurrencesvømmerRadioButton.addEventListener("change", function () {
+  // Hvis konkurrencesvømmer-radioknappen er markeret, skal svømmedisciplin-checkboxene aktiveres
+  if (konkurrencesvømmerRadioButton.checked) {
+    for (let i = 0; i < svømmedisciplinCheckboxes.length; i++) {
+      svømmedisciplinCheckboxes[i].disabled = false;
+    }
+  }
+});
+
+/* =============== EXPORT =============== */
 
 export { signUpClicked, createMember, getAge };
