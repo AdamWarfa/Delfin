@@ -255,6 +255,7 @@ function updateClicked(userObject) {
   updateForm.setAttribute("data-id", userObject.id);
 
   document.querySelector("#update-member-dialog").showModal();
+  document.querySelector("#close-member-btn").addEventListener("click", () => document.querySelector("#update-member-dialog").close());
 }
 
 /* =============== EXPORT =============== */
