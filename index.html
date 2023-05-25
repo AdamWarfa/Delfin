@@ -13,37 +13,39 @@
   <body>
     <header>
       <img id="logo" src="" alt="" />
-      <h2 id="title">Svømmeklubben Delfinen</h2>
+      <h2 id="title" class="hover-shadow">Svømmeklubben Delfinen</h2>
 
       <!-- =============== HEADER SEKTION =============== -->
 
       <nav>
-        <a id="home-link" href="#home-section" class="view-link">Hjem</a>
-        <a id="membership-link" class="view-link">Medlemskab</a>
-        <a id="about-link" href="#about-section" class="view-link">Om os</a>
-        <a id="contact-link" href="#contact-section" class="view-link">Kontakt os</a>
-        <a id="log-ind-link" href="#login-section" class="view-link">Log ind</a>
-        <a id="trainer-link" href="#trainer-section" class="view-link log-in-hidden" >TrainerAdmin</a>
-        <a id="treasurer-link" class="view-link log-in-hidden">Kaspers Side</a>
-        <a id="btn-sign-out" class="view-link log-in-hidden">Log ud</a>
+        <a id="home-link" href="#home-section" class="view-link hover-shadow">Hjem</a>
+        <a id="membership-link" class="view-link hover-shadow">Medlemskab</a>
+        <a id="about-link" href="#about-section" class="view-link hover-shadow">Om os</a>
+        <a id="contact-link" href="#contact-section" class="view-link hover-shadow">Kontakt os</a>
+        <a id="login-link" href="#login-section" class="view-link hover-shadow">Log ind</a>
+        <a id="trainer-link" href="#trainer-section" class="view-link log-in-hidden hover-shadow" >TrainerAdmin</a>
+        <a id="treasurer-link" class="view-link log-in-hidden hover-shadow">Kaspers Side</a>
+        <a id="btn-sign-out" class="view-link log-in-hidden hover-shadow">Log ud</a>
       </nav>
     </header>
     <main>
       <div id="menu-membership" class="menu-closed">
         <ul id="membership-list">
-          <li><a href="#om-medlemskab-section" id="om-medlemskab">Om medlemsskab</a></li>
+          <li><a href="#about-membership-section" id="about-membership" class="hover-shadow">Om medlemsskab</a></li>
           <br />
-          <li><a href="#signup-section" id="signup-nav-link">Opret medlemskab</a></li>
+          <li><a href="#signup-section" id="signup-nav-link" class="hover-shadow">Opret medlemskab</a></li>
         </ul>
       </div>
 
       <div id="menu-accounting" class="menu-closed">
         <ul id="accounting-list">
-          <li><a href="#treasurer-section" id="member-overview-link">Medlemsoversigt</a></li>
+          <li><a href="#treasurer-section" id="member-overview-link" class="hover-shadow">Medlemsoversigt</a></li>
           <br />
-          <li><a href="#accounting-section" id="accounting-link">Opgørelse</a></li>
+          <li><a href="#accounting-section" id="accounting-link" class="hover-shadow">Opgørelse</a></li>
         </ul>
       </div>
+
+            <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
 
       <dialog id="dialog-delete-result">
         <form id="form-delete-result">
@@ -90,6 +92,7 @@
         <div id="trainer-container">
           <form id="createResultForm">
             <table id="resultsTable">
+              <caption><h2>Resultatside</h2></caption>
               <tbody>
                 <tr>
                   <td><select name="swimmer" id="resultUsersCreate" style="width: 100%" ><select></td>
@@ -125,15 +128,13 @@
               </tbody>
               <tbody id="resultsTableHeader">
                 <tr>
-                  <td id="sortBySwimmer">Svømmer</td>
-                  <td id="sortByDiscipline">Disciplin</td>
-                  <td id="sortByTime">Tid</td>
-                  <td id="sortByType">Type</td>
-                  <td id="sortByMeetName">Stævne</td>
+                  <td id="sortBySwimmer">Svømmer↓</td>
+                  <td id="sortByDiscipline">Disciplin↓</td>
+                  <td id="sortByTime">Tid↓</td>
+                  <td id="sortByType">Type↓</td>
+                  <td id="sortByMeetName">Stævne↓</td>
                   <td colspan="3"></td>
                 </tr>
-              </tbody>
-              <tbody>
               </tbody>
               <tbody id="resultsTableBody"></tbody>
             </table>
@@ -143,8 +144,8 @@
 
       <!-- =============== OM MEDLEMSKAB SIDE SEKTION =============== -->
 
-      <section id="om-medlemskab-section" class="view-content">
-        <article id="om-medlemskab-page">
+      <section id="about-membership-section" class="view-content">
+        <article id="about-membership-page">
           <h1>Velkommen til vores svømmeklub!</h1>
           <h4>Medlemstyper</h4>
           <p>
@@ -204,7 +205,7 @@
                 <input type="text" id="last-name-signup" name="lastname" placeholder="Efternavn" required />
                 <br /><br />
                 <!-- <label>Fødselsdato:</label> -->
-                <input for="birthday" type="date" id="birthday-signup" placeholder="Fødselsdato" name="birthday" required />
+                <input for="birthday" type="text" id="birthday-signup" placeholder="Fødselsdato" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" required />
                 <br /><br />
               </div>
 
@@ -225,7 +226,7 @@
                 <input type="email" name="email" placeholder="Indtast email" required />
                 <br /><br />
                 <!-- <label>Telefon</label> -->
-                <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="indtast mobilnummer" required />
+                <input type="tel" name="phoneNumber" maxlength="8" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" placeholder="Indtast mobilnummer" required />
               </div>
             </div>
               <div id="tredje">
@@ -235,17 +236,18 @@
                 <label>Passivt</label>
                 <input type="radio" id="passive-member-type" name="memberType" value="passive" />
                 <h4>Vælg ønskede aktivitetsform : </h4>
-                <label>Senior</label>
-                <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
+                 <!-- <label>Senior</label> -->
+                <!-- <input type="radio" id="senior-member-type" name="ageGroup" value="senior" />
                 <label>Junior</label>
-                <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />
+                <input type="radio" id="junior-member-type" name="ageGroup" value="junior" />  -->
                 <label>Motionist </label>
                 <input type="radio" id="motionist-member-type" name="levelType" value="motionist" />
-                <label>Konkurrencesvømmer</label><input type="radio" id="konkurrencesvømmer-member-type-update" name="levelType" value="konkurrencesvømmer" />
+                <label>Konkurrencesvømmer</label>
+                <input type="radio" id="konkurrencesvømmer-member-type-update" name="levelType" value="konkurrencesvømmer" />
                 <br />
                 <br />
                 <h4>Svømmedisciplin : </h4>
-                <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig:</p>
+                <p>Herunder kan du vælge, hvilke svømmediscipliner du ønkser at tilmelde dig. Gælder kun konkurence svømmere :</p>
                 <label>Butterfly</label>
                 <input class="check-create" type="checkbox" id="butterfly-discplin" name="swimTypes" value="butterfly" />
                 <label>Crawl</label>
@@ -259,14 +261,6 @@
           </form>
         </div>
       </div>
-      </section>
-
-      <!-- =============== TRÆNERRESULTATER SIDE SEKTION =============== -->
-
-      <section id="results-section" class="view-content">
-        <article id="results-page">
-          <h2>RESULTATER</h2>
-        </article>
       </section>
 
       <!-- =============== OM OS SIDE SEKTION =============== -->
@@ -370,7 +364,7 @@
           </form>
           </section>
            <section id="update-member-section">
-        <dialog id="update-membber-dialog">
+        <dialog id="update-member-dialog">
             <form id="form-update-member">
             <h2>Opdater medlem</h2>
             <div id="første-update">
@@ -458,6 +452,5 @@
     
     <!-- <footer>Wagwan lil mamacitas</footer> -->
     <script src="js/main.js" type="module"></script>
-    <script src="log-ind.js"></script>
   </body>
 </html>

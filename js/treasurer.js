@@ -6,11 +6,9 @@ let users;
 window.addEventListener("load", start);
 
 function start() {
-  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClciked);
-  // document.querySelector("#medlemsoversigt-form").addEventListener("click", showUserInDialog);
-  // document.querySelector("#user-btn-close").addEventListener("click", closeMemberDialog);
-
+  document.querySelector("#form-update-member").addEventListener("submit", updateMemberClicked);
 }
+
 async function updateUsersGrid() {
   users = await getUsers();
   showUsers(users);
@@ -55,8 +53,8 @@ function showUser(userObject) {
 
   </div>
   <button id="btn-show-member" type="button">Vis mere</button>
-  <button id="user-btn-delete">Slet medlem</button>
-  <button id="user-btn-update">Opdater medlem</button>
+  <button id="user-btn-delete" class="responsive-button">Slet medlem</button>
+  <button id="user-btn-update" class="responsive-button">Opdater medlem</button>
 </article>
 `
   );
@@ -94,7 +92,7 @@ function showUserinRestance(users) {
     
     <article class="list-restance">
       <div id="user-grid" class="user-grid-border">
-        <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
+        <a href="#treasurer-section" id="restance-user-styling"><h2 id="list-fullname">${users.firstName} ${users.lastName}</h2></a>
         <p id="list-balance" >${users.firstName} er i restance</p>
       </div>
     </article>
@@ -110,9 +108,10 @@ function contingency(members) {
     seniorDiscount: 1200,
   };
 
+  let fee;
   let totalFee = 0;
+
   for (const member of members) {
-    let fee;
     if (member.memberType === "passive") {
       fee = membershipFees.passiveFee;
     } else if (member.memberType === "active" && member.ageGroup === "senior") {
@@ -129,15 +128,34 @@ function contingency(members) {
 }
 
 function showIncomingContingency(users) {
-  const totalContingencyExpected = contingency(users);
+  const contingencyExpectedTotal = contingency(users);
+
+  const userListMotionist = users.filter((user) => user.levelType.includes("motionist"));
+  const userListKonkurrencesvømmer = users.filter((user) => user.levelType.includes("konkurrencesvømmer"));
+
+  const contingencyExpectedMotionist = contingency(userListMotionist);
+  const contingencyExpectedKonkurrencesvømmer = contingency(userListKonkurrencesvømmer);
+
+  document.querySelector("#accounting-overview").innerHTML = "";
+
   document.querySelector("#accounting-overview").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
 
     <article class="contingency-incoming">
       <div>
-        <h2 class="contingency-expected">Indkommende kontingent for denne måned: <br>${totalContingencyExpected}kr.</h2>
+        <h2 class="contingency-expected">Indkommende kontingent for denne måned i alt: <br>${contingencyExpectedTotal}kr.</h2>
         <p class="members-paying-contingency">Antal medlemmer der betaler kontingent: ${users.length}</p>
+      </div>      
+      
+      <div>
+        <h2 class="contingency-expected">Indkommende kontingent for motionister: <br>${contingencyExpectedMotionist}kr.</h2>
+        <p class="members-paying-contingency">Antal motionister der betaler kontingent: ${userListMotionist.length}</p>
+      </div>   
+
+      <div>
+        <h2 class="contingency-expected">Indkommende kontingent for konkurrencesvømmere: <br>${contingencyExpectedKonkurrencesvømmer}kr.</h2>
+        <p class="members-paying-contingency">Antal konkurrencesvømmere der betaler kontingent: ${userListKonkurrencesvømmer.length}</p>
       </div>
     </article>
     `
@@ -145,14 +163,10 @@ function showIncomingContingency(users) {
 }
 
 function closeDialog() {
-  document.querySelector("#update-membber-dialog").close();
+  document.querySelector("#update-member-dialog").close();
 }
 
-function closeMemberDialog() {
-  document.querySelector("#medlemsoversigt-dialog").close();
-}
-
-async function updateMemberClciked(event) {
+async function updateMemberClicked(event) {
   event.preventDefault();
 
   const checkboxes = document.querySelectorAll('input[name="swimTypes"]:checked');
@@ -184,7 +198,6 @@ async function updateMemberClciked(event) {
     console.log("Update clicked", id);
     updateUsersGrid();
     closeDialog();
-    alert("Memeber updated!");
   }
 }
 
@@ -236,7 +249,9 @@ function updateClicked(userObject) {
   updateForm.swimTypes.value = userObject.swimTypes;
   updateForm.setAttribute("data-id", userObject.id);
 
-  document.querySelector("#update-membber-dialog").showModal();
+  document.querySelector("#update-member-dialog").showModal();
 }
+
+/* =============== EXPORT =============== */
 
 export { updateUsersGrid, contingency };

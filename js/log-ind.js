@@ -1,8 +1,4 @@
-"use strict";
-
-window.addEventListener("load", initAuth);
-
-function initAuth() {
+function loginPage() {
   runApp();
   document.querySelector("#btn-sign-out").addEventListener("click", openLogOutDialog);
   document.querySelector("#btn-log-out-cancel").addEventListener("click", closeLogOutDialog);
@@ -22,12 +18,13 @@ function initAuth() {
     coachIsSignedOut();
   }
 }
+
 function treasurerIsSignedIn() {
   location.hash = "#treasurer-section";
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
-  document.querySelector("#log-ind-link").classList.add("log-in-hidden");
+  document.querySelector("#login-link").classList.add("log-in-hidden");
 }
 
 function treasurerIsSignedOut() {
@@ -35,7 +32,7 @@ function treasurerIsSignedOut() {
   // document.querySelector("nav").classList.add("hide");
   document.querySelector("#treasurer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
-  document.querySelector("#log-ind-link").classList.remove("log-in-hidden");
+  document.querySelector("#login-link").classList.remove("log-in-hidden");
 }
 
 function runApp() {
@@ -43,8 +40,10 @@ function runApp() {
   document.querySelector("#login-form").addEventListener("submit", coachLogin);
   // document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 }
+
 function treasurerLogin(event) {
   event.preventDefault();
+
   const mail = event.target.mail.value;
   const password = event.target.password.value;
 
@@ -71,7 +70,7 @@ function coachIsSignedIn() {
   // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#trainer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
-  document.querySelector("#log-ind-link").classList.add("log-in-hidden");
+  document.querySelector("#login-link").classList.add("log-in-hidden");
 }
 
 function coachIsSignedOut() {
@@ -79,11 +78,12 @@ function coachIsSignedOut() {
   // document.querySelector("nav").classList.add("hide");
   document.querySelector("#trainer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
-  document.querySelector("#log-ind-link").classList.remove("log-in-hidden");
+  document.querySelector("#login-link").classList.remove("log-in-hidden");
 }
 
 function coachLogin(event) {
   event.preventDefault();
+
   const mail = event.target.mail.value;
   const password = event.target.password.value;
 
@@ -109,3 +109,7 @@ function signOutUser() {
   //  document.querySelector("nav").classList.remove("hide");
   //  console.log("User signed out");
 }
+
+/* =============== EXPORT =============== */
+
+export { loginPage };
