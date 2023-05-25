@@ -10,8 +10,6 @@ async function getUsers() {
   const users = prepareUserData(data);
 
   return users;
-
-  // TO DO: tjek navngivning af variabler og funktion
 }
 
 function prepareUserData(dataObject) {
