@@ -559,7 +559,11 @@ td {
   height: 50%;
 }
 
-#front-left {
+#top5-title {
+  text-align: center;
+}
+
+#front-top5-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -571,7 +575,7 @@ td {
   text-align: center;
   padding: 1px 20px;
   margin: 20px;
-  border: solid 2px black;
+  border: solid 1px rgba(0, 0, 0, 0.2);
 }
 .top5-card:hover {
   transform: scale(105%);
@@ -582,7 +586,7 @@ td {
   text-align: center;
   padding: 1px 20px;
   margin: 20px;
-  border: solid 2px black;
+  border: solid 1px rgba(0, 0, 0, 0.2);
   cursor: url(assets/delfin-mus.png) 40 50, auto;
 }
 

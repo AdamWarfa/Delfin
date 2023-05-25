@@ -144,22 +144,41 @@ function showAllTop5(listOfResults) {
   document.querySelector("#front-grid-butterfly").innerHTML = "";
   document.querySelector("#front-grid-rygcrawl").innerHTML = "";
 
-  const filteredResultsCrawl = sortedResults.filter((result) => result.discipline.includes("Crawl")).slice(0, 5);
+  const filteredResultsCrawl = sortedResults.filter((result) => result.discipline.includes("Crawl"));
   console.log(filteredResultsCrawl);
 
-  const filteredResultsBrystsvømning = sortedResults.filter((result) => result.discipline.includes("Brystsvømning")).slice(0, 5);
+  const filteredResultsBrystsvømning = sortedResults.filter((result) => result.discipline.includes("Brystsvømning"));
   console.log(filteredResultsBrystsvømning);
 
-  const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly")).slice(0, 5);
+  const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly"));
   console.log(filteredResultsButterfly);
 
-  const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl")).slice(0, 5);
+  const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl"));
   console.log(filteredResultsRygcrawl);
 
-  showTop5(filteredResultsCrawl, "crawl");
-  showTop5(filteredResultsBrystsvømning, "brystsvømning");
-  showTop5(filteredResultsButterfly, "butterfly");
-  showTop5(filteredResultsRygcrawl, "rygcrawl");
+  const listCrawlSenior = filteredResultsCrawl.filter((result) => result.ageGroup.includes("senior")).slice(0, 5);
+  const listCrawlJunior = filteredResultsCrawl.filter((result) => result.ageGroup.includes("junior")).slice(0, 5);
+  const listBrystSenior = filteredResultsBrystsvømning.filter((result) => result.ageGroup.includes("senior")).slice(0, 5);
+  const listBrystJunior = filteredResultsBrystsvømning.filter((result) => result.ageGroup.includes("junior")).slice(0, 5);
+  const listButterflySenior = filteredResultsButterfly.filter((result) => result.ageGroup.includes("senior")).slice(0, 5);
+  const listButterflyJunior = filteredResultsButterfly.filter((result) => result.ageGroup.includes("junior")).slice(0, 5);
+  const listRygSenior = filteredResultsRygcrawl.filter((result) => result.ageGroup.includes("senior")).slice(0, 5);
+  const listRygJunior = filteredResultsRygcrawl.filter((result) => result.ageGroup.includes("junior")).slice(0, 5);
+
+  showTop5senior();
+
+  function showTop5senior() {
+    showTop5(listCrawlSenior, "crawl");
+    showTop5(listBrystSenior, "brystsvømning");
+    showTop5(listButterflySenior, "butterfly");
+    showTop5(listRygSenior, "rygcrawl");
+  }
+  function showTop5junior() {
+    showTop5(listCrawlJunior, "crawl");
+    showTop5(listBrystJunior, "brystsvømning");
+    showTop5(listButterflyJunior, "butterfly");
+    showTop5(listRygJunior, "rygcrawl");
+  }
 }
 
 function sortTop5(a, b) {
@@ -178,7 +197,7 @@ async function showTop5(results, discipline) {
       console.log("#front-grid-" + discipline);
       const grid = document.querySelector("#front-grid-" + discipline);
       console.log(grid);
-
+      grid.insertHTML = "";
       grid.insertAdjacentHTML(
         "beforeend",
         /*html*/ `
@@ -188,6 +207,7 @@ async function showTop5(results, discipline) {
     <h2>${user.firstName} ${user.lastName}</h2>
   </div>
   <p>${user.ageGroup}</p>
+  <p>${result.type}</p>
   <p>${result.meetName}</p>
   <p>${result.discipline}</p>
   <p>${result.time}</p>
