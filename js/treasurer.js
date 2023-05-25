@@ -213,7 +213,7 @@ function showUserInDialog(userObject) {
   <p id="list-street" class="user-grid-border">Adresse: ${userObject.street + " Husnummer " + userObject.houseNumber}</p>
   <p id="list-city" class="user-grid-border">Postnummer: ${userObject.postCode + " By: " + userObject.city} </p>
   <p id="list-email" class="user-grid-border">Email: ${userObject.email}</p>
-  <p id="list-phonenumber" class="user-grid-border">Telefon nummer: ${userObject.phoneNumber}</p>
+  <p id="list-phonenumber" class="user-grid-border">Telefonnummer: ${userObject.phoneNumber}</p>
   <p id="list-membertype" class="user-grid-border">Medlemsskab: ${userObject.memberType}</p>
   <p id="list-agegroup" class="user-grid-border" >Aldersgruppe: ${userObject.ageGroup}</p>
   <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
