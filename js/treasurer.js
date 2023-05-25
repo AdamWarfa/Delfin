@@ -90,7 +90,7 @@ function showUserinRestance(users) {
     
     <article class="list-restance">
       <div id="user-grid" class="user-grid-border">
-        <h2 id="list-fullname">${users.firstName} ${users.lastName}</h2>
+        <a href="#treasurer-section" id="restance-user-styling"><h2 id="list-fullname">${users.firstName} ${users.lastName}</h2></a>
         <p id="list-balance" >${users.firstName} er i restance</p>
       </div>
     </article>

@@ -403,8 +403,8 @@ footer {
   text-align: center;
   font-size: 30px;
   margin-top: 90px;
-  /* background-color:purple; */
 }
+
 #signup-container {
   margin-top: 38px;
   display: grid;
@@ -526,6 +526,11 @@ td {
   justify-items: center;
 }
 
+#restance-user-styling {
+  text-decoration: none;
+  color: black;
+}
+
 .list-user {
   border: 1px solid #ddd;
   border-radius: 7px;
@@ -561,6 +566,7 @@ td {
   border-radius: 4px;
   padding: 5px;
 }
+
 #user-btn-delete {
   background-color: #394867;
   color: #f1f6f9;
