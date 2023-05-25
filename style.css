@@ -650,7 +650,7 @@ tr:nth-child(even) {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-
+/* ---------------------DIALOG BOKS STYLING--------------------- */
 #delete-dialog {
   border-style: solid;
   border-color: black;
