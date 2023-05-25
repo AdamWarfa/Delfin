@@ -71,8 +71,6 @@ async function showResults(listOfResults) {
 
 async function showResult(resultObject) {
   const user = await getMember(resultObject.swimmer);
-  console.log(resultObject);
-  console.log(user);
   document.querySelector("#resultsTableBody").insertAdjacentHTML(
     "beforeend",
     /* HTML */ `
