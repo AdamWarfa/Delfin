@@ -1,17 +1,18 @@
 "use strict";
 
+import { getResults, getMember } from "./rest-service.js";
 import { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy } from "./trainer.js";
 import { signUpClicked } from "./signup.js";
 import { updateUsersGrid } from "./treasurer.js";
-import { getResults } from "./rest-service.js";
+import { loginPage } from "./log-ind.js";
 
 window.addEventListener("load", initApp);
-const endpoint = "https://delfinen-d6932-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function initApp() {
   globalEventListeners();
   initViews();
   updateResultsGrid();
+  loginPage();
 
   document.querySelector("#form-delete-result").addEventListener("submit", deleteResultClicked);
   document.querySelector("#trainer-link").addEventListener("click", updateTrainerPage);
@@ -72,8 +73,8 @@ function setActiveLink(view) {
 
 function hideAllViews() {
   // remove .active for all .view-content elements (all views) and .view-link elements (all links)
-  document.querySelectorAll(".view-content").forEach((link) => link.classList.remove("active"));
-  document.querySelectorAll(".view-link").forEach((link) => link.classList.remove("active"));
+  document.querySelectorAll(".view-content").forEach(link => link.classList.remove("active"));
+  document.querySelectorAll(".view-link").forEach(link => link.classList.remove("active"));
   closeDropdowns();
 }
 
@@ -109,6 +110,7 @@ function accountingClicked() {
     accountingMenu.classList.remove("menu-open");
     accountingMenu.classList.add("menu-closed");
   }
+  updateUsersGrid();
 }
 
 function closeDropdowns() {
@@ -130,12 +132,6 @@ async function updateResultsGrid() {
   showAllTop5(listOfResults);
 }
 
-async function getMember(uid) {
-  const response = await fetch(`${endpoint}/users/${uid}.json`);
-  const user = await response.json();
-  return user;
-}
-
 function showAllTop5(listOfResults) {
   const sortedResults = listOfResults.sort(sortTop5);
   console.log(sortedResults);
@@ -144,16 +140,16 @@ function showAllTop5(listOfResults) {
   document.querySelector("#front-grid-butterfly").innerHTML = "";
   document.querySelector("#front-grid-rygcrawl").innerHTML = "";
 
-  const filteredResultsCrawl = sortedResults.filter((result) => result.discipline.includes("Crawl")).slice(0, 5);
+  const filteredResultsCrawl = sortedResults.filter(result => result.discipline.includes("Crawl")).slice(0, 5);
   console.log(filteredResultsCrawl);
 
-  const filteredResultsBrystsvømning = sortedResults.filter((result) => result.discipline.includes("Brystsvømning")).slice(0, 5);
+  const filteredResultsBrystsvømning = sortedResults.filter(result => result.discipline.includes("Brystsvømning")).slice(0, 5);
   console.log(filteredResultsBrystsvømning);
 
-  const filteredResultsButterfly = sortedResults.filter((result) => result.discipline.includes("Butterfly")).slice(0, 5);
+  const filteredResultsButterfly = sortedResults.filter(result => result.discipline.includes("Butterfly")).slice(0, 5);
   console.log(filteredResultsButterfly);
 
-  const filteredResultsRygcrawl = sortedResults.filter((result) => result.discipline.includes("Rygcrawl")).slice(0, 5);
+  const filteredResultsRygcrawl = sortedResults.filter(result => result.discipline.includes("Rygcrawl")).slice(0, 5);
   console.log(filteredResultsRygcrawl);
 
   showTop5(filteredResultsCrawl, "crawl");
@@ -198,4 +194,3 @@ async function showTop5(results, discipline) {
     }
   }
 }
-export { getMember };

@@ -22,14 +22,14 @@ async function signUpClicked(event) {
   const restance = false;
   const swimTypes = [];
 
-  checkboxes.forEach((checkbox) => {
+  checkboxes.forEach(checkbox => {
     swimTypes.push(checkbox.value);
   });
 
   const response = await createMember(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, ageGroup, levelType, restance, swimTypes);
+
   if (response.ok) {
     console.log("New member succesfully added to Firebase 🔥");
-    alert("New member successfully added to Firebase 🔥");
   }
 }
 
