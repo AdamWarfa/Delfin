@@ -571,12 +571,29 @@ tr:nth-child(even) {
   padding: 5px;
 }
 
+
+#btn-show-member {
+
+  width: 10vw;
+}
+
+#user-btn-delete {
+  width: 8vw;
+  background-color: rgb(179, 46, 46);
+}
+
+#user-btn-update {
+
+  width: 8vw;
+}
+
+
 .responsive-button {
   background-color: #394867;
   color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 14px;
-  padding: 11px 29px;
+  font-size: 13px;
+  padding: 5px 1px;
   border: 2px solid #394867;
   box-shadow: rgb(0, 0, 0) 7px -2px 25px -30px;
   border-radius: 50px;
@@ -588,7 +605,7 @@ tr:nth-child(even) {
 
 .responsive-button:hover {
   transition: 1s;
-  padding: 10px 50px;
+  padding: 3px 30px;
   transform: translateY(-0px);
   background-color: #d9e2e7;
   color: #394867;
