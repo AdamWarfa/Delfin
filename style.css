@@ -520,7 +520,7 @@ tr:nth-child(even) {
 
 #treasurer-page h1 {
   font-size: 30px;
-  margin-top: 0;
+  margin-top: 100px;
 }
 
 #treasurer-grid {
@@ -572,9 +572,7 @@ tr:nth-child(even) {
   padding: 5px;
 }
 
-
 #btn-show-member {
-
   width: 10vw;
 }
 
@@ -584,10 +582,8 @@ tr:nth-child(even) {
 }
 
 #user-btn-update {
-
   width: 8vw;
 }
-
 
 .responsive-button {
   background-color: #394867;
