@@ -108,4 +108,6 @@ konkurrencesvømmerRadioButton.addEventListener("change", function () {
   }
 });
 
+/* =============== EXPORT =============== */
+
 export { signUpClicked, createMember, getAge };

@@ -43,6 +43,7 @@ function runApp() {
 
 function treasurerLogin(event) {
   event.preventDefault();
+
   const mail = event.target.mail.value;
   const password = event.target.password.value;
 
@@ -82,6 +83,7 @@ function coachIsSignedOut() {
 
 function coachLogin(event) {
   event.preventDefault();
+
   const mail = event.target.mail.value;
   const password = event.target.password.value;
 
@@ -107,5 +109,7 @@ function signOutUser() {
   //  document.querySelector("nav").classList.remove("hide");
   //  console.log("User signed out");
 }
+
+/* =============== EXPORT =============== */
 
 export { loginPage };

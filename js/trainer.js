@@ -1,5 +1,3 @@
-"use strict";
-
 import { getUsers, getResults, deleteResult, createResult, updateResult } from "./rest-service.js";
 import { getMember } from "./rest-service.js";
 
@@ -203,5 +201,7 @@ async function deleteResultClicked() {
     updateTrainerPage();
   }
 }
+
+/* =============== EXPORT =============== */
 
 export { updateTrainerPage, createResultClicked, deleteResultClicked, inputResultSearchChanged, sortBy };
