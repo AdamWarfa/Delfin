@@ -571,7 +571,7 @@ tr:nth-child(even) {
   padding: 5px;
 }
 
-#user-btn-delete {
+.responsive-button {
   background-color: #394867;
   color: #f1f6f9;
   font-family: "Instrument Sans", sans-serif;
@@ -586,7 +586,7 @@ tr:nth-child(even) {
   margin-top: 25px;
 }
 
-#user-btn-delete:hover {
+.responsive-button:hover {
   transition: 1s;
   padding: 10px 50px;
   transform: translateY(-0px);

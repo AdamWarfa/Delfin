@@ -54,8 +54,8 @@ function showUser(userObject) {
   <p id="list-leveltype" class="user-grid-border">Aktivitetsform: <br> <br> ${userObject.levelType}</p>
   <p id="list-restance" class="user-grid-border">Bruger i restance: ${userObject.restance}</p>
   </div>
-  <button id="user-btn-delete">Slet medlem</button>
-  <button id="user-btn-update">Opdater medlem</button>
+  <button id="user-btn-delete" class="responsive-button">Slet medlem</button>
+  <button id="user-btn-update" class="responsive-button">Opdater medlem</button>
 </article>
 `
   );
