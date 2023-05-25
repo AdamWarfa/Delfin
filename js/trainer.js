@@ -123,17 +123,27 @@ async function createResultClicked(event) {
 
   const swimmerOptions = Array.from(document.querySelector("#resultUsersCreateList").options);
   const selectedSwimmer = swimmerOptions.find((swimmer) => swimmer.value === swimmerInput);
+
+  if (selectedSwimmer === undefined) {
+    alert("Ikke gyldig bruger");
+    return;
+  }
+
   const swimmer = selectedSwimmer.dataset.id;
 
-  const response = await createResult(discipline, meetName, swimmer, time, type, id);
+  createResultClickedCorrect()
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->
-  if (response.ok) {
-    updateTrainerPage();
-    form.reset();
-    closeDialog();
-  } else {
-    alert("MANGE FEJL");
+  async function createResultClickedCorrect() {
+    const response = await createResult(discipline, meetName, swimmer, time, type, id);
+
+    if (response.ok) {
+      updateTrainerPage();
+      form.reset();
+      closeDialog();
+    } else {
+      alert("MANGE FEJL");
+    }
   }
 }
 
