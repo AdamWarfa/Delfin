@@ -67,10 +67,8 @@ function checkAgeGroup(age) {
   const junior = "junior";
 
   if (age >= 18) {
-    console.log(senior);
     return senior;
   } else if (age <= 17) {
-    console.log(junior);
     return junior;
   } else {
     console.log("aldersfejl");

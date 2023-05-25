@@ -8,7 +8,6 @@ let sortedResults;
 let sortValue;
 
 async function updateTrainerPage() {
-  console.log("Testing: Updating trainer page");
   document.querySelector("#resultsTableBody").innerHTML = "";
   document.querySelector("#resultUsersCreateList").innerHTML = "";
   document.querySelector("#resultUsersEdit").innerHTML = "";
@@ -193,7 +192,6 @@ async function openDeleteDialog(dataObject) {
 
 async function deleteResultClicked() {
   let id = document.querySelector("#form-delete-result").getAttribute("data-id");
-  console.log(`Testing: ${id} deleted`);
   const response = await deleteResult(id);
 
   // Tjekker hvis response er okay, hvis response er succesfuld ->

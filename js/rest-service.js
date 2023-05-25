@@ -126,7 +126,6 @@ async function updateUser(firstName, lastName, birthday, age, street, houseNumbe
     method: "PUT",
     body: json,
   });
-  console.log(membersToUpdate);
 
   return response;
 }

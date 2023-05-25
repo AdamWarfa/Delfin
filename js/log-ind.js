@@ -21,7 +21,6 @@ function loginPage() {
 
 function treasurerIsSignedIn() {
   location.hash = "#treasurer-section";
-  // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#treasurer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
   document.querySelector("#login-link").classList.add("log-in-hidden");
@@ -30,7 +29,6 @@ function treasurerIsSignedIn() {
 
 function treasurerIsSignedOut() {
   location.hash = "#home-section";
-  // document.querySelector("nav").classList.add("hide");
   document.querySelector("#treasurer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
   document.querySelector("#login-link").classList.remove("log-in-hidden");
@@ -40,7 +38,6 @@ function treasurerIsSignedOut() {
 function runApp() {
   document.querySelector("#login-form").addEventListener("submit", treasurerLogin);
   document.querySelector("#login-form").addEventListener("submit", coachLogin);
-  // document.querySelector("#btn-sign-out").addEventListener("click", signOutUser);
 }
 
 function treasurerLogin(event) {
@@ -69,7 +66,6 @@ function closeLogOutDialog() {
 
 function coachIsSignedIn() {
   location.hash = "#trainer-section";
-  // document.querySelector("nav").classList.remove("hide");
   document.querySelector("#trainer-link").classList.remove("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.remove("log-in-hidden");
   document.querySelector("#login-link").classList.add("log-in-hidden");
@@ -78,7 +74,6 @@ function coachIsSignedIn() {
 
 function coachIsSignedOut() {
   location.hash = "#home-section";
-  // document.querySelector("nav").classList.add("hide");
   document.querySelector("#trainer-link").classList.add("log-in-hidden");
   document.querySelector("#btn-sign-out").classList.add("log-in-hidden");
   document.querySelector("#login-link").classList.remove("log-in-hidden");
@@ -107,11 +102,6 @@ function signOutUser() {
   localStorage.removeItem("authCoach");
   coachIsSignedOut();
   treasurerIsSignedOut();
-
-  // allerede udkommenteret
-  // location.hash = "#home-section";
-  //  document.querySelector("nav").classList.remove("hide");
-  //  console.log("User signed out");
 }
 
 function moveDropdownsTreasurer() {
@@ -128,6 +118,7 @@ function moveDropdownsUser() {
   const menuMembership = document.querySelector("#menu-membership");
   menuMembership.style.right = "439px";
 }
+
 /* =============== EXPORT =============== */
 
 export { loginPage };

@@ -61,7 +61,6 @@ function showUser(userObject) {
   document.querySelector("#treasurer-grid article:last-child #user-btn-delete").addEventListener("click", () => openTreasurerDialog(userObject));
   document.querySelector("#treasurer-grid article:last-child #user-btn-update").addEventListener("click", () => updateClicked(userObject));
   document.querySelector("#treasurer-grid article:last-child #btn-show-member").addEventListener("click", () => showUserInDialog(userObject));
-  // document.querySelector("#user-btn-show").addEventListener("click", closeDialog);
 }
 
 function showUsersinRestance(users) {
@@ -73,7 +72,6 @@ function showUsersinRestance(users) {
   //     let userInRestance;
   //     if (users[i].restance === true) {
   //       userInRestance = users[i];
-  //       console.log(userInRestance);
   //       showUserinRestance(userInRestance);
   //     }
   //   } catch (error) {
@@ -193,15 +191,12 @@ async function updateMemberClicked(event) {
   const response = await updateUser(firstName, lastName, birthday, age, street, houseNumber, postCode, city, email, phoneNumber, memberType, restance, ageGroup, levelType, swimTypes, id);
 
   if (response.ok) {
-    console.log("Update clicked", id);
     updateUsersGrid();
     closeDialog();
   }
 }
 
 function showUserInDialog(userObject) {
-  console.log("VI ÅBNER");
-  console.log(userObject);
   document.querySelector("#medlemsoversigt-dialog").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
