@@ -504,6 +504,10 @@ td {
   font-weight: bold;
 }
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 /* =============== KASSERENS SIDE STYLING =============== */
 
 .view-content {

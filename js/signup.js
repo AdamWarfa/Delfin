@@ -22,7 +22,7 @@ async function signUpClicked(event) {
   const restance = false;
   const swimTypes = [];
 
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox) => {
     swimTypes.push(checkbox.value);
   });
 
@@ -86,7 +86,6 @@ function getAge(birthday) {
   }
   return age;
 }
-
 
 let motionistRadioButton = document.querySelector("#motionist-member-type");
 let konkurrencesvømmerRadioButton = document.querySelector("#konkurrencesvømmer-member-type-update");
