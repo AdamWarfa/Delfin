@@ -40,7 +40,7 @@ function showUser(userObject) {
 <article class="list-user">
 <h2 id="list-name">${userObject.firstName + " " + userObject.lastName}</h2>
 <div id="user-grid" class="user-grid-border">
-  <p id="list-birthday" class="user-grid-border">${userObject.birthday + " "+ "Alder:" + userObject.age}</p>
+  <p id="list-birthday" class="user-grid-border">${userObject.birthday + " " + "Alder:" + userObject.age}</p>
   <p id="list-street" class="user-grid-border">${userObject.street + " " + userObject.houseNumber}</p>
   <p id="list-city" class="user-grid-border">${userObject.postCode + " " + userObject.city} </p>
   <p id="list-email" class="user-grid-border">${userObject.email}</p>
@@ -50,7 +50,7 @@ function showUser(userObject) {
 
 
   </div>
-  <button id="btn-show-member" type="button">Vis mere</button>
+  <button id="btn-show-member" type="button" class="responsive-button">Vis mere</button>
   <button id="user-btn-delete" class="responsive-button">Slet medlem</button>
   <button id="user-btn-update" class="responsive-button">Opdater medlem</button>
 </article>
@@ -203,7 +203,7 @@ async function updateMemberClciked(event) {
 
 function showUserInDialog(userObject) {
   console.log("VI ÅBNER");
-  console.log(userObject)
+  console.log(userObject);
   document.querySelector("#medlemsoversigt-dialog").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
@@ -223,15 +223,15 @@ function showUserInDialog(userObject) {
   <p id="list-restance" class="user-grid-border">Svømmedisciplin: ${userObject.swimTypes}</p>
 
   </div>
-  <button id="user-btn-close">luk</button>
+  <button id="user-btn-close" class="responsive-button">Luk</button>
 
 </article>
 `
   );
   document.querySelector("#medlemsoversigt-dialog").showModal();
-   document.querySelector("#user-btn-close").addEventListener("click", () => {
-    document.querySelector("#medlemsoversigt-dialog").innerHTML = ""
-    document.querySelector("#medlemsoversigt-dialog").close()
+  document.querySelector("#user-btn-close").addEventListener("click", () => {
+    document.querySelector("#medlemsoversigt-dialog").innerHTML = "";
+    document.querySelector("#medlemsoversigt-dialog").close();
   });
 }
 
